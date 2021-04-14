@@ -3,7 +3,7 @@
 BES: Business Executing Sysytem
 
 BES is a platform for enterprise management;
-on which there are many management system developed;
+on which there are many management systems developed;
 Enterprise can customize in the current system when using;
 
 
@@ -16,12 +16,12 @@ Enterprise can customize in the current system when using;
 
 ![BES product family](./doc/BES-platform/images/bes-erp-function-modules.jpg)
 
-[BES ERP introduction](./BES-ERP-introduction.md)
+[BES ERP introduction >](./BES-ERP-introduction.md)
 
 
 ## BES Platform Hierarchy​
 
 ![platform hierarchy](./doc/BES-platform/images/bes-platform.jpg)
 
-[BES Platform introduction](./BES-Platform-introduction.md)
+[BES Platform introduction >](./BES-Platform-introduction.md)
 
