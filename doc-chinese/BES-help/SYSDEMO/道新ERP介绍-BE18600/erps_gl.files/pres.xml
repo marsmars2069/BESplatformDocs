@@ -1,0 +1,49 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+ xmlns:oa="urn:schemas-microsoft-com:office:activation">
+ <p:presentation sizeof="screen" gridspacingx="46448" gridspacingy="46448">
+  <p:master id="30" slidesn="1C00D99,B6B7A560" type="main" href="master30.htm"
+   xmlhref="master30.xml" template="Mountain Top" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+    <p:colorscheme
+     colors="#993300,#ffffff,#4c3a1c,#ccaa00,#ff3300,#9e6600,#ffcc00,#f7dc97"/>
+    <p:colorscheme
+     colors="#9188b0,#ffffff,#3d0058,#dde0dc,#ffcc00,#4c3d78,#743d78,#cc9900"/>
+    <p:colorscheme
+     colors="#003366,#ffffff,#10104c,#c6ccd4,#33ccff,#5b5b8d,#4529ab,#00cc99"/>
+    <p:colorscheme
+     colors="#000099,#ffffff,#b0c8ca,#ffffff,#89c4ff,#00008c,#6666ff,#c0c0c0"/>
+    <p:colorscheme
+     colors="#003399,#ffffff,#463416,#e3e3ff,#3399ff,#33cccc,#00ffcc,#808000"/>
+    <p:colorscheme
+     colors="#6699ff,#ffffff,#809296,#b3edff,#ff9933,#ffaa99,#ffcfab,#cc9900"/>
+    <p:colorscheme
+     colors="#85d1e3,#ffffff,#006666,#ccffff,#ffcc00,#00cc99,#0099ff,#6600cc"/>
+    <p:colorscheme
+     colors="#a7a491,#ffffff,#404b3d,#ccd0ca,#33cccc,#004e4c,#477781,#85cc74"/>
+    <p:colorscheme
+     colors="#ffffff,#000000,#676597,#ffffaf,#66ccff,#ccecff,#6600cc,#008080"/>
+   </p:schemes>
+  </p:master>
+  <p:master id="31" slidesn="1C00D99,B6B7A560" type="title" href="master31.htm"
+   xmlhref="master31.xml" layout="title_subtitle"
+   slots="centerTitle,subTitle,dateTime,footer,slideNumber"/>
+  <p:slide id="1" slidesn="1C8EFF1,4AFB7750" href="slide0001.htm"
+   masterhref="master31.htm" layout="title_subtitle"
+   slots="centerTitle,subTitle" overridemasteranimations="t"/>
+  <p:viewstate type="slideView" restoredleft="156" restoredtop="946"
+   hideoutlineicons="t"/>
+  <p:font name="Arial" charset="0" type="6" family="34"/>
+  <p:font name="宋体" charset="134" type="6" family="2"/>
+  <p:font name="Tahoma" charset="0" type="6" family="34"/>
+  <p:font name="楷体_GB2312" charset="134" type="6" family="49"/>
+  <p:headersfooters noheader="t"/>
+  <p:pptdocumentsettings framecolors="WhiteTextOnBlack" hideslideanimation="t"
+   browsersupport="v4"/>
+ </p:presentation>
+ <o:shapedefaults v:ext="edit" spidmax="35868">
+  <o:colormru v:ext="edit" colors="white,yellow,#dbd600"/>
+  <o:colormenu v:ext="edit" fillcolor="none" strokecolor="none" shadowcolor="none"/>
+ </o:shapedefaults></xml>

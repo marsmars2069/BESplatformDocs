@@ -1,0 +1,1120 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 12">
+<link id=Main-File rel=Main-File href="../scm_intro_price.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>&#24187;&#28783;&#29255; 1</title>
+<meta name=Description content=2011-11-28>
+<link rel=Stylesheet href="master33_stylesheet.css">
+<![if !ppt]>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:72% !important;}
+-->
+</style>
+<script><!--
+function LoadSld()
+{
+	var sld=GetObj("SlideObj")
+	if( !g_supportsPPTHTML ) {
+		sld.style.visibility="visible"
+		return
+	}
+	if( MakeNotesVis() ) return
+	runAnimations = _InitAnimations();
+	if( IsWin("PPTSld") )
+		parent.SldUpdated(GetSldId())
+	g_origSz=parseInt(SlideObj.style.fontSize)
+	g_origH=sld.style.posHeight
+	g_origW=sld.style.posWidth
+	g_scaleHyperlinks=(document.all.tags("AREA").length>0)
+	if( g_scaleHyperlinks )
+		InitHLinkArray()
+	if( g_scaleInFrame||(IsWin("PPTSld") && parent.IsFullScrMode() ) )
+		document.body.scroll="no"
+	_RSW()
+	if( IsWin("PPTSld") && parent.IsFullScrMode() )
+		FullScrInit();
+	
+	MakeSldVis();
+	
+	if( runAnimations )
+	{
+		if( document.all("NSPlay") )
+			document.all("NSPlay").autoStart = false;
+		if( sld.filters && sld.filters.revealtrans )
+			setTimeout( "document.body.start()", sld.filters.revealtrans.duration * 1000 );
+		else
+			document.body.start();
+	}
+}
+function MakeSldVis()
+{
+	var fTrans=g_showAnimation && SldHasTrans()
+	if( fTrans )
+	{
+		if( g_bgSound ) {
+			idx=g_bgSound.indexOf(",");
+			pptSound.src=g_bgSound.substr( 0, idx );
+			pptSound.loop= -(parseInt(g_bgSound.substr(idx+1)));
+		}
+		SlideObj.filters.revealtrans.Apply()
+    }
+	SlideObj.style.visibility="visible"
+	if( fTrans )
+		SlideObj.filters.revealtrans.Play()
+}
+function MakeNotesVis()
+{
+	if( !IsNts() ) return false
+	SlideObj.style.display="none"
+	nObj = document.all.item("NotesObj")
+	parent.SetHasNts(0)
+	if( nObj ) {
+		nObj.style.display=""
+		parent.SetHasNts(1)
+	}
+	return 1
+}
+function ChkAutoAdv()
+{
+	if(SldHasTrans())
+		SlideObj.onfilterchange=AutoAdv
+	else
+		AutoAdv()
+}
+function AutoAdv()
+{
+	if(!IsWin("PPTSld") || !gUseSldTimings )return
+	var sld=GetCurSld()
+	if( (sld.mAdvDelay>0) && !parent.IsFramesMode() )
+		setTimeout("parent.GoToNextSld()",sld.mAdvDelay)
+}
+function GetObj(id)
+{
+	if(g_supportsPPTHTML) return document.all(id);
+	else return document.getElementById(id);
+}
+function SldHasTrans() { return SlideObj.style.filter != ""; }
+function GetSldId() { return sId=location.href.substring(location.href.lastIndexOf('/')+1) }
+function HideMenu() { if( frames["PPTSld"] && PPTSld.document.all.item("ctxtmenu") && PPTSld.ctxtmenu.style.display!="none" ) { PPTSld.ctxtmenu.style.display='none'; return true } return false }
+function IsWin( name ) { return window.name == name }
+function IsNts() { return IsWin("PPTNts") }
+function IsSldOrNts() { return( IsWin("PPTSld")||IsWin("PPTNts") ) }
+function SupportsPPTAnimation() { return( navigator.platform == "Win32" && navigator.appVersion.indexOf("Windows")>0 ) }
+function SupportsPPTHTML()
+{
+	var appVer=navigator.appVersion, msie=appVer.indexOf("MSIE "), ver=0
+	if( msie >= 0 )
+		ver=parseFloat( appVer.substring( msie+5, appVer.indexOf(";",msie) ) )
+	else
+		ver=parseInt(appVer)
+	return( ver >= 4 && msie >= 0 )
+}
+function _RSW()
+{
+	if( !g_supportsPPTHTML || IsNts() ||
+	  ( !g_scaleInFrame && (!IsWin("PPTSld") || !parent.IsFullScrMode()) ) )
+		return
+        var padding=0;
+        if( IsWin("PPTSld") && parent.IsFramesMode() ) padding=6
+	cltWidth=document.body.clientWidth-padding
+	cltHeight=document.body.clientHeight-padding
+	factor=(1.0*cltWidth)/g_origW
+	if( cltHeight < g_origH*factor )
+		factor=(1.0*cltHeight)/g_origH
+	newSize = g_origSz * factor
+	if( newSize < 1 ) newSize=1
+	s=SlideObj.style
+	s.fontSize=newSize+"px"
+	s.posWidth=g_origW*factor
+	s.posHeight=g_origH*factor
+	s.posLeft=(cltWidth-s.posWidth+padding)/2
+	s.posTop=(cltHeight-s.posHeight+padding)/2
+	if( g_scaleHyperlinks )
+		ScaleHyperlinks( factor )
+}
+function _InitAnimations()
+{
+	animRuntimeInstalled = ''+document.body.localTime != 'undefined';
+	isFullScreen = (window.name == "PPTSld") && !parent.IsFramesMode();
+	g_animUseRuntime = g_showAnimation && animRuntimeInstalled && !(isFullScreen && parent.IsSldVisited());
+	if( g_animUseRuntime ) {
+		collSeq = document.all.tags("seq");
+		if( collSeq != null ) {
+			for(ii=0;ii<collSeq.length;ii++) {
+				if( collSeq[ii].getAttribute( "p:nodeType" ) == "mainSeq" ) {
+					g_animMainSequence = collSeq[ii];
+					break;
+				}
+			}
+		}
+		if( g_animItemsToHide && document.body.playAnimations != false ) {
+			for(jj = 0; jj < g_animItemsToHide.length; jj++) {
+				if( hideObj = GetObj(g_animItemsToHide[jj]) )
+					hideObj.runtimeStyle.visibility="hidden";
+			}
+		}
+		if( g_animInteractiveItems ){
+			for(jj = 0; jj < g_animInteractiveItems.length; jj++) {
+				if( triggerObj = GetObj(g_animInteractiveItems[jj]) )
+					triggerObj.runtimeStyle.cursor="hand";
+			}
+		}
+		if( gUseSldTimings && ''+g_animSlideTime != 'undefined' ) {
+			adjustedTime = document.body.calculateAutoAdvanceTimes( g_animSlideTime, g_animEffectTimings );
+			if( IsWin("PPTSld") && adjustedTime != g_animSlideTime ) {
+			   var sld = GetCurSld();
+			   sld.mAdvDelay = adjustedTime * 1000;
+			}
+		}
+	}
+	return g_animUseRuntime;
+}
+
+var g_supportsPPTHTML = SupportsPPTHTML(), g_scaleInFrame = 1, gId="", g_bgSound="",
+    g_scaleHyperlinks = false, g_allowAdvOnClick = 1, g_showInBrowser = 0, gLoopCont = 0, gUseSldTimings = 1;
+var g_showAnimation = g_supportsPPTHTML && SupportsPPTAnimation() && g_showInBrowser;
+var g_animManager = null;
+var g_animUseRuntime = false;
+var g_animItemsToHide, g_animInteractiveItems, g_animSlideTime;
+var g_animMainSequence = null;
+
+//--></script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="12"/>
+ <o:rules v:ext="edit">
+  <o:r id="V:Rule1" type="connector" idref="#_x0000_s12293">
+   <o:proxy start="" idref="#_x0000_s12298" connectloc="0"/>
+   <o:proxy end="" idref="#_x0000_s12292" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule2" type="connector" idref="#_x0000_s12295">
+   <o:proxy start="" idref="#_x0000_s12313" connectloc="2"/>
+   <o:proxy end="" idref="#_x0000_s12314" connectloc="0"/>
+  </o:r>
+  <o:r id="V:Rule3" type="connector" idref="#_x0000_s12300">
+   <o:proxy start="" idref="#_x0000_s12297" connectloc="1"/>
+   <o:proxy end="" idref="#_x0000_s12298" connectloc="4"/>
+  </o:r>
+  <o:r id="V:Rule4" type="connector" idref="#_x0000_s12302">
+   <o:proxy start="" idref="#_x0000_s12315" connectloc="1"/>
+   <o:proxy end="" idref="#_x0000_s12296" connectloc="3"/>
+  </o:r>
+  <o:r id="V:Rule5" type="connector" idref="#_x0000_s12303">
+   <o:proxy start="" idref="#_x0000_s12296" connectloc="1"/>
+   <o:proxy end="" idref="#_x0000_s12297" connectloc="3"/>
+  </o:r>
+  <o:r id="V:Rule6" type="connector" idref="#_x0000_s12304">
+   <o:proxy start="" idref="#_x0000_s12311" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s12306" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule7" type="connector" idref="#_x0000_s12305">
+   <o:proxy start="" idref="#_x0000_s12294" connectloc="2"/>
+   <o:proxy end="" idref="#_x0000_s12313" connectloc="0"/>
+  </o:r>
+  <o:r id="V:Rule8" type="connector" idref="#_x0000_s12307">
+   <o:proxy start="" idref="#_x0000_s12306" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s12294" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule9" type="connector" idref="#_x0000_s12312">
+   <o:proxy start="" idref="#_x0000_s12292" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s12311" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule10" type="connector" idref="#_x0000_s12316">
+   <o:proxy start="" idref="#_x0000_s12314" connectloc="2"/>
+   <o:proxy end="" idref="#_x0000_s12315" connectloc="0"/>
+  </o:r>
+ </o:rules>
+</o:shapelayout>
+</head>
+
+<body lang=ZH-CN style='margin:0px;background-color:white' onresize="_RSW()"
+onload="LoadSld()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:800px;height:600px;font-size:16px;background-color:white;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#eeece1,#1f497d,#4f81bd,#c0504d,#0000ff,#800080"
+ masterhref="master33.xml">
+ <p:shaperange href="master33.xml#_x0000_s8193"/><![if !ppt]><p:shaperange
+  href="master33.xml#Rectangle_x0020_2"/><p:shaperange
+  href="master33.xml#Rectangle_x0020_3"/><p:shaperange
+  href="master33.xml#_x0000_s8202"/><p:shaperange
+  href="master33.xml#_x0000_s8203"/><![endif]><v:rect id="_x0000_s12290"
+  style='position:absolute;left:0;top:0;width:10in;height:540pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' filled="f" strokecolor="black [1]">
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect>
+ <div v:shape="_x0000_s12290">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O><span style='position:absolute;top:48.5%;left:1.0%;width:98.0%;
+ height:3.5%'><span lang=EN-US style='font-family:SimSun;mso-ascii-font-family:
+ Arial;mso-fareast-font-family:SimSun;mso-hansi-font-family:Arial;mso-fareast-language:
+ ZH-CN;mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s12291" style='position:absolute;left:50.625pt;top:61.875pt;
+  width:635pt;height:416.25pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#f8fbd1" strokecolor="black [1]">
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect><v:rect id="_x0000_s12292" style='position:absolute;left:207.375pt;
+  top:90pt;width:96.375pt;height:51.125pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#fef6b8" stroked="f">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="#814c2e" color2="shadow add(102)"
+   offset="1pt,1pt" offset2="-1pt,-1pt"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect><v:shapetype id="_x0000_t37" coordsize="21600,21600" o:spt="37"
+  o:oned="t" path="m,c10800,,21600,10800,21600,21600e" filled="f">
+  <v:path arrowok="t" fillok="f" o:connecttype="none"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s12293" type="#_x0000_t37" style='position:absolute;
+  left:134.75pt;top:113pt;width:70pt;height:75.25pt;rotation:90;flip:x y;
+  visibility:visible;mso-wrap-style:square' o:connectortype="curved"
+  strokecolor="#d77e4d" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+ </v:shape><v:rect id="_x0000_s12294" style='position:absolute;left:544.875pt;
+  top:90pt;width:96.375pt;height:50.625pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' o:gfxdata="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
+AAAABQAFAD4BAACJCAAAAAA=
+" fillcolor="#beeb19" strokecolor="#beeb19">
+  <v:shadow on="t" opacity=".5"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect><v:shapetype id="_x0000_t38" coordsize="21600,21600" o:spt="38"
+  o:oned="t" path="m,c@0,0@1,5400@1,10800@1,16200@2,21600,21600,21600e"
+  filled="f">
+  <v:formulas>
+   <v:f eqn="mid #0 0"/>
+   <v:f eqn="val #0"/>
+   <v:f eqn="mid #0 21600"/>
+  </v:formulas>
+  <v:path arrowok="t" fillok="f" o:connecttype="none"/>
+  <v:handles>
+   <v:h position="#0,center"/>
+  </v:handles>
+  <o:lock v:ext="edit" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s12295" type="#_x0000_t38" style='position:absolute;
+  left:579pt;top:222.125pt;width:28.125pt;height:.125pt;rotation:90;
+  visibility:visible;mso-wrap-style:square' o:connectortype="curved" adj="10800"
+  strokecolor="#d77e4d" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+ </v:shape><v:rect id="_x0000_s12296" style='position:absolute;left:421.125pt;
+  top:309.375pt;width:96.375pt;height:51.125pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' fillcolor="yellow" stroked="f">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="#814c2e" color2="shadow add(102)"
+   offset="1pt,1pt" offset2="-1pt,-1pt"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect><v:rect id="_x0000_s12297" style='position:absolute;left:201.75pt;
+  top:309.375pt;width:96.375pt;height:51.125pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' fillcolor="yellow" stroked="f">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="#814c2e" color2="shadow add(102)"
+   offset="1pt,1pt" offset2="-1pt,-1pt"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect>
+ <div v:shape="_x0000_s12291">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O><span style='position:absolute;top:48.5%;left:8.12%;width:86.12%;
+ height:3.5%'><span lang=EN-US style='font-family:SimSun;mso-ascii-font-family:
+ Arial;mso-fareast-font-family:SimSun;mso-hansi-font-family:Arial;mso-fareast-language:
+ ZH-CN;mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <div v:shape="_x0000_s12292">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:18.66%;left:29.62%;
+ width:11.75%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtnew;"/><a href="../pgid=prmtnew;"
+ target="_parent" onclick="window.event.cancelBubble=true;">&#22635;&#21046;&#35831;&#36141;&#21333;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;display:none'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtassf;"/><a
+ href="../pgid=prmtassf;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#13;</a></b></span></div>
+ <div class=O style='text-align:center;position:absolute;top:21.83%;left:29.62%;
+ width:11.75%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtapr;"/><a href="../pgid=prmtapr;"
+ target="_parent" onclick="window.event.cancelBubble=true;">&#23457;&#26680;&#35831;&#36141;&#21333;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtassf;"/><a
+ href="../pgid=prmtassf;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#13;</a></b></span></div>
+ </div>
+ <div v:shape="_x0000_s12294">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:18.66%;left:76.75%;
+ width:11.37%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtopen;pgname=&#35835;&#21462;&#38656;&#27714;;"/><a
+ href="../pgid=prmtopen;pgname=&#35835;&#21462;&#38656;&#27714;;"
+ target="_parent" onclick="window.event.cancelBubble=true;">&#35835;&#21462;&#38656;&#27714;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;display:none'><b>&#13;</b></span></div>
+ <div class=O style='text-align:center;position:absolute;top:21.83%;left:76.5%;
+ width:11.75%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prprmdf;pgname=&#22635;&#20889;&#25253;&#20215;&#21333;;"/><a
+ href="../pgid=prprmdf;pgname=&#22635;&#20889;&#25253;&#20215;&#21333;;"
+ target="_parent" onclick="window.event.cancelBubble=true;">&#22635;&#20889;&#25253;&#20215;&#21333;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b>&#13;</b></span></div>
+ </div>
+ <div v:shape="_x0000_s12296">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:60.83%;left:59.5%;
+ width:11.5%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtasbidapr;"/><a
+ href="../pgid=prmtasbidapr;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#20027;&#31649;&#23457;&#26680;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b>&#13;</b></span></div>
+ </div>
+ <div v:shape="_x0000_s12297">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:60.83%;left:29.0%;
+ width:11.5%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtasbidrls;"/><a
+ href="../pgid=prmtasbidrls;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#25209;&#20934;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b>&#13;</b></span></div>
+ </div>
+ <v:oval id="_x0000_s12298" style='position:absolute;left:78.75pt;top:185.625pt;
+  width:106.875pt;height:84.375pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' o:gfxdata="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
+" fillcolor="#099" strokecolor="white [0]">
+  <v:shadow on="t" opacity=".5"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:oval><v:shape id="_x0000_s12299" type="#_x0000_t202" style='position:absolute;
+  left:135pt;top:140.625pt;width:68pt;height:21.625pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" stroked="f">
+  <v:textbox style='mso-rotate-with-shape:t;mso-fit-shape-to-text:t'/>
+ </v:shape><v:shape id="_x0000_s12300" type="#_x0000_t37" style='position:absolute;
+  left:132.125pt;top:270pt;width:69.625pt;height:65pt;rotation:180;
+  visibility:visible;mso-wrap-style:square' o:connectortype="curved"
+  strokecolor="#d77e4d" strokeweight="2.25pt">
+  <v:stroke endarrow="block"/>
+ </v:shape><v:shape id="_x0000_s12301" type="#_x0000_t202" style='position:absolute;
+  left:0;top:8pt;width:10in;height:50.5pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' o:gfxdata="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
+" filled="f" stroked="f">
+  <v:textbox style='mso-rotate-with-shape:t;mso-fit-shape-to-text:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s12298">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:36.0%;left:13.12%;
+ width:10.62%;height:3.16%'><span lang=EN-US style='font-family:Arial;
+ mso-ascii-font-family:Arial;mso-fareast-font-family:STFangsong;mso-hansi-font-family:
+ Arial;font-size:78%;color:yellow;mso-fareast-language:ZH-CN'><b>OA</b></span><span
+ lang=ZH-CN style='font-family:STFangsong;mso-ascii-font-family:Arial;
+ mso-fareast-font-family:STFangsong;mso-hansi-font-family:Arial;font-size:78%;
+ color:yellow;mso-ansi-language:EN-US'><b>&#35831;&#36141;&#21333;&#13;</b></span></div>
+ <div class=O style='text-align:center;position:absolute;top:39.16%;left:12.5%;
+ width:11.87%;height:3.16%'><span lang=EN-US style='font-family:Arial;
+ mso-ascii-font-family:Arial;mso-fareast-font-family:STFangsong;mso-hansi-font-family:
+ Arial;font-size:78%;color:yellow;mso-fareast-language:ZH-CN'><b>ERP</b></span><span
+ lang=ZH-CN style='font-family:STFangsong;mso-ascii-font-family:Arial;
+ mso-fareast-font-family:STFangsong;mso-hansi-font-family:Arial;font-size:78%;
+ color:yellow;mso-ansi-language:EN-US'><b>&#35831;&#36141;&#21333;&#13;</b></span></div>
+ <div class=O style='text-align:center;position:absolute;top:42.33%;left:13.87%;
+ width:9.12%;height:3.0%'><span lang=EN-US style='font-family:STFangsong;
+ mso-ascii-font-family:Arial;mso-fareast-font-family:STFangsong;mso-hansi-font-family:
+ Arial;font-size:78%;color:yellow;mso-fareast-language:ZH-CN;display:none'><b>&#13;</b></span></div>
+ <div class=O style='text-align:center;position:absolute;top:45.33%;left:13.62%;
+ width:9.62%;height:3.16%'><span lang=EN-US style='font-family:Arial;
+ mso-ascii-font-family:Arial;mso-fareast-font-family:STFangsong;mso-hansi-font-family:
+ Arial;font-size:78%;color:white;mso-color-index:0;mso-fareast-language:ZH-CN'><b><u>ERP</u></b></span><span
+ lang=ZH-CN style='font-family:STFangsong;mso-ascii-font-family:Arial;
+ mso-fareast-font-family:STFangsong;mso-hansi-font-family:Arial;font-size:78%;
+ color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><u>&#35746;&#21333;</u></b></span></div>
+ </div>
+ <div v:shape="_x0000_s12299">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-line-spacing:"100 50 0";position:absolute;top:26.83%;
+ left:19.75%;width:8.75%;height:2.66%'><span lang=ZH-CN style='font-family:
+ SimSun;mso-ascii-font-family:Arial;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ Arial;font-size:67%;mso-ansi-language:EN-US'>&#23548;&#20837;</span><span
+ lang=EN-US style='font-family:Arial;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:Arial;font-size:67%;mso-fareast-language:ZH-CN'>/</span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:Arial;font-size:67%;mso-ansi-language:EN-US'>&#24405;&#20837;</span></div>
+ </div>
+ <div v:shape="_x0000_s12301">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-line-spacing:"100 50 0";position:
+ absolute;top:1.5%;left:1.0%;width:98.12%;height:9.0%'><span lang=ZH-CN
+ style='font-family:"Microsoft YaHei";mso-ascii-font-family:"Microsoft YaHei";
+ mso-fareast-font-family:"Microsoft YaHei";mso-hansi-font-family:"Microsoft YaHei";
+ font-size:200%;text-shadow:auto;color:#0070C0;mso-ansi-language:EN-US'><b><u>&#37319;&#36141;&#25253;&#20215;&#31649;&#29702;&#31995;&#32479;</u></b></span></div>
+ </div>
+ <v:shape id="_x0000_s12302" type="#_x0000_t38" style='position:absolute;
+  left:517.5pt;top:334.5pt;width:27.375pt;height:.5pt;rotation:180;flip:y;
+  visibility:visible;mso-wrap-style:square' o:connectortype="curved" adj="10800"
+  strokecolor="#d77e4d" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+ </v:shape><v:shape id="_x0000_s12303" type="#_x0000_t38" style='position:absolute;
+  left:298.125pt;top:335pt;width:123pt;height:.125pt;rotation:180;visibility:visible;
+  mso-wrap-style:square' o:connectortype="curved" adj="10800" strokecolor="#d77e4d"
+  strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+ </v:shape><v:shape id="_x0000_s12304" type="#_x0000_t38" style='position:absolute;
+  left:405pt;top:115.25pt;width:16.125pt;height:.25pt;visibility:visible;
+  mso-wrap-style:square' o:connectortype="curved" adj="10800" strokecolor="#d77e4d"
+  strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+ </v:shape><v:shape id="_x0000_s12305" type="#_x0000_t38" style='position:absolute;
+  left:584.75pt;top:149pt;width:16.75pt;height:.125pt;rotation:90;visibility:visible;
+  mso-wrap-style:square' o:connectortype="curved" adj="10800" strokecolor="#d77e4d"
+  strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+ </v:shape><v:rect id="_x0000_s12306" style='position:absolute;left:421.125pt;
+  top:90pt;width:96.375pt;height:51.125pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="yellow" stroked="f">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="#814c2e" color2="shadow add(102)"
+   offset="1pt,1pt" offset2="-1pt,-1pt"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect>
+ <div v:shape="_x0000_s12306">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:20.33%;left:58.12%;
+ width:14.12%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtrls;"/><a href="../pgid=prmtrls;"
+ target="_parent" onclick="window.event.cancelBubble=true;">&#21457;&#24067;&#35831;&#36141;&#38656;&#27714;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b>&#13;</b></span></div>
+ </div>
+ <v:shape id="_x0000_s12307" type="#_x0000_t38" style='position:absolute;
+  left:517.5pt;top:115.375pt;width:27.375pt;height:.25pt;flip:y;visibility:visible;
+  mso-wrap-style:square' o:connectortype="curved" adj="10800" strokecolor="#d77e4d"
+  strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+ </v:shape><v:shapetype id="_x0000_t114" coordsize="21600,21600" o:spt="114"
+  path="m,20172v945,400,1887,628,2795,913c3587,21312,4342,21370,5060,21597v2037,,2567,-227,3095,-285c8722,21197,9325,20970,9855,20800v490,-228,945,-400,1472,-740c11817,19887,12347,19660,12875,19375v567,-228,1095,-513,1700,-740c15177,18462,15782,18122,16537,17950v718,-113,1398,-398,2228,-513c19635,17437,20577,17322,21597,17322l21597,,,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path o:connecttype="custom" o:connectlocs="10800,0;0,10800;10800,20400;21600,10800"
+   textboxrect="0,0,21600,17322"/>
+ </v:shapetype><v:shape id="_x0000_s12308" type="#_x0000_t114" style='position:absolute;
+  left:281.25pt;top:433.125pt;width:67.5pt;height:34pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' fillcolor="yellow" stroked="f">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="#814c2e" color2="shadow add(102)"
+   offset="1pt,1pt" offset2="-1pt,-1pt"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s12308">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:81.83%;left:38.75%;
+ width:10.12%;height:2.33%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:67%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtasbidrp2;"/><a
+ href="../pgid=prmtasbidrp2;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#35831;&#36141;&#36319;&#36394;&#34920;</a></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:67%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtasbidapr;"/><a
+ href="../pgid=prmtasbidapr;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#13;</a></span></div>
+ </div>
+ <v:shape id="_x0000_s12309" style='position:absolute;left:528.75pt;top:427.375pt;
+  width:73.125pt;height:39.375pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' coordsize="1071570,642942" o:spt="100" adj="-11796480,,5400"
+  path="m,l964411,r107159,107159l1071570,642942,,642942xe" fillcolor="#f8fbd1"
+  strokecolor="black [1]">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas/>
+  <v:path o:connecttype="custom" o:connectlocs="393506,55349;196753,110699;0,55349;196753,0"
+   o:connectangles="0,90,180,270" textboxrect="0,53580,1017990,642942"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s12309">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='position:absolute;top:80.0%;left:74.5%;width:9.0%;
+ height:2.0%'><span style='position:absolute;top:0%;left:5.55%;width:94.44%;
+ height:100.0%'><span style='font-family:Arial;font-size:56%'><span
+ style='mso-special-format:bullet;position:absolute;left:-5.88%'>&#8226;</span></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:Arial;font-size:56%;mso-ansi-language:EN-US'>&#25903;&#25345;&#26080;&#26009;&#21495;&#13;</span></span></div>
+ <div class=O style='position:absolute;top:82.16%;left:74.5%;width:7.75%;
+ height:2.0%'><span style='position:absolute;top:0%;left:6.45%;width:93.54%;
+ height:100.0%'><span style='font-family:Arial;font-size:56%'><span
+ style='mso-special-format:bullet;position:absolute;left:-6.89%'>&#8226;</span></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:Arial;font-size:56%;mso-ansi-language:EN-US'>&#25903;&#25345;&#38468;&#20214;&#13;</span></span></div>
+ <div class=O style='position:absolute;top:84.5%;left:74.5%;width:10.62%;
+ height:2.0%'><span style='position:absolute;top:0%;left:4.7%;width:95.29%;
+ height:100.0%'><span style='font-family:Arial;font-size:56%'><span
+ style='mso-special-format:bullet;position:absolute;left:-4.93%'>&#8226;</span></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:Arial;font-size:56%;mso-ansi-language:EN-US'>&#25903;&#25345;&#25104;&#26412;&#26500;&#25104;</span></span></div>
+ </div>
+ <v:shape id="_x0000_s12310" style='position:absolute;left:607.5pt;top:427.375pt;
+  width:73.125pt;height:39.375pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' coordsize="1071570,642942" o:spt="100" adj="-11796480,,5400"
+  path="m,l964411,r107159,107159l1071570,642942,,642942xe" fillcolor="#f8fbd1"
+  strokecolor="black [1]">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas/>
+  <v:path o:connecttype="custom" o:connectlocs="393506,55349;196753,110699;0,55349;196753,0"
+   o:connectangles="0,90,180,270" textboxrect="0,53580,1017990,642942"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s12310">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='position:absolute;top:80.0%;left:85.37%;width:9.0%;
+ height:2.0%'><span style='position:absolute;top:0%;left:5.55%;width:94.44%;
+ height:100.0%'><span style='font-family:Arial;font-size:56%'><span
+ style='mso-special-format:bullet;position:absolute;left:-5.88%'>&#8226;</span></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:Arial;font-size:56%;mso-ansi-language:EN-US'>&#22810;&#26041;&#24335;&#24320;&#26631;&#13;</span></span></div>
+ <div class=O style='position:absolute;top:82.16%;left:85.37%;width:10.62%;
+ height:2.0%'><span style='position:absolute;top:0%;left:4.7%;width:95.29%;
+ height:100.0%'><span style='font-family:Arial;font-size:56%'><span
+ style='mso-special-format:bullet;position:absolute;left:-4.93%'>&#8226;</span></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:Arial;font-size:56%;mso-ansi-language:EN-US'>&#25253;&#20215;&#21382;&#21490;&#20445;&#23384;&#13;</span></span></div>
+ <div class=O style='position:absolute;top:84.5%;left:85.37%;width:10.62%;
+ height:2.0%'><span style='position:absolute;top:0%;left:4.7%;width:95.29%;
+ height:100.0%'><span style='font-family:Arial;font-size:56%'><span
+ style='mso-special-format:bullet;position:absolute;left:-4.93%'>&#8226;</span></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:Arial;font-size:56%;mso-ansi-language:EN-US'>&#25903;&#25345;&#23457;&#25209;&#36807;&#31243;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s12311" style='position:absolute;left:320.625pt;top:90pt;
+  width:84.375pt;height:50.625pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#fef6b8" stroked="f">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="#814c2e" color2="shadow add(102)"
+   offset="1pt,1pt" offset2="-1pt,-1pt"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect>
+ <div v:shape="_x0000_s12311">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:18.66%;left:44.5%;
+ width:11.75%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtassf;"/><a
+ href="../pgid=prmtassf;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#33258;&#30001;&#24335;&#20998;&#37197;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;display:none'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtrls;"/><a href="../pgid=prmtrls;"
+ target="_parent" onclick="window.event.cancelBubble=true;">&#13;</a></b></span></div>
+ <div class=O style='text-align:center;position:absolute;top:21.83%;left:44.5%;
+ width:11.75%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtassg;"/><a
+ href="../pgid=prmtassg;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#36135;&#28304;&#24335;&#20998;&#37197;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtrls;"/><a href="../pgid=prmtrls;"
+ target="_parent" onclick="window.event.cancelBubble=true;">&#13;</a></b></span></div>
+ </div>
+ <v:shape id="_x0000_s12312" type="#_x0000_t38" style='position:absolute;
+  left:303.75pt;top:115.25pt;width:16.875pt;height:.375pt;flip:y;visibility:visible;
+  mso-wrap-style:square' o:connectortype="curved" adj="10800" strokecolor="#d77e4d"
+  strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+ </v:shape><v:rect id="_x0000_s12313" style='position:absolute;left:544.875pt;
+  top:157.5pt;width:96.375pt;height:50.625pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' o:gfxdata="UEsDBBQABgAIAAAAIQBa4xFm/gAAAOIBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJSRTU/EIBCG
+7yb+BzJX01I9GGNK92D1qEbXHzCBaUu2BcJg3f330v24GNfEI8y8z/sE6tV2GsVMka13Cq7LCgQ5
+7Y11vYKP9VNxB4ITOoOjd6RgRwyr5vKiXu8CschpxwqGlMK9lKwHmpBLH8jlSefjhCkfYy8D6g32
+JG+q6lZq7xK5VKSFAU3dUoefYxKP23x9MIk0MoiHw+LSpQBDGK3GlE3l7MyPluLYUObkfocHG/gq
+a4D8tWGZnC845l7y00RrSLxiTM84ZQ1pIkvjv1ykufwbslhOXPius5rKNnKbY280n6zO0XnAQBn9
+X/z7kjvB5f6Hmm8AAAD//wMAUEsDBBQABgAIAAAAIQAx3V9h0gAAAI8BAAALAAAAX3JlbHMvLnJl
+bHOkkMFqwzAMhu+DvYPRvXHaQxmjTm+FXksHuwpbSUxjy1gmbd++pjBYRm876hf6PvHv9rcwqZmy
+eI4G1k0LiqJl5+Ng4Ot8WH2AkoLR4cSRDNxJYN+9v+1ONGGpRzL6JKpSohgYS0mfWosdKaA0nCjW
+Tc85YKljHnRCe8GB9KZttzr/ZkC3YKqjM5CPbgPqfE/V/IcdvM0s3JfGctDc996+omrH13iiuVIw
+D1QMuCzPMNPc1OdAv/au/+mVERN9V/5C/Eyr9cesFzV2DwAAAP//AwBQSwMEFAAGAAgAAAAhABbc
+lIYRBAAAwRQAABAAAABkcnMvc2hhcGV4bWwueG1s7FjbbuM2EH0v0H8g+FpkbTlxGhurLOI0aQu4
+gRFl0WeKoizWFCmQlC/5+s6Q8iULdJvELbBYOAFs0qQ4Z2bOnCH08dO6VmQprJNGpzT50KdEaG4K
+qecp/fx0f3ZFifNMF0wZLVK6EY5+uv7xh4/N2DUEHtZu3KS08r4Z93qOV6Jm7oNphIa10tiaeZja
+ea+xwgntmQdDteoN+v3LXs2kptdwlF5mzcziiD8sZ5bIIqVXYFmzGmw+Cg4I5kqQwZD2ul3xAQYo
+poYvXAeFvQZKYdkK/HuBgmhzW4ERcWOtWVWCFQ7CgdZ6AdQWnwZ48cc9ZgfYSb76wxQAlrXegE9s
+vC5tfSwqPMeUJVmn9HKUjEbJOSWblELw+oNhH9GxsVh7wmFDMhicjy4HlHDYcXkxGJ1fBfgRCe5s
+rPO/CnM0KoIHpdRCWoKnbDl1HoOyN4HmnFGyuJdK/RdRcHae3ypLlkyldHJ3N0lGnXc7M2hT6WON
+kVVKR0Mg2gsXwuR1EGrphSVK1kBhyFO/SxNS6k4XIWWeSRXHEDKl8XBRlhBOiOOx+PEw0wKErCpW
+pJCYqfPhaJBQmFjgzs8RFGFqDhXPvaXEGv+n9FVWsQYY3I+uH3p71cf/mGzVVCymYbj1Drzo8hNI
+sDMfZjvPQilhrWAF+/XEFBsEm8M31E+UkvfX78oy0CENIkUJ07wy4Cs6FwKunM/8BgTkSCvhsK3s
+vRsreo2SUTM7xXDj4DEM1BLYDT9IXYBWhuFBmgpRPrE8ewaCJhcXQCxifdwv2FRP7AIVi5RG+5uQ
+25w5CIYCydXdMjyCIgfiN2s1BwNJyKnSWcMRlWv4jPuY3STyJNb14Y6JKL/cGziOLGj4fvWm9F/Z
+163mLVT10zoENm+z593wHtzYTR4grWGLZ3nUGjaGaDxGLQ7RRFPALPiAyC7aWtbmLxmDCh6n9Lk6
+u30Aaig/DXOhzz5n0NsgmkmIZR6iFx9pt0xy3soF1IQ2WRhRshAWGyVIMCjtnnLgeTCmseUp+Sx+
+C1NMgZLYOGG7NjNrTIljBBoLXxuUyG2UQ8C2uhkm2FHFTvnyeexJB+qKu3Y1FoLUTnUXuRbP7saB
+B8RvGlEyDoAyWWet7noI+4cF7g4Wfqr1GXfxiQq8WtwqyRddTUG5/fslAHqZ5OIXw9sa+B0vAVYg
+MqNdJRsHlB5j87e/F0BlxnEhpU0TR3DDCHZLqUSn/pBtDIC/JviHLQhIB5/hV6GLGbMMaHJixHfA
+CLjbvIIR+6QHIjRIj5NknyT7JNn/u2S/rkBfSPYXiv21Dt517F0H7zr6qYOHG8A32MHfSoc3cOF0
+m8Nb/cHd7Fu/zb2VC6erXHh18r1e7uE91ruucvAybvvmAIauuf4bAAD//wMAUEsDBBQABgAIAAAA
+IQDiFAV62QAAAPoAAAAPAAAAZHJzL2Rvd25yZXYueG1sRI9BT8JAEIXvJv6HzZh4IbBViYHKQtBY
+JeEi4IHj2B3aQne37m5L+fdOPOhx8ibfe99s0ZtadORD5ayCu1ECgmzudGULBZ+7bDgBESJajbWz
+pOBCARbz66sZptqd7Ya6bSwEQ2xIUUEZY5NKGfKSDIaRa8hydnDeYOTTF1J7PDPc1PI+SR6lwcpy
+Q4kNvZSUn7at4d71/vixfBg/d/v199vYnLLd8TVT6vamXz6BiNTH/+emHUwH7V/4i1ppBRNefni/
+fPlKbzBE8gpYjlVZE+T8BwAA//8DAFBLAwQUAAYACAAAACEABDLCTgIBAACFAgAAGwAAAGRycy9f
+cmVscy9zaGFwZXhtbC54bWwucmVsc7ySvUpDQRBGe8F3WKY3exNBxGRvmkRIYSPxAZa7c/cu2T9m
+V0leQbC018LWVsHXMXkO1yJgICg2KWeG73ynmNF46Sy7Q0omeAH9XgUMfROU8VrAzfzy5BxYytIr
+aYNHAStMMK6Pj0bXaGUuodSZmFih+CSgyzlecJ6aDp1MvRDRl0sbyMlcRtI8ymYhNfJBVZ1x+smA
+eofJZkoAzdQpsPkqlua/2aFtTYOT0Nw69HlPBe8KiazxiwKVpDELiNooEcnlb9nt+iqo0jhdZiQv
+LfD9aoPDqEUim4b/U+sfSk1GGkbtpUOxfn3ePL1v7l8+P97WD4+/GPOd56m/AAAA//8DAFBLAQIt
+ABQABgAIAAAAIQBa4xFm/gAAAOIBAAATAAAAAAAAAAAAAAAAAAAAAABbQ29udGVudF9UeXBlc10u
+eG1sUEsBAi0AFAAGAAgAAAAhADHdX2HSAAAAjwEAAAsAAAAAAAAAAAAAAAAALwEAAF9yZWxzLy5y
+ZWxzUEsBAi0AFAAGAAgAAAAhABbclIYRBAAAwRQAABAAAAAAAAAAAAAAAAAAKgIAAGRycy9zaGFw
+ZXhtbC54bWxQSwECLQAUAAYACAAAACEA4hQFetkAAAD6AAAADwAAAAAAAAAAAAAAAABpBgAAZHJz
+L2Rvd25yZXYueG1sUEsBAi0AFAAGAAgAAAAhAAQywk4CAQAAhQIAABsAAAAAAAAAAAAAAAAAbwcA
+AGRycy9fcmVscy9zaGFwZXhtbC54bWwucmVsc1BLBQYAAAAABQAFAD4BAACqCAAAAAA=
+" fillcolor="#beeb19" strokecolor="#beeb19">
+  <v:shadow on="t" opacity=".5"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect><v:rect id="_x0000_s12314" style='position:absolute;left:544.875pt;
+  top:236.25pt;width:96.375pt;height:51.125pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' fillcolor="yellow" stroked="f">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="#814c2e" color2="shadow add(102)"
+   offset="1pt,1pt" offset2="-1pt,-1pt"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect><v:rect id="_x0000_s12315" style='position:absolute;left:544.875pt;
+  top:308.875pt;width:96.375pt;height:51.125pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' fillcolor="yellow" stroked="f">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="#814c2e" color2="shadow add(102)"
+   offset="1pt,1pt" offset2="-1pt,-1pt"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect><v:shape id="_x0000_s12316" type="#_x0000_t38" style='position:absolute;
+  left:582.25pt;top:298.125pt;width:21.625pt;height:.125pt;rotation:90;
+  visibility:visible;mso-wrap-style:square' o:connectortype="curved" adj="10800"
+  strokecolor="#d77e4d" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+ </v:shape><v:shape id="_x0000_s12317" type="#_x0000_t202" style='position:absolute;
+  left:112.5pt;top:292.5pt;width:68pt;height:21.625pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" stroked="f">
+  <v:textbox style='mso-rotate-with-shape:t;mso-fit-shape-to-text:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s12313">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:31.16%;left:76.5%;
+ width:11.75%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prprapr;pgname=&#23457;&#26680;&#25253;&#20215;&#21333;;"/><a
+ href="../pgid=prprapr;pgname=&#23457;&#26680;&#25253;&#20215;&#21333;;"
+ target="_parent" onclick="window.event.cancelBubble=true;">&#23457;&#26680;&#25253;&#20215;&#21333;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;display:none'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prprrls;"/><a href="../pgid=prprrls;"
+ target="_parent" onclick="window.event.cancelBubble=true;">&#13;</a></b></span></div>
+ <div class=O style='text-align:center;position:absolute;top:34.33%;left:74.75%;
+ width:15.25%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prprrls;"/><a href="../pgid=prprrls;"
+ target="_parent" onclick="window.event.cancelBubble=true;">&#21457;&#24067;&#25253;&#20215;/&#26631;&#20070;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtopen"/><a href="../pgid=prmtopen"
+ target="_parent" onclick="window.event.cancelBubble=true;">&#13;</a></b></span></div>
+ </div>
+ <div v:shape="_x0000_s12314">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:45.83%;left:76.5%;
+ width:11.75%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtasbidopen;"/><a
+ href="../pgid=prmtasbidopen;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#25171;&#24320;&#25253;&#20215;&#21333;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;display:none'><b>&#13;</b></span></div>
+ <div class=O style='text-align:center;position:absolute;top:48.83%;left:76.62%;
+ width:11.5%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtasbidevalf;"/><a
+ href="../pgid=prmtasbidevalf;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#21021;&#35780;&#25253;&#20215;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b>&#13;</b></span></div>
+ </div>
+ <div v:shape="_x0000_s12315">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:60.83%;left:76.62%;
+ width:11.5%;height:2.66%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:78%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtasbidevald;"/><a
+ href="../pgid=prmtasbidevald;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#35780;&#23450;&#25253;&#20215;</a></b></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:78%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b>&#13;</b></span></div>
+ </div>
+ <div v:shape="_x0000_s12317">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-line-spacing:"100 50 0";position:absolute;top:55.0%;
+ left:16.62%;width:8.75%;height:2.66%'><span lang=ZH-CN style='font-family:
+ SimSun;mso-ascii-font-family:Arial;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ Arial;font-size:67%;mso-ansi-language:EN-US'>&#23548;&#20837;</span><span
+ lang=EN-US style='font-family:Arial;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:Arial;font-size:67%;mso-fareast-language:ZH-CN'>/</span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:Arial;font-size:67%;mso-ansi-language:EN-US'>&#24405;&#20837;</span></div>
+ </div>
+ <v:rect id="_x0000_s12318" style='position:absolute;left:50.625pt;top:478.125pt;
+  width:635.25pt;height:28.125pt;flip:y;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' o:gfxdata="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
+BgAAAAAEAAQA9QAAAJoGAAAAAA==
+" fillcolor="#95b3d7" strokecolor="#558ed5">
+  <v:fill opacity="15677f"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:rect>
+ <div v:shape="_x0000_s12318">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O><span style='position:absolute;top:89.66%;left:8.12%;width:86.25%;
+ height:3.5%'><span lang=EN-US style='font-family:SimSun;mso-ascii-font-family:
+ Arial;mso-fareast-font-family:SimSun;mso-hansi-font-family:Arial;mso-fareast-language:
+ ZH-CN;mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:shapetype id="_x0000_t116" coordsize="21600,21600" o:spt="116" path="m3475,qx,10800,3475,21600l18125,21600qx21600,10800,18125,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect" textboxrect="1018,3163,20582,18437"/>
+ </v:shapetype><v:shape id="_x0000_s12319" type="#_x0000_t116" style='position:absolute;
+  left:129.375pt;top:433.125pt;width:67.5pt;height:34pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' fillcolor="#fef6b8" stroked="f">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="#814c2e" color2="shadow add(102)"
+   offset="1pt,1pt" offset2="-1pt,-1pt"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:shape><v:shape id="_x0000_s12320" type="#_x0000_t116" style='position:absolute;
+  left:202.5pt;top:433.125pt;width:67.5pt;height:34pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' fillcolor="#fef6b8" stroked="f">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="#814c2e" color2="shadow add(102)"
+   offset="1pt,1pt" offset2="-1pt,-1pt"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:shape><v:shape id="_x0000_s12321" type="#_x0000_t116" style='position:absolute;
+  left:56.25pt;top:433.125pt;width:67.5pt;height:34pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' fillcolor="#fef6b8" stroked="f">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="#814c2e" color2="shadow add(102)"
+   offset="1pt,1pt" offset2="-1pt,-1pt"/>
+  <v:textbox style='mso-rotate-with-shape:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s12319">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:82.33%;left:18.62%;
+ width:8.12%;height:2.33%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:67%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=ptnmmtnewjxc;"/><a
+ href="../pgid=ptnmmtnewjxc;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#21830;&#21697;&#36164;&#26009;</a></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:67%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtasbidrp0;"/><a
+ href="../pgid=prmtasbidrp0;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#13;</a></span></div>
+ </div>
+ <div v:shape="_x0000_s12320">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:82.33%;left:28.75%;
+ width:8.12%;height:2.33%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:67%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=ptdclssrcpnew;"/><a
+ href="../pgid=ptdclssrcpnew;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#36135;&#28304;&#36164;&#26009;</a></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:67%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s12321">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;position:absolute;top:82.33%;left:8.5%;
+ width:8.12%;height:2.33%'><span lang=ZH-CN style='font-family:SimSun;
+ mso-ascii-font-family:SimSun;mso-fareast-font-family:SimSun;mso-hansi-font-family:
+ SimSun;font-size:67%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=partnerpmtnewjxc;"/><a
+ href="../pgid=partnerpmtnewjxc;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#36135;&#21830;&#36164;&#26009;</a></span><span
+ lang=ZH-CN style='font-family:SimSun;mso-ascii-font-family:SimSun;mso-fareast-font-family:
+ SimSun;mso-hansi-font-family:SimSun;font-size:67%;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><p:onmouseclick
+  hyperlinktype="otherFile" href="../pgid=prmtasbidrp0;"/><a
+ href="../pgid=prmtasbidrp0;" target="_parent"
+ onclick="window.event.cancelBubble=true;">&#13;</a></span></div>
+ </div>
+</p:slide></div>
+
+</body>
+
+</html>

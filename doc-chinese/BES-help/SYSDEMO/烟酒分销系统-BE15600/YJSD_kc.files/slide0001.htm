@@ -1,0 +1,686 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 11">
+<link id=Main-File rel=Main-File href="../YJSD_kc.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>幻灯片 1</title>
+<meta name=Description content=2009-2-23>
+<link rel=Stylesheet href="master30_stylesheet.css">
+<![if !ppt]>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:103% !important;}
+-->
+</style>
+<script><!--
+function LoadSld()
+{
+	var sld=GetObj("SlideObj")
+	if( !g_supportsPPTHTML ) {		
+		sld.style.visibility="visible"
+		return
+	}
+
+	if( MakeNotesVis() ) return
+
+	runAnimations = _InitAnimations();
+	
+	if( IsWin("PPTSld") )
+		parent.SldUpdated(GetSldId())
+	g_origSz=parseInt(SlideObj.style.fontSize)
+	g_origH=sld.style.posHeight
+	g_origW=sld.style.posWidth
+	g_scaleHyperlinks=(document.all.tags("AREA").length>0)
+	if( g_scaleHyperlinks )
+		InitHLinkArray()
+	if( g_scaleInFrame||(IsWin("PPTSld") && parent.IsFullScrMode() ) )
+		document.body.scroll="no"
+	_RSW()
+	if( IsWin("PPTSld") && parent.IsFullScrMode() )
+		FullScrInit();
+	
+	MakeSldVis();
+	
+	if( runAnimations )
+	{
+		if( document.all("NSPlay") )
+			document.all("NSPlay").autoStart = false;
+
+		if( sld.filters && sld.filters.revealtrans )
+			setTimeout( "document.body.start()", sld.filters.revealtrans.duration * 1000 );
+		else
+			document.body.start();
+	}
+}
+
+function MakeSldVis() 
+{
+	var fTrans=g_showAnimation && SldHasTrans()
+	if( fTrans )	
+	{
+		if( g_bgSound ) {
+			idx=g_bgSound.indexOf(",");
+			pptSound.src=g_bgSound.substr( 0, idx );
+			pptSound.loop= -(parseInt(g_bgSound.substr(idx+1)));
+		}
+		SlideObj.filters.revealtrans.Apply()	
+    }
+	SlideObj.style.visibility="visible"
+	if( fTrans )
+		SlideObj.filters.revealtrans.Play()
+}
+function MakeNotesVis() 
+{
+	if( !IsNts() ) return false 
+	SlideObj.style.display="none"
+	nObj = document.all.item("NotesObj")
+	parent.SetHasNts(0)
+	if( nObj ) { 
+		nObj.style.display=""
+		parent.SetHasNts(1)
+	}
+	return 1
+}
+function ChkAutoAdv()
+{
+	if(SldHasTrans())
+		SlideObj.onfilterchange=AutoAdv
+	else
+		AutoAdv()
+}
+function AutoAdv()
+{
+	if(!IsWin("PPTSld") || !gUseSldTimings )return
+	var sld=GetCurSld()
+	if( (sld.mAdvDelay>0) && !parent.IsFramesMode() )
+		setTimeout("parent.GoToNextSld()",sld.mAdvDelay)
+}
+function GetObj(id)
+{
+	if(g_supportsPPTHTML) return document.all(id);
+	else return document.getElementById(id);
+}
+function SldHasTrans() { return SlideObj.style.filter != ""; }
+function GetSldId() { return sId=location.href.substring(location.href.lastIndexOf('/')+1) }
+function HideMenu() { if( frames["PPTSld"] && PPTSld.document.all.item("ctxtmenu") && PPTSld.ctxtmenu.style.display!="none" ) { PPTSld.ctxtmenu.style.display='none'; return true } return false }
+function IsWin( name ) { return window.name == name }
+function IsNts() { return IsWin("PPTNts") }
+function IsSldOrNts() { return( IsWin("PPTSld")||IsWin("PPTNts") ) }
+function SupportsPPTAnimation() { return( navigator.platform == "Win32" && navigator.appVersion.indexOf("Windows")>0 ) }
+function SupportsPPTHTML()
+{
+	var appVer=navigator.appVersion, msie=appVer.indexOf("MSIE "), ver=0
+	if( msie >= 0 )
+		ver=parseFloat( appVer.substring( msie+5, appVer.indexOf(";",msie) ) )
+	else
+		ver=parseInt(appVer)
+
+	return( ver >= 4 && msie >= 0 )
+}
+function _RSW()
+{
+	if( !g_supportsPPTHTML || IsNts() ||
+	  ( !g_scaleInFrame && (!IsWin("PPTSld") || !parent.IsFullScrMode()) ) )
+		return
+
+        var padding=0;
+        if( IsWin("PPTSld") && parent.IsFramesMode() ) padding=6
+
+	cltWidth=document.body.clientWidth-padding
+	cltHeight=document.body.clientHeight-padding
+	factor=(1.0*cltWidth)/g_origW
+	if( cltHeight < g_origH*factor )
+		factor=(1.0*cltHeight)/g_origH
+
+	newSize = g_origSz * factor
+	if( newSize < 1 ) newSize=1
+
+	s=SlideObj.style
+	s.fontSize=newSize+"px"
+	s.posWidth=g_origW*factor
+	s.posHeight=g_origH*factor
+	s.posLeft=(cltWidth-s.posWidth+padding)/2
+	s.posTop=(cltHeight-s.posHeight+padding)/2
+
+	if( g_scaleHyperlinks )
+		ScaleHyperlinks( factor )
+}
+function _InitAnimations()
+{
+	animRuntimeInstalled = ''+document.body.localTime != 'undefined';
+	isFullScreen = (window.name == "PPTSld") && !parent.IsFramesMode();
+	g_animUseRuntime = g_showAnimation && animRuntimeInstalled && !(isFullScreen && parent.IsSldVisited());
+	if( g_animUseRuntime ) {
+		collSeq = document.all.tags("seq");
+		if( collSeq != null ) {
+			for(ii=0;ii<collSeq.length;ii++) {
+				if( collSeq[ii].getAttribute( "p:nodeType" ) == "mainSeq" ) {
+					g_animMainSequence = collSeq[ii];
+					break;
+				}
+			}
+		}
+	
+		if( g_animItemsToHide && document.body.playAnimations != false ) {
+			for(jj = 0; jj < g_animItemsToHide.length; jj++) {
+				if( hideObj = GetObj(g_animItemsToHide[jj]) )
+					hideObj.runtimeStyle.visibility="hidden";
+			}
+		}
+
+		if( g_animInteractiveItems ){
+			for(jj = 0; jj < g_animInteractiveItems.length; jj++) {
+				if( triggerObj = GetObj(g_animInteractiveItems[jj]) )
+					triggerObj.runtimeStyle.cursor="hand";
+			}
+		}
+		
+		if( gUseSldTimings && ''+g_animSlideTime != 'undefined' ) {
+			adjustedTime = document.body.calculateAutoAdvanceTimes( g_animSlideTime, g_animEffectTimings );
+			if( IsWin("PPTSld") && adjustedTime != g_animSlideTime ) {
+			   var sld = GetCurSld();
+			   sld.mAdvDelay = adjustedTime * 1000;
+			}
+		}
+	}
+
+	return g_animUseRuntime;
+}
+
+var g_HLinkArray = new Array();
+ 
+function IMapAreaObj( areaObj, coords )
+{
+  this.areaObj = areaObj;
+  this.coords = coords;
+}
+
+function InitHLinkArray()
+{
+  var appVer = navigator.appVersion;
+  var msie = appVer.indexOf ( "MSIE " )
+  var ver = 0;
+  if ( msie >= 0 )
+    ver = parseInt ( appVer.substring( msie+5 ) );
+
+  linkNum = 0;
+
+  for (i=0; i<document.all.tags("AREA").length; i++) {
+    areaObj = document.all.tags("AREA").item(i);
+    if( ( areaObj.id != "pptxscale" ) || ( ver > 4 ) )
+      g_HLinkArray[linkNum++] = new IMapAreaObj( areaObj, ParseCoords( areaObj.coords ) );
+  }
+}
+
+function ScaleHyperlinks( factor )
+{   
+  for ( ii=0; ii< g_HLinkArray.length; ii++) {
+    coordsStr="";
+    imaObj = g_HLinkArray[ii];
+    for ( jj=0; jj < imaObj.coords.length-1; jj++ )
+  	  coordsStr += (imaObj.coords[jj]*factor) + ",";
+    coordsStr += (imaObj.coords[jj]*factor);
+    imaObj.areaObj.coords = coordsStr;
+  }
+}
+
+function ParseCoords( coordsStr )
+{
+  var numArray = new Array();
+  var i = curPos = commaPos = 0;
+
+  while ( ( commaPos = coordsStr.indexOf(",", curPos) ) != -1 ) { 
+    numArray[i++] = parseInt( coordsStr.substr( curPos, commaPos ) );
+    curPos = commaPos + 1;
+  }
+  numArray[i] = parseInt( coordsStr.substr( curPos ) );
+
+  return numArray;
+}
+
+
+
+var g_supportsPPTHTML = SupportsPPTHTML(), g_scaleInFrame = 1, gId="", g_bgSound="",
+    g_scaleHyperlinks = false, g_allowAdvOnClick = 1, g_showInBrowser = 0, gLoopCont = 0, gUseSldTimings = 1;
+var g_showAnimation = g_supportsPPTHTML && SupportsPPTAnimation() && g_showInBrowser;
+var g_animManager = null;
+var g_animUseRuntime = false;
+var g_animItemsToHide, g_animInteractiveItems, g_animSlideTime;
+var g_animMainSequence = null;
+
+//--></script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="2"/>
+ <o:rules v:ext="edit">
+  <o:r id="V:Rule6" type="connector" idref="#_x0000_s2068">
+   <o:proxy start="" idref="#_x0000_s2063" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2067" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule7" type="connector" idref="#_x0000_s2069">
+   <o:proxy start="" idref="#_x0000_s2067" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2065" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule8" type="connector" idref="#_x0000_s2090">
+   <o:proxy start="" idref="#_x0000_s2088" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2087" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule9" type="connector" idref="#_x0000_s2085">
+   <o:proxy start="" idref="#_x0000_s2081" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2088" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule10" type="connector" idref="#_x0000_s2091">
+   <o:proxy start="" idref="#_x0000_s2087" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2089" connectloc="1"/>
+  </o:r>
+ </o:rules>
+</o:shapelayout>
+</head>
+
+<body lang=ZH-CN style='margin:0px;background-color:#003399' onresize="_RSW()"
+onload="LoadSld()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:554px;height:415px;font-size:16px;background-color:#C2C2C2;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#003399,#ffffff,#463416,#e3e3ff,#3399ff,#33cccc,#00ffcc,#808000"
+ masterhref="master31.xml">
+ <v:background id="_x0000_s2049" o:bwmode="white" fillcolor="#c2c2c2">
+  <v:fill color2="#3cc [5]"/>
+ </v:background><![if !ppt]><p:shaperange href="master31.xml#_x0000_s35864"/><p:shaperange
+  href="master31.xml#_x0000_s35866"/><p:shaperange
+  href="master31.xml#_x0000_s35867"/><![if !vml]><img border=0
+ v:shapes="_x0000_s35867" src="master31_image001.jpg" style='position:absolute;
+ top:0%;left:-7.4%;width:114.25%;height:103.61%'><![endif]><![endif]><v:shapetype
+  id="_x0000_t136" coordsize="21600,21600" o:spt="136" adj="10800" path="m@7,l@8,m@5,21600l@6,21600e">
+  <v:formulas>
+   <v:f eqn="sum #0 0 10800"/>
+   <v:f eqn="prod #0 2 1"/>
+   <v:f eqn="sum 21600 0 @1"/>
+   <v:f eqn="sum 0 0 @2"/>
+   <v:f eqn="sum 21600 0 @3"/>
+   <v:f eqn="if @0 @3 0"/>
+   <v:f eqn="if @0 21600 @1"/>
+   <v:f eqn="if @0 0 @2"/>
+   <v:f eqn="if @0 @4 21600"/>
+   <v:f eqn="mid @5 @6"/>
+   <v:f eqn="mid @8 @5"/>
+   <v:f eqn="mid @7 @8"/>
+   <v:f eqn="mid @6 @7"/>
+   <v:f eqn="sum @6 0 @5"/>
+  </v:formulas>
+  <v:path textpathok="t" o:connecttype="custom" o:connectlocs="@9,0;@10,10800;@11,21600;@12,10800"
+   o:connectangles="270,180,90,0"/>
+  <v:textpath on="t" fitshape="t"/>
+  <v:handles>
+   <v:h position="#0,bottomRight" xrange="6629,14971"/>
+  </v:handles>
+  <o:lock v:ext="edit" text="t" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s2056" type="#_x0000_t136" style='position:absolute;
+  left:14.125pt;top:14.875pt;width:204.125pt;height:34pt;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' fillcolor="yellow">
+  <v:fill opacity="64881f"/>
+  <v:shadow color="#868686"/>
+  <o:extrusion v:ext="view" backdepth="10pt" color="#630" on="t" viewpoint=",0"
+   viewpointorigin=",0" skewangle="180" brightness="4000f" lightposition="-50000"
+   lightlevel="52000f" lightposition2="50000" lightlevel2="14000f"
+   lightharsh2="t"/>
+  <v:textpath style='font-family:"宋体";v-text-kern:t' trim="t" fitpath="t"
+   string="烟酒分销管理系统"/>
+ </v:shape><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s2060" type="#_x0000_t202" style='position:absolute;
+  left:592.5pt;top:496.75pt;width:106.5pt;height:28.875pt;mso-wrap-style:none;
+  v-text-anchor:top-baseline' filled="f" fillcolor="#39f [4]" stroked="f"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow color="#463416 [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:shapetype id="_x0000_t176" coordsize="21600,21600" o:spt="176"
+  adj="2700" path="m@0,qx0@0l0@2qy@0,21600l@1,21600qx21600@2l21600@0qy@1,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="val #0"/>
+   <v:f eqn="sum width 0 #0"/>
+   <v:f eqn="sum height 0 #0"/>
+   <v:f eqn="prod @0 2929 10000"/>
+   <v:f eqn="sum width 0 @3"/>
+   <v:f eqn="sum height 0 @3"/>
+   <v:f eqn="val width"/>
+   <v:f eqn="val height"/>
+   <v:f eqn="prod width 1 2"/>
+   <v:f eqn="prod height 1 2"/>
+  </v:formulas>
+  <v:path gradientshapeok="t" limo="10800,10800" o:connecttype="custom"
+   o:connectlocs="@8,0;0,@9;@8,@7;@6,@9" textboxrect="@3,@3,@4,@5"/>
+ </v:shapetype><v:shape id="_x0000_s2063" type="#_x0000_t176"
+  href="../YJSD_cg.htm" target="_parent" style='position:absolute;left:263.75pt;
+  top:14.75pt;width:90.625pt;height:39.75pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#c2c2c2"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2065"
+  type="#_x0000_t176" href="../YJSD_xs.htm" target="_parent" style='position:absolute;
+  left:558.5pt;top:14.75pt;width:90.625pt;height:39.75pt;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#c2c2c2" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2067"
+  type="#_x0000_t176" href="../YJSD_kc.htm" target="_parent" style='position:absolute;
+  left:411.125pt;top:14.75pt;width:90.625pt;height:39.75pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#39f [4]"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><![if !vml]><map
+ name="map_s19"><area href="../YJSD_kc.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="309, 1, 307, 2, 306, 4, 306, 27, 307, 30, 309, 31, 371, 31, 374, 30, 375, 27, 375, 4, 374, 2, 371, 1, 309, 1"><area
+ href="../YJSD_xs.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="423, 1, 420, 2, 419, 4, 419, 27, 420, 30, 423, 31, 485, 31, 488, 30, 489, 27, 489, 4, 488, 2, 485, 1, 423, 1"><area
+ href="../YJSD_cg.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="196, 1, 193, 2, 192, 4, 192, 27, 193, 30, 196, 31, 258, 31, 261, 30, 262, 27, 262, 4, 261, 2, 258, 1, 196, 1"></map><![endif]><![if !vml]><img
+ border=0 v:shapes="_x0000_s2056,_x0000_s2063,_x0000_s2065,_x0000_s2067"
+ src="slide0001_image004.gif" usemap="#map_s19" style='position:absolute;
+ top:2.65%;left:1.98%;width:88.8%;height:8.19%'><![endif]>
+ <div v:shape="_x0000_s2060" class=O style='position:absolute;top:93.01%;
+ left:83.21%;width:15.52%;height:3.85%'><span style='color:#003399;mso-color-index:
+ 0'><b><p:onmouseclick hyperlinktype="url" href="http://www.taonew.com/"/><a
+ href="http://www.taonew.com/" target="_parent"
+ onclick="window.event.cancelBubble=true;">2009-02-23</a></b></span><span
+ style='font-family:宋体;mso-fareast-font-family:宋体;color:#003399;mso-color-index:
+ 0;mso-special-format:lastCR;display:none'><b>&#13;</b></span></div>
+ <div v:shape="_x0000_s2063" class=O
+ onclick="parent.location.href='../YJSD_cg.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:5.06%;left:37.0%;width:12.09%;
+ height:3.61%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>采购管理</span></div>
+ </div>
+ <div v:shape="_x0000_s2065" class=O
+ onclick="parent.location.href='../YJSD_xs.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:5.06%;left:77.79%;width:12.09%;
+ height:3.61%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>销售管理</span></div>
+ </div>
+ <div v:shape="_x0000_s2067" class=O
+ onclick="parent.location.href='../YJSD_kc.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:5.06%;left:57.4%;width:12.09%;
+ height:3.61%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>库存管理</span></div>
+ </div>
+ <v:shapetype id="_x0000_t32" coordsize="21600,21600" o:spt="32" o:oned="t"
+  path="m,l21600,21600e" filled="f">
+  <v:path arrowok="t" fillok="f" o:connecttype="none"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s2068" type="#_x0000_t32" style='position:absolute;
+  left:354.375pt;top:34.625pt;width:56.75pt;height:0' o:connectortype="elbow"
+  adj="-134881,-1,-134881" strokecolor="white [1]" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2069" type="#_x0000_t32" style='position:absolute;
+  left:501.75pt;top:34.625pt;width:56.75pt;height:0;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' o:connectortype="elbow"
+  adj="-190974,-1,-190974" strokecolor="white [1]" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2068,_x0000_s2069"
+ src="slide0001_image002.gif" style='position:absolute;top:5.3%;left:49.09%;
+ width:29.06%;height:2.65%'><![endif]><v:shape id="_x0000_s2079" type="#_x0000_t176"
+  style='position:absolute;left:65.25pt;top:321.125pt;width:124.625pt;height:68pt;
+  mso-wrap-style:none;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+  mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+  mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+  mso-position-vertical:absolute;mso-position-vertical-relative:text;
+  v-text-anchor:middle' fillcolor="#0c6" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2080" type="#_x0000_t176" style='position:absolute;
+  left:223.875pt;top:321.125pt;width:119.125pt;height:68pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#0c6"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2079,_x0000_s2080"
+ src="slide0001_image003.gif" style='position:absolute;top:59.51%;left:9.02%;
+ width:39.16%;height:13.49%'><![endif]>
+ <div v:shape="_x0000_s2079" class=O>
+ <div style='text-align:center;position:absolute;top:62.89%;left:10.46%;
+ width:14.8%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>批次管理&#13;</span></div>
+ <div style='text-align:center;position:absolute;top:66.5%;left:10.1%;
+ width:15.52%;height:3.13%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>购销</span><span
+ style='font-size:78%;color:#00FFCC;mso-color-index:6'>/</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>代销</span><span
+ style='font-size:78%;color:#00FFCC;mso-color-index:6'>/</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>赠品</span></div>
+ </div>
+ <div v:shape="_x0000_s2080" class=O>
+ <div style='text-align:center;position:absolute;top:60.72%;left:32.49%;
+ width:13.89%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>商品档案&#13;</span></div>
+ <div style='text-align:center;position:absolute;top:64.81%;left:32.49%;
+ width:13.89%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>单位换算&#13;</span></div>
+ <div style='text-align:center;position:absolute;top:68.43%;left:31.76%;
+ width:15.52%;height:3.13%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>条</span><span
+ style='font-size:78%;color:#00FFCC;mso-color-index:6'>/</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>包；箱</span><span
+ style='font-size:78%;color:#00FFCC;mso-color-index:6'>/</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>瓶等</span></div>
+ </div>
+ <v:shape id="_x0000_s2081" type="#_x0000_t176" style='position:absolute;
+  left:53.75pt;top:134pt;width:119.125pt;height:85pt;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#39f [4]" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2081"
+ src="slide0001_image007.gif" style='position:absolute;top:24.81%;left:7.4%;
+ width:17.14%;height:16.62%'><![endif]>
+ <div v:shape="_x0000_s2081" class=O>
+ <div style='text-align:center;position:absolute;top:27.22%;left:8.84%;
+ width:13.71%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>存货转移&#13;</span></div>
+ <div style='text-align:center;position:absolute;top:31.32%;left:8.84%;
+ width:13.71%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>存货更改&#13;</span></div>
+ <div style='text-align:center;position:absolute;top:35.18%;left:8.84%;
+ width:13.71%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>批次调整</span><span lang=ZH-CN style='font-family:
+ 宋体;mso-fareast-font-family:宋体;font-size:78%;color:#00FFCC;mso-color-index:
+ 6;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <v:shape id="_x0000_s2084" type="#_x0000_t176" style='position:absolute;
+  left:377pt;top:321.125pt;width:113.5pt;height:68pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#0c6"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2084"
+ src="slide0001_image009.gif" style='position:absolute;top:59.51%;left:52.34%;
+ width:16.42%;height:13.49%'><![endif]>
+ <div v:shape="_x0000_s2084" class=O>
+ <div style='text-align:center;position:absolute;top:62.89%;left:53.79%;
+ width:13.17%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>仓库管理&#13;</span></div>
+ <div style='text-align:center;position:absolute;top:66.5%;left:51.44%;
+ width:17.87%;height:3.13%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>总库</span><span
+ style='font-size:78%;color:#00FFCC;mso-color-index:6'>/</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>分库</span><span
+ style='font-size:78%;color:#00FFCC;mso-color-index:6'>/</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>代销点</span></div>
+ </div>
+ <v:shape id="_x0000_s2085" type="#_x0000_t32" style='position:absolute;left:172.875pt;
+  top:176.5pt;width:45.375pt;height:0' o:connectortype="elbow" adj="-82294,-1,-82294"
+  strokecolor="white [1]" strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2085"
+ src="slide0001_image010.gif" style='position:absolute;top:31.08%;left:23.64%;
+ width:7.22%;height:3.37%'><![endif]><v:shape id="_x0000_s2087" type="#_x0000_t176"
+  style='position:absolute;left:377pt;top:134pt;width:107.625pt;height:85pt;
+  mso-wrap-style:none;v-text-anchor:middle' fillcolor="#39f [4]" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2088" type="#_x0000_t176" style='position:absolute;
+  left:218.25pt;top:134pt;width:113.375pt;height:85pt;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#39f [4]" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2089" type="#_x0000_t176" style='position:absolute;
+  left:530.125pt;top:134pt;width:116.25pt;height:85pt;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#39f [4]" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2090" type="#_x0000_t32" style='position:absolute;
+  left:331.625pt;top:176.5pt;width:45.375pt;height:0' o:connectortype="elbow"
+  adj="-157864,-1,-157864" strokecolor="white [1]" strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2091" type="#_x0000_t32" style='position:absolute;
+  left:484.625pt;top:176.5pt;width:45.5pt;height:0' o:connectortype="elbow"
+  adj="-230064,-1,-230064" strokecolor="white [1]" strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><![if !vml]><img border=0
+ v:shapes="_x0000_s2087,_x0000_s2088,_x0000_s2089,_x0000_s2090,_x0000_s2091"
+ src="slide0001_image013.gif" style='position:absolute;top:24.81%;left:30.32%;
+ width:60.1%;height:16.62%'><![endif]>
+ <div v:shape="_x0000_s2087" class=O>
+ <div style='text-align:center;position:absolute;top:29.63%;left:53.79%;
+ width:12.27%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>存货盘点&#13;</span></div>
+ <div style='text-align:center;position:absolute;top:33.49%;left:53.79%;
+ width:12.27%;height:2.89%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s2088" class=O>
+ <div style='text-align:center;position:absolute;top:29.63%;left:30.68%;
+ width:15.16%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>其他出入库&#13;</span></div>
+ <div style='text-align:center;position:absolute;top:33.49%;left:31.76%;
+ width:12.99%;height:2.89%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s2089" class=O>
+ <div style='text-align:center;position:absolute;top:29.63%;left:75.09%;
+ width:13.35%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>存货报表&#13;</span></div>
+ <div style='text-align:center;position:absolute;top:33.49%;left:75.09%;
+ width:13.35%;height:2.89%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <v:line id="_x0000_s2093" style='position:absolute;flip:y' from="127.5pt,287pt"
+  to="127.5pt,321.125pt" strokecolor="#ff6" strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:line><![if !vml]><img border=0 v:shapes="_x0000_s2093"
+ src="slide0001_image006.gif" style='position:absolute;top:52.77%;left:16.6%;
+ width:2.52%;height:7.46%'><![endif]><v:line id="_x0000_s2094" style='position:absolute;
+  flip:y' from="280.625pt,287pt" to="280.625pt,321.125pt" strokecolor="#ff6"
+  strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:line><![if !vml]><img border=0 v:shapes="_x0000_s2094"
+ src="slide0001_image011.gif" style='position:absolute;top:52.77%;left:37.9%;
+ width:2.52%;height:7.46%'><![endif]><v:line id="_x0000_s2095" style='position:absolute;
+  flip:y' from="433.75pt,287pt" to="433.75pt,321.125pt" strokecolor="#ff6"
+  strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:line><![if !vml]><img border=0 v:shapes="_x0000_s2095"
+ src="slide0001_image012.gif" style='position:absolute;top:52.77%;left:59.02%;
+ width:2.52%;height:7.46%'><![endif]><v:shape id="_x0000_s2096" type="#_x0000_t176"
+  style='position:absolute;left:524.375pt;top:321.125pt;width:110.625pt;
+  height:68pt;mso-wrap-style:none;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#0c6"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:line id="_x0000_s2097" style='position:absolute;flip:y' from="572.625pt,287pt"
+  to="572.625pt,321.125pt" strokecolor="#ff6" strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:line><![if !vml]><img border=0 v:shapes="_x0000_s2096,_x0000_s2097"
+ src="slide0001_image015.gif" style='position:absolute;top:52.77%;left:72.74%;
+ width:16.06%;height:20.0%'><![endif]>
+ <div v:shape="_x0000_s2096" class=O>
+ <div style='text-align:center;position:absolute;top:62.89%;left:74.18%;
+ width:12.81%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>库存预警&#13;</span></div>
+ <div style='text-align:center;position:absolute;top:66.5%;left:72.92%;
+ width:15.52%;height:3.13%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>呆滞</span><span
+ style='font-size:78%;color:#00FFCC;mso-color-index:6'>/</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>过期</span><span
+ style='font-size:78%;color:#00FFCC;mso-color-index:6'>/</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US'>补货</span></div>
+ </div>
+</p:slide></div>
+
+</body>
+
+</html>

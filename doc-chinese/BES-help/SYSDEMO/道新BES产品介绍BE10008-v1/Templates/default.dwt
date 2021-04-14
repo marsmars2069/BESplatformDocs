@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>无标题文档</title>
+<!-- TemplateEndEditable -->
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+<style type="text/css">
+<!--
+body {
+	background-image:  url(../pic/background4.jpg);
+}
+.style1 {font-size: 18px}
+.style2 {font-size: 12px}
+.style3 {
+	color: #6600CC;
+	font-weight: bold;
+}
+-->
+</style>
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable --><!-- TemplateParam name="main" type="text" value="" --><!-- TemplateParam name="OptionalRegion1" type="boolean" value="true" -->
+</head>
+<body>
+<div id="Layer2" style="position:absolute; left:86px; top:127px; width:0px; height:1px; z-index:2"></div>
+<div id="Layer4" style="position:absolute; left:14px; top:7px; width:241px; height:37px; z-index:5; font-size: 36px; color: #0000FF; font-family: &quot;隶书&quot;; font-weight: bold;">道新软件OERP</div>
+
+<div id="Layer1" style="position:absolute; left:14px; top:51px; width:778px; height:502px; z-index:6" main="@@(_document['main'])@@"><!-- TemplateBeginIf cond="OptionalRegion1" --><!-- TemplateBeginEditable name="EditRegion3" -->EditRegion3<!-- TemplateEndEditable -->wwwwwww<!-- TemplateEndIf --></div>
+</body>
+</html>

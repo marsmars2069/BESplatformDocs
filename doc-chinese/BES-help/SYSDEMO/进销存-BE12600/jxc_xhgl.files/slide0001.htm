@@ -1,0 +1,709 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 11">
+<link id=Main-File rel=Main-File href="../jxc_xhgl.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>幻灯片 1</title>
+<meta name=Description content=2009-4-17>
+<link rel=Stylesheet href="master30_stylesheet.css">
+<![if !ppt]>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:72% !important;}
+-->
+</style>
+<script><!--
+function LoadSld()
+{
+	var sld=GetObj("SlideObj")
+	if( !g_supportsPPTHTML ) {		
+		sld.style.visibility="visible"
+		return
+	}
+
+	if( MakeNotesVis() ) return
+
+	runAnimations = _InitAnimations();
+	
+	if( IsWin("PPTSld") )
+		parent.SldUpdated(GetSldId())
+	g_origSz=parseInt(SlideObj.style.fontSize)
+	g_origH=sld.style.posHeight
+	g_origW=sld.style.posWidth
+	g_scaleHyperlinks=(document.all.tags("AREA").length>0)
+	if( g_scaleHyperlinks )
+		InitHLinkArray()
+	if( g_scaleInFrame||(IsWin("PPTSld") && parent.IsFullScrMode() ) )
+		document.body.scroll="no"
+	_RSW()
+	if( IsWin("PPTSld") && parent.IsFullScrMode() )
+		FullScrInit();
+	
+	MakeSldVis();
+	
+	if( runAnimations )
+	{
+		if( document.all("NSPlay") )
+			document.all("NSPlay").autoStart = false;
+
+		if( sld.filters && sld.filters.revealtrans )
+			setTimeout( "document.body.start()", sld.filters.revealtrans.duration * 1000 );
+		else
+			document.body.start();
+	}
+}
+
+function MakeSldVis() 
+{
+	var fTrans=g_showAnimation && SldHasTrans()
+	if( fTrans )	
+	{
+		if( g_bgSound ) {
+			idx=g_bgSound.indexOf(",");
+			pptSound.src=g_bgSound.substr( 0, idx );
+			pptSound.loop= -(parseInt(g_bgSound.substr(idx+1)));
+		}
+		SlideObj.filters.revealtrans.Apply()	
+    }
+	SlideObj.style.visibility="visible"
+	if( fTrans )
+		SlideObj.filters.revealtrans.Play()
+}
+function MakeNotesVis() 
+{
+	if( !IsNts() ) return false 
+	SlideObj.style.display="none"
+	nObj = document.all.item("NotesObj")
+	parent.SetHasNts(0)
+	if( nObj ) { 
+		nObj.style.display=""
+		parent.SetHasNts(1)
+	}
+	return 1
+}
+function ChkAutoAdv()
+{
+	if(SldHasTrans())
+		SlideObj.onfilterchange=AutoAdv
+	else
+		AutoAdv()
+}
+function AutoAdv()
+{
+	if(!IsWin("PPTSld") || !gUseSldTimings )return
+	var sld=GetCurSld()
+	if( (sld.mAdvDelay>0) && !parent.IsFramesMode() )
+		setTimeout("parent.GoToNextSld()",sld.mAdvDelay)
+}
+function GetObj(id)
+{
+	if(g_supportsPPTHTML) return document.all(id);
+	else return document.getElementById(id);
+}
+function SldHasTrans() { return SlideObj.style.filter != ""; }
+function GetSldId() { return sId=location.href.substring(location.href.lastIndexOf('/')+1) }
+function HideMenu() { if( frames["PPTSld"] && PPTSld.document.all.item("ctxtmenu") && PPTSld.ctxtmenu.style.display!="none" ) { PPTSld.ctxtmenu.style.display='none'; return true } return false }
+function IsWin( name ) { return window.name == name }
+function IsNts() { return IsWin("PPTNts") }
+function IsSldOrNts() { return( IsWin("PPTSld")||IsWin("PPTNts") ) }
+function SupportsPPTAnimation() { return( navigator.platform == "Win32" && navigator.appVersion.indexOf("Windows")>0 ) }
+function SupportsPPTHTML()
+{
+	var appVer=navigator.appVersion, msie=appVer.indexOf("MSIE "), ver=0
+	if( msie >= 0 )
+		ver=parseFloat( appVer.substring( msie+5, appVer.indexOf(";",msie) ) )
+	else
+		ver=parseInt(appVer)
+
+	return( ver >= 4 && msie >= 0 )
+}
+function _RSW()
+{
+	if( !g_supportsPPTHTML || IsNts() ||
+	  ( !g_scaleInFrame && (!IsWin("PPTSld") || !parent.IsFullScrMode()) ) )
+		return
+
+        var padding=0;
+        if( IsWin("PPTSld") && parent.IsFramesMode() ) padding=6
+
+	cltWidth=document.body.clientWidth-padding
+	cltHeight=document.body.clientHeight-padding
+	factor=(1.0*cltWidth)/g_origW
+	if( cltHeight < g_origH*factor )
+		factor=(1.0*cltHeight)/g_origH
+
+	newSize = g_origSz * factor
+	if( newSize < 1 ) newSize=1
+
+	s=SlideObj.style
+	s.fontSize=newSize+"px"
+	s.posWidth=g_origW*factor
+	s.posHeight=g_origH*factor
+	s.posLeft=(cltWidth-s.posWidth+padding)/2
+	s.posTop=(cltHeight-s.posHeight+padding)/2
+
+	if( g_scaleHyperlinks )
+		ScaleHyperlinks( factor )
+}
+function _InitAnimations()
+{
+	animRuntimeInstalled = ''+document.body.localTime != 'undefined';
+	isFullScreen = (window.name == "PPTSld") && !parent.IsFramesMode();
+	g_animUseRuntime = g_showAnimation && animRuntimeInstalled && !(isFullScreen && parent.IsSldVisited());
+	if( g_animUseRuntime ) {
+		collSeq = document.all.tags("seq");
+		if( collSeq != null ) {
+			for(ii=0;ii<collSeq.length;ii++) {
+				if( collSeq[ii].getAttribute( "p:nodeType" ) == "mainSeq" ) {
+					g_animMainSequence = collSeq[ii];
+					break;
+				}
+			}
+		}
+	
+		if( g_animItemsToHide && document.body.playAnimations != false ) {
+			for(jj = 0; jj < g_animItemsToHide.length; jj++) {
+				if( hideObj = GetObj(g_animItemsToHide[jj]) )
+					hideObj.runtimeStyle.visibility="hidden";
+			}
+		}
+
+		if( g_animInteractiveItems ){
+			for(jj = 0; jj < g_animInteractiveItems.length; jj++) {
+				if( triggerObj = GetObj(g_animInteractiveItems[jj]) )
+					triggerObj.runtimeStyle.cursor="hand";
+			}
+		}
+		
+		if( gUseSldTimings && ''+g_animSlideTime != 'undefined' ) {
+			adjustedTime = document.body.calculateAutoAdvanceTimes( g_animSlideTime, g_animEffectTimings );
+			if( IsWin("PPTSld") && adjustedTime != g_animSlideTime ) {
+			   var sld = GetCurSld();
+			   sld.mAdvDelay = adjustedTime * 1000;
+			}
+		}
+	}
+
+	return g_animUseRuntime;
+}
+
+var g_HLinkArray = new Array();
+ 
+function IMapAreaObj( areaObj, coords )
+{
+  this.areaObj = areaObj;
+  this.coords = coords;
+}
+
+function InitHLinkArray()
+{
+  var appVer = navigator.appVersion;
+  var msie = appVer.indexOf ( "MSIE " )
+  var ver = 0;
+  if ( msie >= 0 )
+    ver = parseInt ( appVer.substring( msie+5 ) );
+
+  linkNum = 0;
+
+  for (i=0; i<document.all.tags("AREA").length; i++) {
+    areaObj = document.all.tags("AREA").item(i);
+    if( ( areaObj.id != "pptxscale" ) || ( ver > 4 ) )
+      g_HLinkArray[linkNum++] = new IMapAreaObj( areaObj, ParseCoords( areaObj.coords ) );
+  }
+}
+
+function ScaleHyperlinks( factor )
+{   
+  for ( ii=0; ii< g_HLinkArray.length; ii++) {
+    coordsStr="";
+    imaObj = g_HLinkArray[ii];
+    for ( jj=0; jj < imaObj.coords.length-1; jj++ )
+  	  coordsStr += (imaObj.coords[jj]*factor) + ",";
+    coordsStr += (imaObj.coords[jj]*factor);
+    imaObj.areaObj.coords = coordsStr;
+  }
+}
+
+function ParseCoords( coordsStr )
+{
+  var numArray = new Array();
+  var i = curPos = commaPos = 0;
+
+  while ( ( commaPos = coordsStr.indexOf(",", curPos) ) != -1 ) { 
+    numArray[i++] = parseInt( coordsStr.substr( curPos, commaPos ) );
+    curPos = commaPos + 1;
+  }
+  numArray[i] = parseInt( coordsStr.substr( curPos ) );
+
+  return numArray;
+}
+
+
+
+var g_supportsPPTHTML = SupportsPPTHTML(), g_scaleInFrame = 1, gId="", g_bgSound="",
+    g_scaleHyperlinks = false, g_allowAdvOnClick = 1, g_showInBrowser = 0, gLoopCont = 0, gUseSldTimings = 1;
+var g_showAnimation = g_supportsPPTHTML && SupportsPPTAnimation() && g_showInBrowser;
+var g_animManager = null;
+var g_animUseRuntime = false;
+var g_animItemsToHide, g_animInteractiveItems, g_animSlideTime;
+var g_animMainSequence = null;
+
+//--></script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="2"/>
+ <o:rules v:ext="edit">
+  <o:r id="V:Rule8" type="connector" idref="#_x0000_s2086">
+   <o:proxy start="" idref="#_x0000_s2081" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2084" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule9" type="connector" idref="#_x0000_s2085">
+   <o:proxy start="" idref="#_x0000_s2080" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2084" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule10" type="connector" idref="#_x0000_s2101">
+   <o:proxy start="" idref="#_x0000_s2100" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2084" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule12" type="connector" idref="#_x0000_s2107">
+   <o:proxy start="" idref="#_x0000_s2084" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2106" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule13" type="connector" idref="#_x0000_s2127">
+   <o:proxy start="" idref="#_x0000_s2125" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2124" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule14" type="connector" idref="#_x0000_s2126">
+   <o:proxy start="" idref="#_x0000_s2123" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2125" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule15" type="connector" idref="#_x0000_s2130">
+   <o:proxy end="" idref="#_x0000_s2129" connectloc="1"/>
+  </o:r>
+ </o:rules>
+</o:shapelayout>
+</head>
+
+<body lang=ZH-CN style='margin:0px;background-color:#003399' onresize="_RSW()"
+onload="LoadSld()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:800px;height:600px;font-size:16px;background-color:#C2C2C2;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#003399,#ffffff,#463416,#e3e3ff,#3399ff,#33cccc,#00ffcc,#808000"
+ masterhref="master31.xml">
+ <v:background id="_x0000_s2049" o:bwmode="white" fillcolor="#c2c2c2">
+  <v:fill color2="#3cc [5]"/>
+ </v:background><![if !ppt]><p:shaperange href="master31.xml#_x0000_s35864"/><p:shaperange
+  href="master31.xml#_x0000_s35866"/><p:shaperange
+  href="master31.xml#_x0000_s35867"/><![if !vml]><img border=0
+ v:shapes="_x0000_s35867" src="master31_image002.jpg" style='position:absolute;
+ top:0%;left:0%;width:100.0%;height:100.0%'><![endif]><![endif]><v:shapetype
+  id="_x0000_t176" coordsize="21600,21600" o:spt="176" adj="2700" path="m@0,qx0@0l0@2qy@0,21600l@1,21600qx21600@2l21600@0qy@1,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="val #0"/>
+   <v:f eqn="sum width 0 #0"/>
+   <v:f eqn="sum height 0 #0"/>
+   <v:f eqn="prod @0 2929 10000"/>
+   <v:f eqn="sum width 0 @3"/>
+   <v:f eqn="sum height 0 @3"/>
+   <v:f eqn="val width"/>
+   <v:f eqn="val height"/>
+   <v:f eqn="prod width 1 2"/>
+   <v:f eqn="prod height 1 2"/>
+  </v:formulas>
+  <v:path gradientshapeok="t" limo="10800,10800" o:connecttype="custom"
+   o:connectlocs="@8,0;0,@9;@8,@7;@6,@9" textboxrect="@3,@3,@4,@5"/>
+ </v:shapetype><v:shape id="_x0000_s2080" type="#_x0000_t176" style='position:absolute;
+  left:76.5pt;top:116.875pt;width:119pt;height:62.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#39f [4]" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2081" type="#_x0000_t176" style='position:absolute;
+  left:76.5pt;top:213.25pt;width:119.125pt;height:62.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#39f [4]" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2084" type="#_x0000_t176" style='position:absolute;
+  left:269.25pt;top:202pt;width:113.375pt;height:85pt;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#39f [4]" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shapetype id="_x0000_t34" coordsize="21600,21600" o:spt="34"
+  o:oned="t" adj="10800" path="m,l@0,0@0,21600,21600,21600e" filled="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="val #0"/>
+  </v:formulas>
+  <v:path arrowok="t" fillok="f" o:connecttype="none"/>
+  <v:handles>
+   <v:h position="#0,center"/>
+  </v:handles>
+  <o:lock v:ext="edit" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s2085" type="#_x0000_t34" style='position:absolute;
+  left:195.5pt;top:148.125pt;width:73.75pt;height:96.375pt' o:connectortype="elbow"
+  adj=",-31938,-62237" strokecolor="white [1]" strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shapetype id="_x0000_t32" coordsize="21600,21600" o:spt="32"
+  o:oned="t" path="m,l21600,21600e" filled="f">
+  <v:path arrowok="t" fillok="f" o:connecttype="none"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s2086" type="#_x0000_t32" style='position:absolute;
+  left:195.625pt;top:244.5pt;width:73.625pt;height:0' o:connectortype="elbow"
+  adj="-62380,-1,-62380" strokecolor="white [1]" strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2088" type="#_x0000_t176" style='position:absolute;
+  left:297.5pt;top:428.75pt;width:96.5pt;height:33.875pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#c2c2c2"
+  strokecolor="#3cc [5]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:rect id="_x0000_s2098" href="http://www.taonew.com/"
+  target="_parent" style='position:absolute;left:496.125pt;top:491.125pt;
+  width:215.5pt;height:39.625pt;mso-wrap-style:none;v-text-anchor:middle'
+  filled="f" fillcolor="#39f [4]" stroked="f" strokecolor="#0fc [6]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]" opacity=".5" offset="6pt,6pt"/>
+ </v:rect><v:shape id="_x0000_s2100" type="#_x0000_t176" style='position:absolute;
+  left:76.5pt;top:309.625pt;width:119.125pt;height:68pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#39f [4]"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2101" type="#_x0000_t34" style='position:absolute;
+  left:195.625pt;top:244.5pt;width:73.625pt;height:99.125pt;flip:y'
+  o:connectortype="elbow" adj="10782,73652,-57392" strokecolor="white [1]"
+  strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:rect id="_x0000_s2104" style='position:absolute;left:99.125pt;
+  top:440.125pt;width:73.75pt;height:22.625pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#39f [4]" strokecolor="#6f3">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]" opacity=".5" offset="6pt,6pt"/>
+ </v:rect><v:shape id="_x0000_s2105" type="#_x0000_t176" style='position:absolute;
+  left:513pt;top:428.75pt;width:96.5pt;height:33.875pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#c2c2c2"
+  strokecolor="#3cc [5]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2106" type="#_x0000_t176" style='position:absolute;
+  left:456.375pt;top:167.875pt;width:158.75pt;height:153.125pt;
+  mso-wrap-style:none;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+  mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+  mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+  mso-position-vertical:absolute;mso-position-vertical-relative:text;
+  v-text-anchor:middle' fillcolor="#0c6" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2107" type="#_x0000_t32" style='position:absolute;
+  left:382.625pt;top:244.5pt;width:73.75pt;height:0' o:connectortype="elbow"
+  adj="-112064,-1,-112064" strokecolor="white [1]" strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2112" type="#_x0000_t176" style='position:absolute;
+  left:479pt;top:213.25pt;width:119.125pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2113" type="#_x0000_t176" style='position:absolute;
+  left:479pt;top:281.25pt;width:119.125pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2114" type="#_x0000_t176" style='position:absolute;
+  left:479pt;top:179.25pt;width:119.125pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2115" type="#_x0000_t176" style='position:absolute;
+  left:479pt;top:247.25pt;width:119.125pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2118" type="#_x0000_t176" style='position:absolute;
+  left:405.25pt;top:428.75pt;width:96.5pt;height:33.875pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#c2c2c2"
+  strokecolor="#3cc [5]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2119" type="#_x0000_t176" style='position:absolute;
+  left:275pt;top:207.5pt;width:96.375pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2120" type="#_x0000_t176" style='position:absolute;
+  left:269.25pt;top:252.875pt;width:107.75pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:rect id="_x0000_s2122" style='position:absolute;left:275pt;top:14.875pt;
+  width:425.25pt;height:45.375pt;mso-wrap-style:none;v-text-anchor:middle'
+  filled="f" fillcolor="#39f [4]" strokecolor="#c2c2c2">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:rect><v:shape id="_x0000_s2123" type="#_x0000_t176"
+  href="../jxc_jhgl.htm" target="_parent" style='position:absolute;left:280.875pt;
+  top:20.5pt;width:90.625pt;height:34pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#c2c2c2"
+  stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2124"
+  type="#_x0000_t176" href="../jxc_chgl.htm" target="_parent" style='position:absolute;
+  left:496.125pt;top:20.5pt;width:90.625pt;height:34pt;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#c2c2c2" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2125"
+  type="#_x0000_t176" style='position:absolute;left:388.375pt;top:20.5pt;
+  width:90.625pt;height:34pt;mso-wrap-style:none;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#39f [4]"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2126" type="#_x0000_t32" style='position:absolute;
+  left:371.5pt;top:37.5pt;width:16.875pt;height:0' o:connectortype="elbow"
+  adj="-475520,-1,-475520" strokecolor="#e3e3ff [3]" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2127" type="#_x0000_t32" style='position:absolute;
+  left:479pt;top:37.5pt;width:17.125pt;height:0;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' o:connectortype="elbow"
+  adj="-604169,-1,-604169" strokecolor="#e3e3ff [3]" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shapetype id="_x0000_t136" coordsize="21600,21600" o:spt="136"
+  adj="10800" path="m@7,l@8,m@5,21600l@6,21600e">
+  <v:formulas>
+   <v:f eqn="sum #0 0 10800"/>
+   <v:f eqn="prod #0 2 1"/>
+   <v:f eqn="sum 21600 0 @1"/>
+   <v:f eqn="sum 0 0 @2"/>
+   <v:f eqn="sum 21600 0 @3"/>
+   <v:f eqn="if @0 @3 0"/>
+   <v:f eqn="if @0 21600 @1"/>
+   <v:f eqn="if @0 0 @2"/>
+   <v:f eqn="if @0 @4 21600"/>
+   <v:f eqn="mid @5 @6"/>
+   <v:f eqn="mid @8 @5"/>
+   <v:f eqn="mid @7 @8"/>
+   <v:f eqn="mid @6 @7"/>
+   <v:f eqn="sum @6 0 @5"/>
+  </v:formulas>
+  <v:path textpathok="t" o:connecttype="custom" o:connectlocs="@9,0;@10,10800;@11,21600;@12,10800"
+   o:connectangles="270,180,90,0"/>
+  <v:textpath on="t" fitshape="t"/>
+  <v:handles>
+   <v:h position="#0,bottomRight" xrange="6629,14971"/>
+  </v:handles>
+  <o:lock v:ext="edit" text="t" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s2128" type="#_x0000_t136" style='position:absolute;
+  left:14.125pt;top:14.875pt;width:204.125pt;height:34pt;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' fillcolor="yellow">
+  <v:fill opacity="64881f" o:detectmouseclick="t"/>
+  <v:shadow color="#868686"/>
+  <o:extrusion v:ext="view" backdepth="10pt" color="#630" on="t" viewpoint=",0"
+   viewpointorigin=",0" skewangle="180" brightness="4000f" lightposition="-50000"
+   lightlevel="52000f" lightposition2="50000" lightlevel2="14000f"
+   lightharsh2="t"/>
+  <v:textpath style='font-family:"宋体";v-text-kern:t' trim="t" fitpath="t"
+   string="企业通进销存系统"/>
+ </v:shape><v:shape id="_x0000_s2129" type="#_x0000_t176"
+  href="../jxc_xtgl.htm" target="_parent" style='position:absolute;left:603.875pt;
+  top:20.5pt;width:90.625pt;height:34pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#c2c2c2"
+  stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2130"
+  type="#_x0000_t32" style='position:absolute;left:586.75pt;top:37.5pt;width:17.125pt;
+  height:0;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' o:connectortype="elbow"
+  adj="-604169,-1,-604169" strokecolor="#e3e3ff [3]" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:rect id="_x0000_s2131" href="../jxc_home.htm" target="_parent"
+  style='position:absolute;left:0;top:0;width:246.625pt;height:54.5pt;
+  mso-wrap-style:none;v-text-anchor:middle' filled="f" fillcolor="#39f [4]"
+  stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><![if !vml]><map
+ name="map_s83"><area href="../jxc_home.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 0, 274, 61"><area href="../jxc_xtgl.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="676, 23, 671, 28, 671, 56, 676, 61, 767, 61, 772, 56, 772, 28, 767, 23, 676, 23"><area
+ href="../jxc_chgl.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="556, 23, 553, 25, 551, 28, 551, 56, 553, 59, 556, 61, 647, 61, 652, 56, 652, 28, 647, 23, 556, 23"><area
+ href="../jxc_jhgl.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="317, 23, 314, 25, 312, 28, 312, 56, 314, 59, 317, 61, 408, 61, 413, 56, 413, 28, 408, 23, 317, 23"><area
+ href="http://www.taonew.com/" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="551, 546, 791, 590"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2080,_x0000_s2081,_x0000_s2084,_x0000_s2085,_x0000_s2086,_x0000_s2088,_x0000_s2098,_x0000_s2100,_x0000_s2101,_x0000_s2104,_x0000_s2105,_x0000_s2106,_x0000_s2107,_x0000_s2118,_x0000_s2122,_x0000_s2123,_x0000_s2124,_x0000_s2125,_x0000_s2126,_x0000_s2127,_x0000_s2128,_x0000_s2129,_x0000_s2130,_x0000_s2131"
+ src="slide0001_image002.gif" usemap="#map_s83" style='position:absolute;
+ top:0%;left:0%;width:99.12%;height:98.66%'><![endif]>
+ <div v:shape="_x0000_s2080" class=O style='text-align:center;position:absolute;
+ top:26.0%;left:12.0%;width:14.0%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>销售出货</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US;mso-special-format:
+ lastCR;display:none'>&#13;</span></div>
+ <div v:shape="_x0000_s2081" class=O style='text-align:center;position:absolute;
+ top:43.83%;left:12.0%;width:14.0%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>销售退货</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US;mso-special-format:
+ lastCR;display:none'>&#13;</span></div>
+ <div v:shape="_x0000_s2084" class=O style='text-align:center'><span
+ style='position:absolute;top:43.83%;left:38.87%;width:13.0%;height:3.5%'><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;color:#00FFCC;
+ mso-color-index:6;mso-ansi-language:EN-US;mso-special-format:lastCR;
+ display:none'>&#13;</span></span></div>
+ <div v:shape="_x0000_s2088" class=O style='text-align:center;position:absolute;
+ top:81.16%;left:42.0%;width:12.12%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>客户档案</span></div>
+ <div v:shape="_x0000_s2098" class=O
+ onclick="parent.location.href='http://www.taonew.com/';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:93.0%;left:68.75%;width:30.25%;
+ height:3.83%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:楷体_GB2312;mso-fareast-font-family:
+ 楷体_GB2312;font-size:111%;color:#00FFCC;mso-color-index:6;mso-ansi-language:
+ EN-US'><b>企业通管理软件系列</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2100" class=O style='text-align:center;position:absolute;
+ top:62.16%;left:12.0%;width:13.87%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>冲销货单</span></div>
+ <div v:shape="_x0000_s2104" class=O style='text-align:center;position:absolute;
+ top:82.5%;left:14.24%;width:9.5%;height:2.66%'><span lang=ZH-CN
+ style='font-family:楷体_GB2312;mso-fareast-font-family:楷体_GB2312;font-size:78%;
+ color:#00CC66;mso-ansi-language:EN-US'>系统帮助</span></div>
+ <div v:shape="_x0000_s2105" class=O style='text-align:center;position:absolute;
+ top:81.16%;left:70.5%;width:15.12%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>业务员档案</span></div>
+ <div v:shape="_x0000_s2106" class=O>
+ <div style='text-align:center;mso-line-spacing:"150 0 0";position:absolute;
+ top:41.5%;left:65.12%;width:18.62%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US;
+ display:none'>&#13;</span></div>
+ <div style='text-align:center;mso-line-spacing:"150 0 0";position:absolute;
+ top:47.5%;left:65.12%;width:18.62%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s2112" class=O style='text-align:center;position:absolute;
+ top:40.66%;left:62.74%;width:24.12%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>客户收款汇总报表</span></div>
+ <div v:shape="_x0000_s2113" class=O style='text-align:center;position:absolute;
+ top:53.33%;left:62.74%;width:24.12%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>出货单退货单报表</span></div>
+ <div v:shape="_x0000_s2114" class=O style='text-align:center;position:absolute;
+ top:34.33%;left:62.74%;width:24.12%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>客户销售排行报表</span></div>
+ <div v:shape="_x0000_s2115" class=O style='text-align:center;position:absolute;
+ top:47.0%;left:62.74%;width:24.12%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>商品销售排行报表</span></div>
+ <div v:shape="_x0000_s2118" class=O style='text-align:center;position:absolute;
+ top:81.16%;left:56.99%;width:12.12%;height:3.5%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>商品档案</span></div>
+ <div v:shape="_x0000_s2119" class=O style='text-align:center;position:absolute;
+ top:39.33%;left:39.25%;width:11.25%;height:3.83%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>收</span><span
+ lang=ZH-CN style='mso-ansi-language:EN-US'><span
+ style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>款</span></div>
+ <div v:shape="_x0000_s2120" class=O style='text-align:center;position:absolute;
+ top:47.66%;left:38.5%;width:12.87%;height:3.83%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>退</span><span
+ lang=ZH-CN style='mso-ansi-language:EN-US'><span
+ style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>款</span></div>
+ <div v:shape="_x0000_s2123" class=O
+ onclick="parent.location.href='../jxc_jhgl.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:5.83%;left:40.12%;width:10.37%;
+ height:2.66%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;mso-ansi-language:EN-US'>进货管理</span></div>
+ </div>
+ <div v:shape="_x0000_s2124" class=O
+ onclick="parent.location.href='../jxc_chgl.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:5.83%;left:70.0%;width:10.37%;
+ height:2.66%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;mso-ansi-language:EN-US'>存货管理</span></div>
+ </div>
+ <div v:shape="_x0000_s2125" class=O style='text-align:center;position:absolute;
+ top:5.83%;left:55.12%;width:10.37%;height:2.66%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;mso-ansi-language:
+ EN-US'>销货管理</span></div>
+ <div v:shape="_x0000_s2129" class=O
+ onclick="parent.location.href='../jxc_xtgl.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:5.83%;left:85.0%;width:10.37%;
+ height:2.66%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;mso-ansi-language:EN-US'>系统管理</span></div>
+ </div>
+</p:slide></div>
+
+</body>
+
+</html>

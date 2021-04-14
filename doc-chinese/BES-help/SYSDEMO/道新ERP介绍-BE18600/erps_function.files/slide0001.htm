@@ -1,0 +1,428 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 11">
+<link id=Main-File rel=Main-File href="../erps_function.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>幻灯片 1</title>
+<meta name=Description content=2009-5-14>
+<link rel=Stylesheet href="master30_stylesheet.css">
+<![if !ppt]>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:72% !important;}
+-->
+</style>
+<script><!--
+function LoadSld()
+{
+	var sld=GetObj("SlideObj")
+	if( !g_supportsPPTHTML ) {		
+		sld.style.visibility="visible"
+		return
+	}
+
+	if( MakeNotesVis() ) return
+
+	runAnimations = _InitAnimations();
+	
+	if( IsWin("PPTSld") )
+		parent.SldUpdated(GetSldId())
+	g_origSz=parseInt(SlideObj.style.fontSize)
+	g_origH=sld.style.posHeight
+	g_origW=sld.style.posWidth
+	g_scaleHyperlinks=(document.all.tags("AREA").length>0)
+	if( g_scaleHyperlinks )
+		InitHLinkArray()
+	if( g_scaleInFrame||(IsWin("PPTSld") && parent.IsFullScrMode() ) )
+		document.body.scroll="no"
+	_RSW()
+	if( IsWin("PPTSld") && parent.IsFullScrMode() )
+		FullScrInit();
+	
+	MakeSldVis();
+	
+	if( runAnimations )
+	{
+		if( document.all("NSPlay") )
+			document.all("NSPlay").autoStart = false;
+
+		if( sld.filters && sld.filters.revealtrans )
+			setTimeout( "document.body.start()", sld.filters.revealtrans.duration * 1000 );
+		else
+			document.body.start();
+	}
+}
+
+function MakeSldVis() 
+{
+	var fTrans=g_showAnimation && SldHasTrans()
+	if( fTrans )	
+	{
+		if( g_bgSound ) {
+			idx=g_bgSound.indexOf(",");
+			pptSound.src=g_bgSound.substr( 0, idx );
+			pptSound.loop= -(parseInt(g_bgSound.substr(idx+1)));
+		}
+		SlideObj.filters.revealtrans.Apply()	
+    }
+	SlideObj.style.visibility="visible"
+	if( fTrans )
+		SlideObj.filters.revealtrans.Play()
+}
+function MakeNotesVis() 
+{
+	if( !IsNts() ) return false 
+	SlideObj.style.display="none"
+	nObj = document.all.item("NotesObj")
+	parent.SetHasNts(0)
+	if( nObj ) { 
+		nObj.style.display=""
+		parent.SetHasNts(1)
+	}
+	return 1
+}
+function ChkAutoAdv()
+{
+	if(SldHasTrans())
+		SlideObj.onfilterchange=AutoAdv
+	else
+		AutoAdv()
+}
+function AutoAdv()
+{
+	if(!IsWin("PPTSld") || !gUseSldTimings )return
+	var sld=GetCurSld()
+	if( (sld.mAdvDelay>0) && !parent.IsFramesMode() )
+		setTimeout("parent.GoToNextSld()",sld.mAdvDelay)
+}
+function GetObj(id)
+{
+	if(g_supportsPPTHTML) return document.all(id);
+	else return document.getElementById(id);
+}
+function SldHasTrans() { return SlideObj.style.filter != ""; }
+function GetSldId() { return sId=location.href.substring(location.href.lastIndexOf('/')+1) }
+function HideMenu() { if( frames["PPTSld"] && PPTSld.document.all.item("ctxtmenu") && PPTSld.ctxtmenu.style.display!="none" ) { PPTSld.ctxtmenu.style.display='none'; return true } return false }
+function IsWin( name ) { return window.name == name }
+function IsNts() { return IsWin("PPTNts") }
+function IsSldOrNts() { return( IsWin("PPTSld")||IsWin("PPTNts") ) }
+function SupportsPPTAnimation() { return( navigator.platform == "Win32" && navigator.appVersion.indexOf("Windows")>0 ) }
+function SupportsPPTHTML()
+{
+	var appVer=navigator.appVersion, msie=appVer.indexOf("MSIE "), ver=0
+	if( msie >= 0 )
+		ver=parseFloat( appVer.substring( msie+5, appVer.indexOf(";",msie) ) )
+	else
+		ver=parseInt(appVer)
+
+	return( ver >= 4 && msie >= 0 )
+}
+function _RSW()
+{
+	if( !g_supportsPPTHTML || IsNts() ||
+	  ( !g_scaleInFrame && (!IsWin("PPTSld") || !parent.IsFullScrMode()) ) )
+		return
+
+        var padding=0;
+        if( IsWin("PPTSld") && parent.IsFramesMode() ) padding=6
+
+	cltWidth=document.body.clientWidth-padding
+	cltHeight=document.body.clientHeight-padding
+	factor=(1.0*cltWidth)/g_origW
+	if( cltHeight < g_origH*factor )
+		factor=(1.0*cltHeight)/g_origH
+
+	newSize = g_origSz * factor
+	if( newSize < 1 ) newSize=1
+
+	s=SlideObj.style
+	s.fontSize=newSize+"px"
+	s.posWidth=g_origW*factor
+	s.posHeight=g_origH*factor
+	s.posLeft=(cltWidth-s.posWidth+padding)/2
+	s.posTop=(cltHeight-s.posHeight+padding)/2
+
+	if( g_scaleHyperlinks )
+		ScaleHyperlinks( factor )
+}
+function _InitAnimations()
+{
+	animRuntimeInstalled = ''+document.body.localTime != 'undefined';
+	isFullScreen = (window.name == "PPTSld") && !parent.IsFramesMode();
+	g_animUseRuntime = g_showAnimation && animRuntimeInstalled && !(isFullScreen && parent.IsSldVisited());
+	if( g_animUseRuntime ) {
+		collSeq = document.all.tags("seq");
+		if( collSeq != null ) {
+			for(ii=0;ii<collSeq.length;ii++) {
+				if( collSeq[ii].getAttribute( "p:nodeType" ) == "mainSeq" ) {
+					g_animMainSequence = collSeq[ii];
+					break;
+				}
+			}
+		}
+	
+		if( g_animItemsToHide && document.body.playAnimations != false ) {
+			for(jj = 0; jj < g_animItemsToHide.length; jj++) {
+				if( hideObj = GetObj(g_animItemsToHide[jj]) )
+					hideObj.runtimeStyle.visibility="hidden";
+			}
+		}
+
+		if( g_animInteractiveItems ){
+			for(jj = 0; jj < g_animInteractiveItems.length; jj++) {
+				if( triggerObj = GetObj(g_animInteractiveItems[jj]) )
+					triggerObj.runtimeStyle.cursor="hand";
+			}
+		}
+		
+		if( gUseSldTimings && ''+g_animSlideTime != 'undefined' ) {
+			adjustedTime = document.body.calculateAutoAdvanceTimes( g_animSlideTime, g_animEffectTimings );
+			if( IsWin("PPTSld") && adjustedTime != g_animSlideTime ) {
+			   var sld = GetCurSld();
+			   sld.mAdvDelay = adjustedTime * 1000;
+			}
+		}
+	}
+
+	return g_animUseRuntime;
+}
+
+var g_HLinkArray = new Array();
+ 
+function IMapAreaObj( areaObj, coords )
+{
+  this.areaObj = areaObj;
+  this.coords = coords;
+}
+
+function InitHLinkArray()
+{
+  var appVer = navigator.appVersion;
+  var msie = appVer.indexOf ( "MSIE " )
+  var ver = 0;
+  if ( msie >= 0 )
+    ver = parseInt ( appVer.substring( msie+5 ) );
+
+  linkNum = 0;
+
+  for (i=0; i<document.all.tags("AREA").length; i++) {
+    areaObj = document.all.tags("AREA").item(i);
+    if( ( areaObj.id != "pptxscale" ) || ( ver > 4 ) )
+      g_HLinkArray[linkNum++] = new IMapAreaObj( areaObj, ParseCoords( areaObj.coords ) );
+  }
+}
+
+function ScaleHyperlinks( factor )
+{   
+  for ( ii=0; ii< g_HLinkArray.length; ii++) {
+    coordsStr="";
+    imaObj = g_HLinkArray[ii];
+    for ( jj=0; jj < imaObj.coords.length-1; jj++ )
+  	  coordsStr += (imaObj.coords[jj]*factor) + ",";
+    coordsStr += (imaObj.coords[jj]*factor);
+    imaObj.areaObj.coords = coordsStr;
+  }
+}
+
+function ParseCoords( coordsStr )
+{
+  var numArray = new Array();
+  var i = curPos = commaPos = 0;
+
+  while ( ( commaPos = coordsStr.indexOf(",", curPos) ) != -1 ) { 
+    numArray[i++] = parseInt( coordsStr.substr( curPos, commaPos ) );
+    curPos = commaPos + 1;
+  }
+  numArray[i] = parseInt( coordsStr.substr( curPos ) );
+
+  return numArray;
+}
+
+
+
+var g_supportsPPTHTML = SupportsPPTHTML(), g_scaleInFrame = 1, gId="", g_bgSound="",
+    g_scaleHyperlinks = false, g_allowAdvOnClick = 1, g_showInBrowser = 0, gLoopCont = 0, gUseSldTimings = 1;
+var g_showAnimation = g_supportsPPTHTML && SupportsPPTAnimation() && g_showInBrowser;
+var g_animManager = null;
+var g_animUseRuntime = false;
+var g_animItemsToHide, g_animInteractiveItems, g_animSlideTime;
+var g_animMainSequence = null;
+
+//--></script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="2"/>
+</o:shapelayout>
+</head>
+
+<body lang=ZH-CN style='margin:0px;background-color:#003399' onresize="_RSW()"
+onload="LoadSld()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:800px;height:600px;font-size:16px;background-color:white;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#003399,#ffffff,#463416,#e3e3ff,#3399ff,#33cccc,#00ffcc,#808000"
+ masterhref="master31.xml">
+ <p:shaperange href="master31.xml#_x0000_s35841"/><![if !ppt]><p:shaperange
+  href="master31.xml#_x0000_s35867"/><![if !vml]><img border=0
+ v:shapes="_x0000_s35867" src="master31_image002.jpg" style='position:absolute;
+ top:0%;left:0%;width:100.0%;height:100.0%'><![endif]><![endif]><v:oval id="_x0000_s2065"
+  href="../erps_flat.htm" target="_parent" style='position:absolute;left:263.5pt;
+  top:185pt;width:198.5pt;height:124.75pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#39f [4]"
+  stroked="f" strokecolor="olive [7]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="lineOrFill darken(153)" color2="shadow add(102)"
+   offset="-1pt,-1pt"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:oval><![if !vml]><map
+ name="map_s17"><area href="../erps_flat.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="111, 2, 50, 2, 1, 33, 1, 71, 1, 109, 50, 140, 111, 140, 172, 140, 221, 109, 221, 71, 221, 33, 172, 2, 111, 2, 111, 2"></map><![endif]><![if !vml]><img
+ border=0 v:shapes="_x0000_s2065" src="slide0001_image004.gif" usemap="#map_s17"
+ style='position:absolute;top:34.0%;left:36.5%;width:28.12%;height:23.83%'><![endif]>
+ <div v:shape="_x0000_s2065" class=O
+ onclick="parent.location.href='../erps_flat.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:43.83%;left:41.37%;width:18.12%;
+ height:4.66%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:楷体_GB2312;mso-fareast-font-family:
+ 楷体_GB2312;font-size:133%;color:yellow;mso-ansi-language:EN-US'>系统平台</span></div>
+ </div>
+ <v:shapetype id="_x0000_t136" coordsize="21600,21600" o:spt="136" adj="10800"
+  path="m@7,l@8,m@5,21600l@6,21600e">
+  <v:formulas>
+   <v:f eqn="sum #0 0 10800"/>
+   <v:f eqn="prod #0 2 1"/>
+   <v:f eqn="sum 21600 0 @1"/>
+   <v:f eqn="sum 0 0 @2"/>
+   <v:f eqn="sum 21600 0 @3"/>
+   <v:f eqn="if @0 @3 0"/>
+   <v:f eqn="if @0 21600 @1"/>
+   <v:f eqn="if @0 0 @2"/>
+   <v:f eqn="if @0 @4 21600"/>
+   <v:f eqn="mid @5 @6"/>
+   <v:f eqn="mid @8 @5"/>
+   <v:f eqn="mid @7 @8"/>
+   <v:f eqn="mid @6 @7"/>
+   <v:f eqn="sum @6 0 @5"/>
+  </v:formulas>
+  <v:path textpathok="t" o:connecttype="custom" o:connectlocs="@9,0;@10,10800;@11,21600;@12,10800"
+   o:connectangles="270,180,90,0"/>
+  <v:textpath on="t" fitshape="t"/>
+  <v:handles>
+   <v:h position="#0,bottomRight" xrange="6629,14971"/>
+  </v:handles>
+  <o:lock v:ext="edit" text="t" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s2055" type="#_x0000_t136" style='position:absolute;
+  left:8.5pt;top:9.125pt;width:209.75pt;height:28.375pt' adj="10803,5400"
+  fillcolor="#0fc [6]">
+  <v:fill opacity="64881f"/>
+  <v:shadow color="#868686"/>
+  <o:extrusion v:ext="view" backdepth="10pt" color="#630" on="t" viewpoint=",0"
+   viewpointorigin=",0" skewangle="180" brightness="4000f" lightposition="-50000"
+   lightlevel="52000f" lightposition2="50000" lightlevel2="14000f"
+   lightharsh2="t"/>
+  <v:textpath style='font-family:"GungsuhChe";v-text-kern:t' trim="t"
+   fitpath="t" string="ERP System OF TaoNewSoft - function &#13;&#10;"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2055"
+ src="slide0001_image007.gif" alt="ERP System OF TaoNewSoft - function &#13;&#10;"
+ style='position:absolute;top:1.66%;left:1.12%;width:29.25%;height:5.5%'><![endif]><v:rect
+  id="_x0000_s2061" href="../default.htm" target="_parent" style='position:absolute;
+  left:189.875pt;top:162.25pt;width:124.75pt;height:39.625pt;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#39f [4]" strokecolor="olive [7]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]" opacity=".5" offset="6pt,6pt"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><v:rect id="_x0000_s2062"
+  href="../erps_finance.htm" target="_parent" style='position:absolute;left:405.25pt;
+  top:162.25pt;width:124.75pt;height:39.625pt;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#39f [4]" strokecolor="olive [7]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]" opacity=".5" offset="6pt,6pt"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><![if !vml]><map
+ name="map_s14"><area href="../erps_finance.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="239, 0, 378, 44"><area href="../default.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 0, 139, 44"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2061,_x0000_s2062" src="slide0001_image008.gif"
+ usemap="#map_s14" style='position:absolute;top:30.0%;left:26.37%;width:48.37%;
+ height:8.83%'><![endif]>
+ <div v:shape="_x0000_s2061" class=O
+ onclick="parent.location.href='../default.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:31.83%;left:27.0%;width:16.12%;
+ height:4.66%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:楷体_GB2312;mso-fareast-font-family:
+ 楷体_GB2312;font-size:133%;color:yellow;mso-ansi-language:EN-US'>物流系统</span></div>
+ </div>
+ <div v:shape="_x0000_s2062" class=O
+ onclick="parent.location.href='../erps_finance.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:31.83%;left:56.99%;width:16.12%;
+ height:4.66%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:楷体_GB2312;mso-fareast-font-family:
+ 楷体_GB2312;font-size:133%;color:yellow;mso-ansi-language:EN-US'>财务系统</span></div>
+ </div>
+ <v:rect id="_x0000_s2063" href="../hrhome.mht" target="_parent" style='position:absolute;
+  left:189.875pt;top:292.625pt;width:124.75pt;height:39.625pt;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="#39f [4]" strokecolor="olive [7]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]" opacity=".5" offset="6pt,6pt"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><v:rect id="_x0000_s2064"
+  href="../erps_oa.htm" target="_parent" style='position:absolute;left:405.25pt;
+  top:287pt;width:124.75pt;height:39.625pt;mso-wrap-style:none;v-text-anchor:middle'
+  fillcolor="#39f [4]" strokecolor="olive [7]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]" opacity=".5" offset="6pt,6pt"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><![if !vml]><map
+ name="map_s16"><area href="../erps_oa.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="239, 1, 378, 45"><area href="../hrhome.mht" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 7, 139, 51"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2063,_x0000_s2064" src="slide0001_image001.gif"
+ usemap="#map_s16" style='position:absolute;top:53.0%;left:26.37%;width:48.37%;
+ height:9.83%'><![endif]>
+ <div v:shape="_x0000_s2063" class=O
+ onclick="parent.location.href='../hrhome.mht';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:56.0%;left:27.0%;width:16.12%;
+ height:4.66%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:楷体_GB2312;mso-fareast-font-family:
+ 楷体_GB2312;font-size:133%;color:yellow;mso-ansi-language:EN-US'>人力系统</span></div>
+ </div>
+ <div v:shape="_x0000_s2064" class=O
+ onclick="parent.location.href='../erps_oa.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:54.83%;left:56.99%;width:16.12%;
+ height:4.66%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:楷体_GB2312;mso-fareast-font-family:
+ 楷体_GB2312;font-size:133%;color:yellow;mso-ansi-language:EN-US'>办公系统</span></div>
+ </div>
+</p:slide></div>
+
+</body>
+
+</html>

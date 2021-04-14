@@ -1,0 +1,573 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 11">
+<link id=Main-File rel=Main-File href="../gys_home.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>&#24187;&#28783;&#29255; 1</title>
+<meta name=Description content=2011-03-17>
+<link rel=Stylesheet href="master03_stylesheet.css">
+<![if !ppt]>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:103% !important;}
+-->
+</style>
+<script><!--
+function LoadSld()
+{
+	var sld=GetObj("SlideObj")
+	if( !g_supportsPPTHTML ) {		
+		sld.style.visibility="visible"
+		return
+	}
+
+	if( MakeNotesVis() ) return
+
+	runAnimations = _InitAnimations();
+	
+	if( IsWin("PPTSld") )
+		parent.SldUpdated(GetSldId())
+	g_origSz=parseInt(SlideObj.style.fontSize)
+	g_origH=sld.style.posHeight
+	g_origW=sld.style.posWidth
+	g_scaleHyperlinks=(document.all.tags("AREA").length>0)
+	if( g_scaleHyperlinks )
+		InitHLinkArray()
+	if( g_scaleInFrame||(IsWin("PPTSld") && parent.IsFullScrMode() ) )
+		document.body.scroll="no"
+	_RSW()
+	if( IsWin("PPTSld") && parent.IsFullScrMode() )
+		FullScrInit();
+	
+	MakeSldVis();
+	
+	if( runAnimations )
+	{
+		if( document.all("NSPlay") )
+			document.all("NSPlay").autoStart = false;
+
+		if( sld.filters && sld.filters.revealtrans )
+			setTimeout( "document.body.start()", sld.filters.revealtrans.duration * 1000 );
+		else
+			document.body.start();
+	}
+}
+
+function MakeSldVis() 
+{
+	var fTrans=g_showAnimation && SldHasTrans()
+	if( fTrans )	
+	{
+		if( g_bgSound ) {
+			idx=g_bgSound.indexOf(",");
+			pptSound.src=g_bgSound.substr( 0, idx );
+			pptSound.loop= -(parseInt(g_bgSound.substr(idx+1)));
+		}
+		SlideObj.filters.revealtrans.Apply()	
+    }
+	SlideObj.style.visibility="visible"
+	if( fTrans )
+		SlideObj.filters.revealtrans.Play()
+}
+function MakeNotesVis() 
+{
+	if( !IsNts() ) return false 
+	SlideObj.style.display="none"
+	nObj = document.all.item("NotesObj")
+	parent.SetHasNts(0)
+	if( nObj ) { 
+		nObj.style.display=""
+		parent.SetHasNts(1)
+	}
+	return 1
+}
+function ChkAutoAdv()
+{
+	if(SldHasTrans())
+		SlideObj.onfilterchange=AutoAdv
+	else
+		AutoAdv()
+}
+function AutoAdv()
+{
+	if(!IsWin("PPTSld") || !gUseSldTimings )return
+	var sld=GetCurSld()
+	if( (sld.mAdvDelay>0) && !parent.IsFramesMode() )
+		setTimeout("parent.GoToNextSld()",sld.mAdvDelay)
+}
+function GetObj(id)
+{
+	if(g_supportsPPTHTML) return document.all(id);
+	else return document.getElementById(id);
+}
+function SldHasTrans() { return SlideObj.style.filter != ""; }
+function GetSldId() { return sId=location.href.substring(location.href.lastIndexOf('/')+1) }
+function HideMenu() { if( frames["PPTSld"] && PPTSld.document.all.item("ctxtmenu") && PPTSld.ctxtmenu.style.display!="none" ) { PPTSld.ctxtmenu.style.display='none'; return true } return false }
+function IsWin( name ) { return window.name == name }
+function IsNts() { return IsWin("PPTNts") }
+function IsSldOrNts() { return( IsWin("PPTSld")||IsWin("PPTNts") ) }
+function SupportsPPTAnimation() { return( navigator.platform == "Win32" && navigator.appVersion.indexOf("Windows")>0 ) }
+function SupportsPPTHTML()
+{
+	var appVer=navigator.appVersion, msie=appVer.indexOf("MSIE "), ver=0
+	if( msie >= 0 )
+		ver=parseFloat( appVer.substring( msie+5, appVer.indexOf(";",msie) ) )
+	else
+		ver=parseInt(appVer)
+
+	return( ver >= 4 && msie >= 0 )
+}
+function _RSW()
+{
+	if( !g_supportsPPTHTML || IsNts() ||
+	  ( !g_scaleInFrame && (!IsWin("PPTSld") || !parent.IsFullScrMode()) ) )
+		return
+
+        var padding=0;
+        if( IsWin("PPTSld") && parent.IsFramesMode() ) padding=6
+
+	cltWidth=document.body.clientWidth-padding
+	cltHeight=document.body.clientHeight-padding
+	factor=(1.0*cltWidth)/g_origW
+	if( cltHeight < g_origH*factor )
+		factor=(1.0*cltHeight)/g_origH
+
+	newSize = g_origSz * factor
+	if( newSize < 1 ) newSize=1
+
+	s=SlideObj.style
+	s.fontSize=newSize+"px"
+	s.posWidth=g_origW*factor
+	s.posHeight=g_origH*factor
+	s.posLeft=(cltWidth-s.posWidth+padding)/2
+	s.posTop=(cltHeight-s.posHeight+padding)/2
+
+	if( g_scaleHyperlinks )
+		ScaleHyperlinks( factor )
+}
+function _InitAnimations()
+{
+	animRuntimeInstalled = ''+document.body.localTime != 'undefined';
+	isFullScreen = (window.name == "PPTSld") && !parent.IsFramesMode();
+	g_animUseRuntime = g_showAnimation && animRuntimeInstalled && !(isFullScreen && parent.IsSldVisited());
+	if( g_animUseRuntime ) {
+		collSeq = document.all.tags("seq");
+		if( collSeq != null ) {
+			for(ii=0;ii<collSeq.length;ii++) {
+				if( collSeq[ii].getAttribute( "p:nodeType" ) == "mainSeq" ) {
+					g_animMainSequence = collSeq[ii];
+					break;
+				}
+			}
+		}
+	
+		if( g_animItemsToHide && document.body.playAnimations != false ) {
+			for(jj = 0; jj < g_animItemsToHide.length; jj++) {
+				if( hideObj = GetObj(g_animItemsToHide[jj]) )
+					hideObj.runtimeStyle.visibility="hidden";
+			}
+		}
+
+		if( g_animInteractiveItems ){
+			for(jj = 0; jj < g_animInteractiveItems.length; jj++) {
+				if( triggerObj = GetObj(g_animInteractiveItems[jj]) )
+					triggerObj.runtimeStyle.cursor="hand";
+			}
+		}
+		
+		if( gUseSldTimings && ''+g_animSlideTime != 'undefined' ) {
+			adjustedTime = document.body.calculateAutoAdvanceTimes( g_animSlideTime, g_animEffectTimings );
+			if( IsWin("PPTSld") && adjustedTime != g_animSlideTime ) {
+			   var sld = GetCurSld();
+			   sld.mAdvDelay = adjustedTime * 1000;
+			}
+		}
+	}
+
+	return g_animUseRuntime;
+}
+
+var g_HLinkArray = new Array();
+ 
+function IMapAreaObj( areaObj, coords )
+{
+  this.areaObj = areaObj;
+  this.coords = coords;
+}
+
+function InitHLinkArray()
+{
+  var appVer = navigator.appVersion;
+  var msie = appVer.indexOf ( "MSIE " )
+  var ver = 0;
+  if ( msie >= 0 )
+    ver = parseInt ( appVer.substring( msie+5 ) );
+
+  linkNum = 0;
+
+  for (i=0; i<document.all.tags("AREA").length; i++) {
+    areaObj = document.all.tags("AREA").item(i);
+    if( ( areaObj.id != "pptxscale" ) || ( ver > 4 ) )
+      g_HLinkArray[linkNum++] = new IMapAreaObj( areaObj, ParseCoords( areaObj.coords ) );
+  }
+}
+
+function ScaleHyperlinks( factor )
+{   
+  for ( ii=0; ii< g_HLinkArray.length; ii++) {
+    coordsStr="";
+    imaObj = g_HLinkArray[ii];
+    for ( jj=0; jj < imaObj.coords.length-1; jj++ )
+  	  coordsStr += (imaObj.coords[jj]*factor) + ",";
+    coordsStr += (imaObj.coords[jj]*factor);
+    imaObj.areaObj.coords = coordsStr;
+  }
+}
+
+function ParseCoords( coordsStr )
+{
+  var numArray = new Array();
+  var i = curPos = commaPos = 0;
+
+  while ( ( commaPos = coordsStr.indexOf(",", curPos) ) != -1 ) { 
+    numArray[i++] = parseInt( coordsStr.substr( curPos, commaPos ) );
+    curPos = commaPos + 1;
+  }
+  numArray[i] = parseInt( coordsStr.substr( curPos ) );
+
+  return numArray;
+}
+
+
+
+var g_supportsPPTHTML = SupportsPPTHTML(), g_scaleInFrame = 1, gId="", g_bgSound="",
+    g_scaleHyperlinks = false, g_allowAdvOnClick = 1, g_showInBrowser = 0, gLoopCont = 0, gUseSldTimings = 1;
+var g_showAnimation = g_supportsPPTHTML && SupportsPPTAnimation() && g_showInBrowser;
+var g_animManager = null;
+var g_animUseRuntime = false;
+var g_animItemsToHide, g_animInteractiveItems, g_animSlideTime;
+var g_animMainSequence = null;
+
+//--></script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="2"/>
+</o:shapelayout>
+</head>
+
+<body lang=ZH-CN style='margin:0px;background-color:white' onresize="_RSW()"
+onload="LoadSld()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:554px;height:415px;font-size:16px;background-color:#E1FAFF;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#808080,#000000,#bbe0e3,#333399,#009999,#99cc00"
+ masterhref="master03.xml">
+ <p:shaperange href="master03.xml#_x0000_s1025"/><![if !vml]><img
+ src="master03_background.gif" v:shapes="_x0000_s1025" style='position:absolute;
+ top:0%;left:0%;width:100.0%;height:100.0%'><![endif]><![if !ppt]><p:shaperange
+  href="master03.xml#_x0000_s1028"/><p:shaperange
+  href="master03.xml#_x0000_s1029"/><![endif]><v:shapetype id="_x0000_t75"
+  coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+  filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="_x0000_s2052" type="#_x0000_t75" style='position:absolute;
+  left:552.75pt;top:410.75pt;width:167.25pt;height:129.25pt'>
+  <v:imagedata src="slide0001_image001.jpg" o:title="1"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2052"
+ src="slide0001_image002.jpg" style='position:absolute;top:76.14%;left:76.71%;
+ width:23.28%;height:23.85%'><![endif]><v:shapetype id="_x0000_t136"
+  coordsize="21600,21600" o:spt="136" adj="10800" path="m@7,l@8,m@5,21600l@6,21600e">
+  <v:formulas>
+   <v:f eqn="sum #0 0 10800"/>
+   <v:f eqn="prod #0 2 1"/>
+   <v:f eqn="sum 21600 0 @1"/>
+   <v:f eqn="sum 0 0 @2"/>
+   <v:f eqn="sum 21600 0 @3"/>
+   <v:f eqn="if @0 @3 0"/>
+   <v:f eqn="if @0 21600 @1"/>
+   <v:f eqn="if @0 0 @2"/>
+   <v:f eqn="if @0 @4 21600"/>
+   <v:f eqn="mid @5 @6"/>
+   <v:f eqn="mid @8 @5"/>
+   <v:f eqn="mid @7 @8"/>
+   <v:f eqn="mid @6 @7"/>
+   <v:f eqn="sum @6 0 @5"/>
+  </v:formulas>
+  <v:path textpathok="t" o:connecttype="custom" o:connectlocs="@9,0;@10,10800;@11,21600;@12,10800"
+   o:connectangles="270,180,90,0"/>
+  <v:textpath on="t" fitshape="t"/>
+  <v:handles>
+   <v:h position="#0,bottomRight" xrange="6629,14971"/>
+  </v:handles>
+  <o:lock v:ext="edit" text="t" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s2053" type="#_x0000_t136" style='position:absolute;
+  left:206.875pt;top:31.875pt;width:334.5pt;height:45.375pt;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' fillcolor="blue">
+  <v:shadow color="#868686"/>
+  <v:textpath style='font-family:"&#23435;&#20307;";font-weight:bold;
+   v-text-kern:t' trim="t" fitpath="t" string="&#28023;&#30410;(&#21414;&#38376;)&#20379;&#24212;&#38142;&#31649;&#29702;&#31995;&#32479;&#13;&#10;"/>
+ </v:shape><v:shape id="_x0000_s2054" type="#_x0000_t136" style='position:absolute;
+  left:240.875pt;top:88.625pt;width:221.125pt;height:39.625pt;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' fillcolor="#f90">
+  <v:shadow color="#868686"/>
+  <v:textpath style='font-family:"&#23435;&#20307;";v-text-kern:t' trim="t"
+   fitpath="t" string="&#20379;&#24212;&#21830;&#24179;&#21488;&#13;&#10;"/>
+ </v:shape><v:rect id="_x0000_s2055"
+  href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_ordermtexnew;pgname=&#26032;&#35746;&#21333;;"
+  target="_parent" style='position:absolute;left:212.625pt;top:145.375pt;
+  width:306.125pt;height:39.625pt;mso-wrap-style:none;v-text-anchor:middle'
+  fillcolor="#66f" strokecolor="black [1]">
+  <v:fill color2="fill darken(118)" rotate="t" o:detectmouseclick="t" method="linear sigma"
+   focus="100%" type="gradient"/>
+  <v:shadow color="gray [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><v:rect id="_x0000_s2056"
+  href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexchk1q;pgname=&#23545;&#24080;&#26597;&#35810;(&#37319;&#36141;&#37096;&#26410;&#30830;&#35748;);"
+  target="_parent" style='position:absolute;left:212.625pt;top:372.125pt;
+  width:306.125pt;height:39.625pt;mso-wrap-style:none;v-text-anchor:middle'
+  fillcolor="#66f" strokecolor="black [1]">
+  <v:fill color2="fill darken(118)" rotate="t" o:detectmouseclick="t" method="linear sigma"
+   focus="100%" type="gradient"/>
+  <v:shadow color="gray [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><![if !vml]><map
+ name="map_s8"><area
+ href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexchk1q;pgname=&#23545;&#24080;&#26597;&#35810;(&#37319;&#36141;&#37096;&#26410;&#30830;&#35748;);"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="4, 261, 241, 293"><area
+ href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_ordermtexnew;pgname=&#26032;&#35746;&#21333;;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="4, 87, 241, 119"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2053,_x0000_s2054,_x0000_s2055,_x0000_s2056"
+ src="slide0001_image003.gif" usemap="#map_s8" style='position:absolute;
+ top:5.78%;left:28.7%;width:46.93%;height:71.08%'><![endif]>
+ <div v:shape="_x0000_s2055" class=O
+ onclick="parent.location.href='../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_ordermtexnew;pgname=&#26032;&#35746;&#21333;;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:28.43%;left:30.5%;width:40.61%;
+ height:5.3%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:SimSun;mso-fareast-font-family:
+ SimSun;font-size:156%;color:white;mso-color-index:0;mso-ansi-language:EN-US'>&#26032;&#21040;&#35746;&#21333;&#30830;&#35748;</span></div>
+ </div>
+ <div v:shape="_x0000_s2056" class=O
+ onclick="parent.location.href='../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexchk1q;pgname=&#23545;&#24080;&#26597;&#35810;(&#37319;&#36141;&#37096;&#26410;&#30830;&#35748;);';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:70.36%;left:30.5%;width:40.61%;
+ height:5.3%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:SimSun;mso-fareast-font-family:
+ SimSun;font-size:156%;color:white;mso-color-index:0;mso-ansi-language:EN-US'>&#23545;&#24080;&#26597;&#35810;</span><span
+ style='color:white;mso-color-index:0'>(</span><span lang=ZH-CN
+ style='font-family:SimSun;mso-fareast-font-family:SimSun;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'>&#37319;&#36141;&#37096;&#26410;&#30830;&#35748;</span><span
+ style='color:white;mso-color-index:0'>)</span></div>
+ </div>
+ <v:shape id="_x0000_s2058" type="#_x0000_t75" style='position:absolute;left:14.125pt;
+  top:26.25pt;width:184.25pt;height:49.75pt'>
+  <v:imagedata src="slide0001_image004.png" o:title=""/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2058"
+ src="slide0001_image005.jpg" style='position:absolute;top:4.81%;left:1.98%;
+ width:25.63%;height:9.15%'><![endif]><v:rect id="_x0000_s2059"
+  href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=user_chgpwd;pgname=&#20462;&#25913;&#23494;&#30721;;"
+  target="_parent" style='position:absolute;left:19.75pt;top:485.5pt;width:147.375pt;
+  height:39.625pt;mso-wrap-style:none;v-text-anchor:middle' fillcolor="#66f"
+  strokecolor="black [1]">
+  <v:fill color2="fill darken(118)" rotate="t" o:detectmouseclick="t" method="linear sigma"
+   focus="100%" type="gradient"/>
+  <v:shadow color="gray [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><![if !vml]><map
+ name="map_s11"><area
+ href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=user_chgpwd;pgname=&#20462;&#25913;&#23494;&#30721;;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 0, 115, 32"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2059" src="slide0001_image006.gif" usemap="#map_s11"
+ style='position:absolute;top:89.87%;left:2.7%;width:20.93%;height:7.95%'><![endif]>
+ <div v:shape="_x0000_s2059" class=O
+ onclick="parent.location.href='../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=user_chgpwd;pgname=&#20462;&#25913;&#23494;&#30721;;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:91.56%;left:3.79%;width:18.41%;
+ height:4.57%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:SimSun;mso-fareast-font-family:
+ SimSun;font-size:133%;color:white;mso-color-index:0;mso-ansi-language:EN-US'>&#20462;&#25913;&#23494;&#30721;</span></div>
+ </div>
+ <v:rect id="_x0000_s2060"
+  href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_ordermtexrpt;pgname=&#20132;&#36135;&#35746;&#21333;;"
+  target="_parent" style='position:absolute;left:212.625pt;top:190.625pt;
+  width:306.125pt;height:39.625pt;mso-wrap-style:none;v-text-anchor:middle'
+  fillcolor="#66f" strokecolor="black [1]">
+  <v:fill color2="fill darken(118)" rotate="t" o:detectmouseclick="t" method="linear sigma"
+   focus="100%" type="gradient"/>
+  <v:shadow color="gray [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><![if !vml]><map
+ name="map_s12"><area
+ href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_ordermtexrpt;pgname=&#20132;&#36135;&#35746;&#21333;;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 0, 237, 32"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2060" src="slide0001_image009.gif" usemap="#map_s12"
+ style='position:absolute;top:35.18%;left:29.42%;width:42.96%;height:7.95%'><![endif]>
+ <div v:shape="_x0000_s2060" class=O
+ onclick="parent.location.href='../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_ordermtexrpt;pgname=&#20132;&#36135;&#35746;&#21333;;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:36.62%;left:30.5%;width:40.61%;
+ height:5.3%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:SimSun;mso-fareast-font-family:
+ SimSun;font-size:156%;color:white;mso-color-index:0;mso-ansi-language:EN-US'>&#21040;&#26399;&#20132;&#36135;&#26597;&#35810;</span></div>
+ </div>
+ <v:rect id="_x0000_s2062"
+  href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexnew;pgname=&#36865;&#36135;&#30830;&#35748;;"
+  target="_parent" style='position:absolute;left:212.625pt;top:326.75pt;
+  width:306.125pt;height:39.625pt;mso-wrap-style:none;v-text-anchor:middle'
+  fillcolor="#66f" strokecolor="black [1]">
+  <v:fill color2="fill darken(118)" rotate="t" o:detectmouseclick="t" method="linear sigma"
+   focus="100%" type="gradient"/>
+  <v:shadow color="gray [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><![if !vml]><map
+ name="map_s14"><area
+ href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexnew;pgname=&#36865;&#36135;&#30830;&#35748;;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 0, 237, 32"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2062" src="slide0001_image010.gif" usemap="#map_s14"
+ style='position:absolute;top:60.48%;left:29.42%;width:42.96%;height:7.95%'><![endif]>
+ <div v:shape="_x0000_s2062" class=O
+ onclick="parent.location.href='../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexnew;pgname=&#36865;&#36135;&#30830;&#35748;;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:61.92%;left:30.5%;width:40.61%;
+ height:5.3%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:SimSun;mso-fareast-font-family:
+ SimSun;font-size:156%;color:white;mso-color-index:0;mso-ansi-language:EN-US'>&#36865;&#36135;&#30830;&#35748;</span></div>
+ </div>
+ <v:rect id="_x0000_s2063"
+  href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexchkedq;pgname=&#24050;&#23436;&#25104;&#23545;&#24080;&#26597;&#35810;"
+  target="_parent" style='position:absolute;left:212.625pt;top:462.875pt;
+  width:306.125pt;height:39.625pt;mso-wrap-style:none;v-text-anchor:middle'
+  fillcolor="#66f" strokecolor="black [1]">
+  <v:fill color2="fill darken(118)" rotate="t" o:detectmouseclick="t" method="linear sigma"
+   focus="100%" type="gradient"/>
+  <v:shadow color="gray [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><v:rect id="_x0000_s2064"
+  href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexchk2q;pgname=&#23545;&#24080;&#26597;&#35810;(&#36130;&#21153;&#37096;&#26410;&#30830;&#35748;);"
+  target="_parent" style='position:absolute;left:212.625pt;top:417.5pt;width:306.125pt;
+  height:39.625pt;mso-wrap-style:none;v-text-anchor:middle' fillcolor="#66f"
+  strokecolor="black [1]">
+  <v:fill color2="fill darken(118)" rotate="t" o:detectmouseclick="t" method="linear sigma"
+   focus="100%" type="gradient"/>
+  <v:shadow color="gray [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><![if !vml]><map
+ name="map_s16"><area
+ href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexchk2q;pgname=&#23545;&#24080;&#26597;&#35810;(&#36130;&#21153;&#37096;&#26410;&#30830;&#35748;);"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 0, 237, 31"><area
+ href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexchkedq;pgname=&#24050;&#23436;&#25104;&#23545;&#24080;&#26597;&#35810;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 34, 237, 66"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2063,_x0000_s2064" src="slide0001_image011.gif"
+ usemap="#map_s16" style='position:absolute;top:77.34%;left:29.42%;width:42.96%;
+ height:16.38%'><![endif]>
+ <div v:shape="_x0000_s2063" class=O
+ onclick="parent.location.href='../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexchkedq;pgname=&#24050;&#23436;&#25104;&#23545;&#24080;&#26597;&#35810;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:87.22%;left:30.5%;width:40.61%;
+ height:5.3%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:SimSun;mso-fareast-font-family:
+ SimSun;font-size:156%;color:white;mso-color-index:0;mso-ansi-language:EN-US'>&#24050;&#23436;&#25104;&#23545;&#24080;&#26597;&#35810;</span></div>
+ </div>
+ <div v:shape="_x0000_s2064" class=O
+ onclick="parent.location.href='../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_shipmtexchk2q;pgname=&#23545;&#24080;&#26597;&#35810;(&#36130;&#21153;&#37096;&#26410;&#30830;&#35748;);';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:78.79%;left:30.5%;width:40.61%;
+ height:5.3%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:SimSun;mso-fareast-font-family:
+ SimSun;font-size:156%;color:white;mso-color-index:0;mso-ansi-language:EN-US'>&#23545;&#24080;&#26597;&#35810;</span><span
+ style='color:white;mso-color-index:0'>(</span><span lang=ZH-CN
+ style='font-family:SimSun;mso-fareast-font-family:SimSun;color:white;
+ mso-color-index:0;mso-ansi-language:EN-US'>&#36130;&#21153;&#37096;&#26410;&#30830;&#35748;</span><span
+ style='color:white;mso-color-index:0'>)</span><span style='font-family:SimSun;
+ mso-fareast-font-family:SimSun;font-size:156%;color:white;mso-color-index:
+ 0;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <v:rect id="_x0000_s2065"
+  href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_dlvymtexnew;pgname=&#36865;&#36135;&#30830;&#35748;;"
+  target="_parent" style='position:absolute;left:212.625pt;top:236pt;width:306.125pt;
+  height:39.625pt;mso-wrap-style:none;v-text-anchor:middle' fillcolor="#66f"
+  strokecolor="black [1]">
+  <v:fill color2="fill darken(118)" rotate="t" o:detectmouseclick="t" method="linear sigma"
+   focus="100%" type="gradient"/>
+  <v:shadow color="gray [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><v:rect id="_x0000_s2066"
+  href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_dlvymtexrpt;pgname=&#36865;&#36135;&#30830;&#35748;;"
+  target="_parent" style='position:absolute;left:212.625pt;top:281.375pt;
+  width:306.125pt;height:39.625pt;mso-wrap-style:none;v-text-anchor:middle'
+  fillcolor="#66f" strokecolor="black [1]">
+  <v:fill color2="fill darken(118)" rotate="t" o:detectmouseclick="t" method="linear sigma"
+   focus="100%" type="gradient"/>
+  <v:shadow color="gray [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><![if !vml]><map
+ name="map_s18"><area
+ href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_dlvymtexrpt;pgname=&#36865;&#36135;&#30830;&#35748;;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 34, 237, 67"><area
+ href="../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_dlvymtexnew;pgname=&#36865;&#36135;&#30830;&#35748;;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 0, 237, 32"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2065,_x0000_s2066" src="slide0001_image012.gif"
+ usemap="#map_s18" style='position:absolute;top:43.61%;left:29.42%;width:42.96%;
+ height:16.38%'><![endif]>
+ <div v:shape="_x0000_s2065" class=O
+ onclick="parent.location.href='../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_dlvymtexnew;pgname=&#36865;&#36135;&#30830;&#35748;;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:45.06%;left:30.5%;width:40.61%;
+ height:5.3%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:SimSun;mso-fareast-font-family:
+ SimSun;font-size:156%;color:white;mso-color-index:0;mso-ansi-language:EN-US'>&#36865;&#36135;&#21333;&#21019;&#24314;</span></div>
+ </div>
+ <div v:shape="_x0000_s2066" class=O
+ onclick="parent.location.href='../../../Users/RuanQian/Documents/&#25105;&#25509;&#25910;&#21040;&#30340;&#25991;&#20214;/pgid=scmpo_dlvymtexrpt;pgname=&#36865;&#36135;&#30830;&#35748;;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:53.49%;left:30.5%;width:40.61%;
+ height:5.3%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:SimSun;mso-fareast-font-family:
+ SimSun;font-size:156%;color:white;mso-color-index:0;mso-ansi-language:EN-US'>&#36865;&#36135;&#21333;&#26597;&#35810;</span></div>
+ </div>
+</p:slide></div>
+
+</body>
+
+</html>

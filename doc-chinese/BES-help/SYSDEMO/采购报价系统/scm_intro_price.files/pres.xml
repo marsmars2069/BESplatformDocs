@@ -1,0 +1,90 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+ xmlns:oa="urn:schemas-microsoft-com:office:activation">
+ <p:presentation sizeof="screen" gridspacingx="46448" gridspacingy="46448"
+  subsetembed="1">
+  <p:master id="15" slidesn="1CC45F7,9CFCE5C0" type="main" href="master15.htm"
+   xmlhref="master15.xml" template="暗香扑面" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="27" slidesn="1CC45F7,9CFCE5C0" type="main" href="master27.htm"
+   xmlhref="master27.xml" template="1_暗香扑面" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="28" slidesn="1CC45F7,9CFCE5C0" type="main" href="master28.htm"
+   xmlhref="master28.xml" template="2_暗香扑面" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="29" slidesn="1CC45F7,9CFCE5C0" type="main" href="master29.htm"
+   xmlhref="master29.xml" template="3_暗香扑面" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="30" slidesn="1CC45F7,9CFCE5C0" type="main" href="master30.htm"
+   xmlhref="master30.xml" template="4_暗香扑面" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="31" slidesn="1CC45F7,9CFCE5C0" type="main" href="master31.htm"
+   xmlhref="master31.xml" template="5_暗香扑面" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="32" slidesn="1CC45F7,9CFCE5C0" type="main" href="master32.htm"
+   xmlhref="master32.xml" template="6_暗香扑面" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="33" slidesn="1CC45F7,9CFCE5C0" type="main" href="master33.htm"
+   xmlhref="master33.xml" template="7_暗香扑面" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="34" slidesn="1CC45F7,9CFCE5C0" type="main" href="master34.htm"
+   xmlhref="master34.xml" template="8_暗香扑面" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="35" slidesn="1CC45F7,9CFCE5C0" type="main" href="master35.htm"
+   xmlhref="master35.xml" template="9_暗香扑面" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="36" slidesn="1CC45F7,9CFCE5C0" type="main" href="master36.htm"
+   xmlhref="master36.xml" template="10_暗香扑面" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="1" slidesn="1CC2BF6,2ABB5110" type="notes" href="master01.htm"
+   layout="notes" slots="header,dateTime,slideImage,body,footer,slideNumber"/>
+  <p:slide id="1" slidesn="1CBD5A9,935A110" href="slide0001.htm"
+   masterhref="master33.htm"/>
+  <p:viewstate type="slideView" scale="80" restoredleft="156" restoredtop="944"
+   vertbarstate="0" horizbarstate="2" hideoutlineicons="t"/>
+  <p:headersfooters noheader="t"/>
+  <p:pptdocumentsettings framecolors="WhiteTextOnBlack" hideslideanimation="t"
+   browsersupport="v4"/>
+ </p:presentation>
+ <o:shapedefaults v:ext="edit" spidmax="14363">
+  <v:imagedata embosscolor="shadow add(51)"/>
+  <v:shadow on="t" type="emboss" color="lineOrFill darken(153)" color2="shadow add(102)"
+   offset="1pt,1pt"/>
+  <o:colormru v:ext="edit" colors="#aef0b4,#aef0cd,#f1f7a7,#d77e4d,#f90,#beeb19,#f8fbd1,#fef6b8"/>
+  <o:colormenu v:ext="edit" fillcolor="none [6]" strokecolor="none [0]"
+   shadowcolor="none"/>
+ </o:shapedefaults></xml>

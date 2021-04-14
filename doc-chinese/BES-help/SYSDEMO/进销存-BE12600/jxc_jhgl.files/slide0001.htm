@@ -1,0 +1,843 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 11">
+<link id=Main-File rel=Main-File href="../jxc_jhgl.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>幻灯片 1</title>
+<meta name=Description content=2009-5-8>
+<link rel=Stylesheet href="master30_stylesheet.css">
+<![if !ppt]>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:103% !important;}
+-->
+</style>
+<script><!--
+function LoadSld()
+{
+	var sld=GetObj("SlideObj")
+	if( !g_supportsPPTHTML ) {		
+		sld.style.visibility="visible"
+		return
+	}
+
+	if( MakeNotesVis() ) return
+
+	runAnimations = _InitAnimations();
+	
+	if( IsWin("PPTSld") )
+		parent.SldUpdated(GetSldId())
+	g_origSz=parseInt(SlideObj.style.fontSize)
+	g_origH=sld.style.posHeight
+	g_origW=sld.style.posWidth
+	g_scaleHyperlinks=(document.all.tags("AREA").length>0)
+	if( g_scaleHyperlinks )
+		InitHLinkArray()
+	if( g_scaleInFrame||(IsWin("PPTSld") && parent.IsFullScrMode() ) )
+		document.body.scroll="no"
+	_RSW()
+	if( IsWin("PPTSld") && parent.IsFullScrMode() )
+		FullScrInit();
+	
+	MakeSldVis();
+	
+	if( runAnimations )
+	{
+		if( document.all("NSPlay") )
+			document.all("NSPlay").autoStart = false;
+
+		if( sld.filters && sld.filters.revealtrans )
+			setTimeout( "document.body.start()", sld.filters.revealtrans.duration * 1000 );
+		else
+			document.body.start();
+	}
+}
+
+function MakeSldVis() 
+{
+	var fTrans=g_showAnimation && SldHasTrans()
+	if( fTrans )	
+	{
+		if( g_bgSound ) {
+			idx=g_bgSound.indexOf(",");
+			pptSound.src=g_bgSound.substr( 0, idx );
+			pptSound.loop= -(parseInt(g_bgSound.substr(idx+1)));
+		}
+		SlideObj.filters.revealtrans.Apply()	
+    }
+	SlideObj.style.visibility="visible"
+	if( fTrans )
+		SlideObj.filters.revealtrans.Play()
+}
+function MakeNotesVis() 
+{
+	if( !IsNts() ) return false 
+	SlideObj.style.display="none"
+	nObj = document.all.item("NotesObj")
+	parent.SetHasNts(0)
+	if( nObj ) { 
+		nObj.style.display=""
+		parent.SetHasNts(1)
+	}
+	return 1
+}
+function ChkAutoAdv()
+{
+	if(SldHasTrans())
+		SlideObj.onfilterchange=AutoAdv
+	else
+		AutoAdv()
+}
+function AutoAdv()
+{
+	if(!IsWin("PPTSld") || !gUseSldTimings )return
+	var sld=GetCurSld()
+	if( (sld.mAdvDelay>0) && !parent.IsFramesMode() )
+		setTimeout("parent.GoToNextSld()",sld.mAdvDelay)
+}
+function GetObj(id)
+{
+	if(g_supportsPPTHTML) return document.all(id);
+	else return document.getElementById(id);
+}
+function SldHasTrans() { return SlideObj.style.filter != ""; }
+function GetSldId() { return sId=location.href.substring(location.href.lastIndexOf('/')+1) }
+function HideMenu() { if( frames["PPTSld"] && PPTSld.document.all.item("ctxtmenu") && PPTSld.ctxtmenu.style.display!="none" ) { PPTSld.ctxtmenu.style.display='none'; return true } return false }
+function IsWin( name ) { return window.name == name }
+function IsNts() { return IsWin("PPTNts") }
+function IsSldOrNts() { return( IsWin("PPTSld")||IsWin("PPTNts") ) }
+function SupportsPPTAnimation() { return( navigator.platform == "Win32" && navigator.appVersion.indexOf("Windows")>0 ) }
+function SupportsPPTHTML()
+{
+	var appVer=navigator.appVersion, msie=appVer.indexOf("MSIE "), ver=0
+	if( msie >= 0 )
+		ver=parseFloat( appVer.substring( msie+5, appVer.indexOf(";",msie) ) )
+	else
+		ver=parseInt(appVer)
+
+	return( ver >= 4 && msie >= 0 )
+}
+function _RSW()
+{
+	if( !g_supportsPPTHTML || IsNts() ||
+	  ( !g_scaleInFrame && (!IsWin("PPTSld") || !parent.IsFullScrMode()) ) )
+		return
+
+        var padding=0;
+        if( IsWin("PPTSld") && parent.IsFramesMode() ) padding=6
+
+	cltWidth=document.body.clientWidth-padding
+	cltHeight=document.body.clientHeight-padding
+	factor=(1.0*cltWidth)/g_origW
+	if( cltHeight < g_origH*factor )
+		factor=(1.0*cltHeight)/g_origH
+
+	newSize = g_origSz * factor
+	if( newSize < 1 ) newSize=1
+
+	s=SlideObj.style
+	s.fontSize=newSize+"px"
+	s.posWidth=g_origW*factor
+	s.posHeight=g_origH*factor
+	s.posLeft=(cltWidth-s.posWidth+padding)/2
+	s.posTop=(cltHeight-s.posHeight+padding)/2
+
+	if( g_scaleHyperlinks )
+		ScaleHyperlinks( factor )
+}
+function _InitAnimations()
+{
+	animRuntimeInstalled = ''+document.body.localTime != 'undefined';
+	isFullScreen = (window.name == "PPTSld") && !parent.IsFramesMode();
+	g_animUseRuntime = g_showAnimation && animRuntimeInstalled && !(isFullScreen && parent.IsSldVisited());
+	if( g_animUseRuntime ) {
+		collSeq = document.all.tags("seq");
+		if( collSeq != null ) {
+			for(ii=0;ii<collSeq.length;ii++) {
+				if( collSeq[ii].getAttribute( "p:nodeType" ) == "mainSeq" ) {
+					g_animMainSequence = collSeq[ii];
+					break;
+				}
+			}
+		}
+	
+		if( g_animItemsToHide && document.body.playAnimations != false ) {
+			for(jj = 0; jj < g_animItemsToHide.length; jj++) {
+				if( hideObj = GetObj(g_animItemsToHide[jj]) )
+					hideObj.runtimeStyle.visibility="hidden";
+			}
+		}
+
+		if( g_animInteractiveItems ){
+			for(jj = 0; jj < g_animInteractiveItems.length; jj++) {
+				if( triggerObj = GetObj(g_animInteractiveItems[jj]) )
+					triggerObj.runtimeStyle.cursor="hand";
+			}
+		}
+		
+		if( gUseSldTimings && ''+g_animSlideTime != 'undefined' ) {
+			adjustedTime = document.body.calculateAutoAdvanceTimes( g_animSlideTime, g_animEffectTimings );
+			if( IsWin("PPTSld") && adjustedTime != g_animSlideTime ) {
+			   var sld = GetCurSld();
+			   sld.mAdvDelay = adjustedTime * 1000;
+			}
+		}
+	}
+
+	return g_animUseRuntime;
+}
+
+var g_HLinkArray = new Array();
+ 
+function IMapAreaObj( areaObj, coords )
+{
+  this.areaObj = areaObj;
+  this.coords = coords;
+}
+
+function InitHLinkArray()
+{
+  var appVer = navigator.appVersion;
+  var msie = appVer.indexOf ( "MSIE " )
+  var ver = 0;
+  if ( msie >= 0 )
+    ver = parseInt ( appVer.substring( msie+5 ) );
+
+  linkNum = 0;
+
+  for (i=0; i<document.all.tags("AREA").length; i++) {
+    areaObj = document.all.tags("AREA").item(i);
+    if( ( areaObj.id != "pptxscale" ) || ( ver > 4 ) )
+      g_HLinkArray[linkNum++] = new IMapAreaObj( areaObj, ParseCoords( areaObj.coords ) );
+  }
+}
+
+function ScaleHyperlinks( factor )
+{   
+  for ( ii=0; ii< g_HLinkArray.length; ii++) {
+    coordsStr="";
+    imaObj = g_HLinkArray[ii];
+    for ( jj=0; jj < imaObj.coords.length-1; jj++ )
+  	  coordsStr += (imaObj.coords[jj]*factor) + ",";
+    coordsStr += (imaObj.coords[jj]*factor);
+    imaObj.areaObj.coords = coordsStr;
+  }
+}
+
+function ParseCoords( coordsStr )
+{
+  var numArray = new Array();
+  var i = curPos = commaPos = 0;
+
+  while ( ( commaPos = coordsStr.indexOf(",", curPos) ) != -1 ) { 
+    numArray[i++] = parseInt( coordsStr.substr( curPos, commaPos ) );
+    curPos = commaPos + 1;
+  }
+  numArray[i] = parseInt( coordsStr.substr( curPos ) );
+
+  return numArray;
+}
+
+
+
+var g_supportsPPTHTML = SupportsPPTHTML(), g_scaleInFrame = 1, gId="", g_bgSound="",
+    g_scaleHyperlinks = false, g_allowAdvOnClick = 1, g_showInBrowser = 0, gLoopCont = 0, gUseSldTimings = 1;
+var g_showAnimation = g_supportsPPTHTML && SupportsPPTAnimation() && g_showInBrowser;
+var g_animManager = null;
+var g_animUseRuntime = false;
+var g_animItemsToHide, g_animInteractiveItems, g_animSlideTime;
+var g_animMainSequence = null;
+
+//--></script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="2"/>
+ <o:rules v:ext="edit">
+  <o:r id="V:Rule8" type="connector" idref="#_x0000_s2107">
+   <o:proxy start="" idref="#_x0000_s2084" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2106" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule9" type="connector" idref="#_x0000_s2086">
+   <o:proxy start="" idref="#_x0000_s2081" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2084" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule10" type="connector" idref="#_x0000_s2127">
+   <o:proxy start="" idref="#_x0000_s2125" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2124" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule11" type="connector" idref="#_x0000_s2085">
+   <o:proxy start="" idref="#_x0000_s2080" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2084" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule13" type="connector" idref="#_x0000_s2126">
+   <o:proxy start="" idref="#_x0000_s2123" connectloc="3"/>
+   <o:proxy end="" idref="#_x0000_s2125" connectloc="1"/>
+  </o:r>
+  <o:r id="V:Rule14" type="connector" idref="#_x0000_s2130">
+   <o:proxy end="" idref="#_x0000_s2129" connectloc="1"/>
+  </o:r>
+ </o:rules>
+</o:shapelayout>
+</head>
+
+<body lang=ZH-CN style='margin:0px;background-color:#003399' onresize="_RSW()"
+onload="LoadSld()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:554px;height:415px;font-size:16px;background-color:#C2C2C2;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#003399,#ffffff,#463416,#e3e3ff,#3399ff,#33cccc,#00ffcc,#808000"
+ masterhref="master31.xml">
+ <v:background id="_x0000_s2049" o:bwmode="white" fillcolor="#c2c2c2">
+  <v:fill color2="#3cc [5]"/>
+ </v:background><![if !ppt]><p:shaperange href="master31.xml#_x0000_s35864"/><p:shaperange
+  href="master31.xml#_x0000_s35866"/><p:shaperange
+  href="master31.xml#_x0000_s35867"/><![if !vml]><img border=0
+ v:shapes="_x0000_s35867" src="master31_image001.jpg" style='position:absolute;
+ top:0%;left:0%;width:100.0%;height:100.0%'><![endif]><![endif]><v:shapetype
+  id="_x0000_t176" coordsize="21600,21600" o:spt="176" adj="2700" path="m@0,qx0@0l0@2qy@0,21600l@1,21600qx21600@2l21600@0qy@1,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="val #0"/>
+   <v:f eqn="sum width 0 #0"/>
+   <v:f eqn="sum height 0 #0"/>
+   <v:f eqn="prod @0 2929 10000"/>
+   <v:f eqn="sum width 0 @3"/>
+   <v:f eqn="sum height 0 @3"/>
+   <v:f eqn="val width"/>
+   <v:f eqn="val height"/>
+   <v:f eqn="prod width 1 2"/>
+   <v:f eqn="prod height 1 2"/>
+  </v:formulas>
+  <v:path gradientshapeok="t" limo="10800,10800" o:connecttype="custom"
+   o:connectlocs="@8,0;0,@9;@8,@7;@6,@9" textboxrect="@3,@3,@4,@5"/>
+ </v:shapetype><v:shape id="_x0000_s2080" type="#_x0000_t176"
+  href="../pgid=inrqmtipo;pgprmnm=inrqmt_class;pgprmval='INNDP';pgprmop=%5bnbrname=采购进货单%5d%5bnbract=采购进货%5d;"
+  target="_parent" style='position:absolute;left:76.5pt;top:162.25pt;width:119pt;
+  height:62.375pt;mso-wrap-style:none;v-text-anchor:middle' fillcolor="#39f [4]"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2081"
+  type="#_x0000_t176"
+  href="../pgid=inrqmtipo;pgprmnm=inrqmt_class;pgprmval='INNBP';pgprmop=%5bnbrname=采购退货单%5d%5bnbract=采购退货%5d;"
+  target="_parent" style='position:absolute;left:76.5pt;top:264.375pt;width:119.125pt;
+  height:62.375pt;mso-wrap-style:none;v-text-anchor:middle' fillcolor="#39f [4]"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2084"
+  type="#_x0000_t176" style='position:absolute;left:292pt;top:202pt;width:113.375pt;
+  height:85pt;mso-wrap-style:none;v-text-anchor:middle' fillcolor="#39f [4]"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shapetype id="_x0000_t34" coordsize="21600,21600" o:spt="34"
+  o:oned="t" adj="10800" path="m,l@0,0@0,21600,21600,21600e" filled="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="val #0"/>
+  </v:formulas>
+  <v:path arrowok="t" fillok="f" o:connecttype="none"/>
+  <v:handles>
+   <v:h position="#0,center"/>
+  </v:handles>
+  <o:lock v:ext="edit" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s2085" type="#_x0000_t34" style='position:absolute;
+  left:195.5pt;top:193.5pt;width:96.5pt;height:51pt' o:connectortype="elbow"
+  adj=",-81953,-43760" strokecolor="white [1]" strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2086" type="#_x0000_t34" style='position:absolute;
+  left:195.625pt;top:244.5pt;width:96.375pt;height:51.125pt;flip:y'
+  o:connectortype="elbow" adj="10786,124900,-43844" strokecolor="white [1]"
+  strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2088" type="#_x0000_t176"
+  href="../pgid=partnerpmtnewjxc;" target="_parent" style='position:absolute;
+  left:314.5pt;top:428.75pt;width:96.5pt;height:33.875pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#3cc [5]"
+  strokecolor="#3cc [5]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:rect id="_x0000_s2098"
+  href="http://www.taonew.com/" target="_parent" style='position:absolute;
+  left:496.125pt;top:491.125pt;width:215.5pt;height:39.625pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#39f [4]" stroked="f"
+  strokecolor="#0fc [6]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]" opacity=".5" offset="6pt,6pt"/>
+ </v:rect><v:rect id="_x0000_s2104" style='position:absolute;left:87.875pt;
+  top:440.125pt;width:73.75pt;height:22.625pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#39f [4]" strokecolor="#6f3">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]" opacity=".5" offset="6pt,6pt"/>
+ </v:rect><v:shape id="_x0000_s2105" type="#_x0000_t176"
+  href="../pgid=buyermt;" target="_parent" style='position:absolute;left:530pt;
+  top:428.75pt;width:96.5pt;height:33.875pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#3cc [5]"
+  strokecolor="#3cc [5]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2106"
+  type="#_x0000_t176" style='position:absolute;left:456.375pt;top:162.375pt;
+  width:175.75pt;height:164.375pt;mso-wrap-style:none;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#39f [4]"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2107" type="#_x0000_t34" style='position:absolute;
+  left:405.375pt;top:244.5pt;width:51pt;height:.125pt' o:connectortype="elbow"
+  adj="10747,-42249600,-171688" strokecolor="white [1]" strokeweight="4pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2112" type="#_x0000_t176" style='position:absolute;
+  left:490.375pt;top:207.75pt;width:119.125pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2113" type="#_x0000_t176"
+  href="../pgid=inrqmtiporp0;" target="_parent" style='position:absolute;
+  left:490.375pt;top:275.75pt;width:119.125pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2114"
+  type="#_x0000_t176" href="../pgid=apvendblcrp1;" target="_parent" style='position:absolute;
+  left:490.375pt;top:173.75pt;width:119.125pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2115"
+  type="#_x0000_t176" href="../pgid=invtrptsum;" target="_parent" style='position:absolute;
+  left:490.375pt;top:241.75pt;width:119.125pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2118"
+  type="#_x0000_t176" href="../pgid=ptnmmtnewjxc;" target="_parent" style='position:absolute;
+  left:422.25pt;top:428.75pt;width:96.5pt;height:33.875pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#3cc [5]"
+  strokecolor="#3cc [5]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow on="t" color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2119"
+  type="#_x0000_t176" href="../pgid=appaymtjxcnew;" target="_parent" style='position:absolute;
+  left:309pt;top:207.5pt;width:96.375pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2120"
+  type="#_x0000_t176" href="../pgid=appaymtactdt;" target="_parent" style='position:absolute;
+  left:309pt;top:252.875pt;width:96.375pt;height:28.375pt;mso-wrap-style:none;
+  v-text-anchor:middle' filled="f" fillcolor="#0c6" stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:rect id="_x0000_s2122"
+  style='position:absolute;left:275pt;top:14.875pt;width:425.25pt;height:45.375pt;
+  mso-wrap-style:none;v-text-anchor:middle' filled="f" fillcolor="#39f [4]"
+  strokecolor="#c2c2c2">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:rect><v:shape id="_x0000_s2123" type="#_x0000_t176" style='position:absolute;
+  left:280.875pt;top:20.5pt;width:90.625pt;height:34pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#39f [4]"
+  strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2124" type="#_x0000_t176"
+  href="../jxc_chgl.htm" target="_parent" style='position:absolute;left:496.125pt;
+  top:20.5pt;width:90.625pt;height:34pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#c2c2c2"
+  stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2125"
+  type="#_x0000_t176" href="../jxc_xhgl.htm" target="_parent" style='position:absolute;
+  left:388.375pt;top:20.5pt;width:90.625pt;height:34pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#c2c2c2"
+  stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shapetype id="_x0000_t32"
+  coordsize="21600,21600" o:spt="32" o:oned="t" path="m,l21600,21600e"
+  filled="f">
+  <v:path arrowok="t" fillok="f" o:connecttype="none"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s2126" type="#_x0000_t32" style='position:absolute;
+  left:371.5pt;top:37.5pt;width:16.875pt;height:0' o:connectortype="elbow"
+  adj="-475520,-1,-475520" strokecolor="#e3e3ff [3]" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shape id="_x0000_s2127" type="#_x0000_t32" style='position:absolute;
+  left:479pt;top:37.5pt;width:17.125pt;height:0;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' o:connectortype="elbow"
+  adj="-604169,-1,-604169" strokecolor="#e3e3ff [3]" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:shapetype id="_x0000_t136" coordsize="21600,21600" o:spt="136"
+  adj="10800" path="m@7,l@8,m@5,21600l@6,21600e">
+  <v:formulas>
+   <v:f eqn="sum #0 0 10800"/>
+   <v:f eqn="prod #0 2 1"/>
+   <v:f eqn="sum 21600 0 @1"/>
+   <v:f eqn="sum 0 0 @2"/>
+   <v:f eqn="sum 21600 0 @3"/>
+   <v:f eqn="if @0 @3 0"/>
+   <v:f eqn="if @0 21600 @1"/>
+   <v:f eqn="if @0 0 @2"/>
+   <v:f eqn="if @0 @4 21600"/>
+   <v:f eqn="mid @5 @6"/>
+   <v:f eqn="mid @8 @5"/>
+   <v:f eqn="mid @7 @8"/>
+   <v:f eqn="mid @6 @7"/>
+   <v:f eqn="sum @6 0 @5"/>
+  </v:formulas>
+  <v:path textpathok="t" o:connecttype="custom" o:connectlocs="@9,0;@10,10800;@11,21600;@12,10800"
+   o:connectangles="270,180,90,0"/>
+  <v:textpath on="t" fitshape="t"/>
+  <v:handles>
+   <v:h position="#0,bottomRight" xrange="6629,14971"/>
+  </v:handles>
+  <o:lock v:ext="edit" text="t" shapetype="t"/>
+ </v:shapetype><v:shape id="_x0000_s2128" type="#_x0000_t136" style='position:absolute;
+  left:14.125pt;top:14.875pt;width:204.125pt;height:34pt;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' fillcolor="yellow">
+  <v:fill opacity="64881f" o:detectmouseclick="t"/>
+  <v:shadow color="#868686"/>
+  <o:extrusion v:ext="view" backdepth="10pt" color="#630" on="t" viewpoint=",0"
+   viewpointorigin=",0" skewangle="180" brightness="4000f" lightposition="-50000"
+   lightlevel="52000f" lightposition2="50000" lightlevel2="14000f"
+   lightharsh2="t"/>
+  <v:textpath style='font-family:"宋体";v-text-kern:t' trim="t" fitpath="t"
+   string="企业通进销存系统"/>
+ </v:shape><v:shape id="_x0000_s2129" type="#_x0000_t176"
+  href="../jxc_xtgl.htm" target="_parent" style='position:absolute;left:603.875pt;
+  top:20.5pt;width:90.625pt;height:34pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' fillcolor="#c2c2c2"
+  stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2130"
+  type="#_x0000_t32" style='position:absolute;left:586.75pt;top:37.5pt;width:17.125pt;
+  height:0;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' o:connectortype="elbow"
+  adj="-604169,-1,-604169" strokecolor="#e3e3ff [3]" strokeweight="3pt">
+  <v:stroke endarrow="block"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape><v:rect id="_x0000_s2131" href="../jxc_home.htm" target="_parent"
+  style='position:absolute;left:0;top:0;width:246.625pt;height:54.5pt;
+  mso-wrap-style:none;v-text-anchor:middle' filled="f" fillcolor="#39f [4]"
+  stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]" o:detectmouseclick="t"/>
+  <v:shadow color="#463416 [2]"/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:rect><![if !vml]><map
+ name="map_s83"><area href="../jxc_home.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 0, 190, 42"><area href="../jxc_xtgl.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="468, 16, 465, 19, 465, 39, 466, 41, 468, 42, 531, 42, 533, 41, 534, 39, 534, 19, 531, 16, 468, 16"><area
+ href="../jxc_xhgl.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="302, 16, 299, 19, 299, 39, 300, 41, 302, 42, 365, 42, 368, 41, 369, 39, 369, 19, 368, 17, 365, 16, 302, 16"><area
+ href="../jxc_chgl.htm" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="385, 16, 383, 17, 382, 19, 382, 39, 383, 41, 385, 42, 448, 42, 450, 41, 452, 39, 452, 19, 448, 16, 385, 16"><area
+ href="../pgid=appaymtactdt;" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="241, 195, 238, 197, 238, 214, 241, 216, 309, 216, 312, 214, 312, 197, 309, 195, 241, 195"><area
+ href="../pgid=appaymtjxcnew;" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="241, 160, 238, 162, 238, 179, 241, 181, 309, 181, 312, 179, 312, 162, 309, 160, 241, 160"><area
+ href="../pgid=ptnmmtnewjxc;" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="328, 330, 325, 333, 325, 352, 328, 356, 396, 356, 399, 352, 399, 333, 396, 330, 328, 330"><area
+ href="../pgid=invtrptsum;" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="380, 186, 378, 189, 378, 205, 380, 208, 467, 208, 469, 205, 469, 189, 467, 186, 380, 186"><area
+ href="../pgid=apvendblcrp1;" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="380, 134, 378, 137, 378, 153, 380, 155, 467, 155, 469, 153, 469, 137, 467, 134, 380, 134"><area
+ href="../pgid=inrqmtiporp0;" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="380, 212, 378, 215, 378, 231, 380, 234, 467, 234, 469, 231, 469, 215, 467, 212, 380, 212"><area
+ href="../pgid=buyermt;" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="411, 330, 408, 333, 408, 352, 411, 356, 479, 356, 482, 352, 482, 333, 479, 330, 411, 330"><area
+ href="http://www.taonew.com/" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="382, 377, 548, 408"><area href="../pgid=partnerpmtnewjxc;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="245, 330, 242, 333, 242, 352, 245, 356, 313, 356, 316, 352, 316, 333, 313, 330, 245, 330"><area
+ href="../pgid=inrqmtipo;pgprmnm=inrqmt_class;pgprmval='INNBP';pgprmop=%5bnbrname=采购退货单%5d%5bnbract=采购退货%5d;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="65, 203, 61, 205, 59, 209, 59, 245, 61, 250, 65, 251, 145, 251, 149, 250, 151, 245, 151, 209, 149, 205, 145, 203, 65, 203"><area
+ href="../pgid=inrqmtipo;pgprmnm=inrqmt_class;pgprmval='INNDP';pgprmop=%5bnbrname=采购进货单%5d%5bnbract=采购进货%5d;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=polygon
+ coords="65, 125, 61, 127, 59, 131, 59, 167, 61, 171, 65, 173, 145, 173, 149, 171, 151, 167, 151, 131, 149, 127, 145, 125, 65, 125"></map><![endif]><![if !vml]><img
+ border=0
+ v:shapes="_x0000_s2080,_x0000_s2081,_x0000_s2084,_x0000_s2085,_x0000_s2086,_x0000_s2088,_x0000_s2098,_x0000_s2104,_x0000_s2105,_x0000_s2106,_x0000_s2107,_x0000_s2113,_x0000_s2114,_x0000_s2115,_x0000_s2118,_x0000_s2119,_x0000_s2120,_x0000_s2122,_x0000_s2123,_x0000_s2124,_x0000_s2125,_x0000_s2126,_x0000_s2127,_x0000_s2128,_x0000_s2129,_x0000_s2130,_x0000_s2131"
+ src="slide0001_image007.gif" usemap="#map_s83" style='position:absolute;
+ top:0%;left:0%;width:99.09%;height:98.79%'><![endif]>
+ <div v:shape="_x0000_s2080" class=O
+ onclick="parent.location.href='../pgid=inrqmtipo;pgprmnm=inrqmt_class;pgprmval=\'INNDP\';pgprmop=%5bnbrname=采购进货单%5d%5bnbract=采购进货%5d;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:33.97%;left:11.91%;width:14.07%;
+ height:3.85%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='mso-ansi-language:EN-US'><span
+ style='mso-spacerun:yes'>&nbsp;</span></span><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>采购进货</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US;mso-special-format:
+ lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s2081" class=O
+ onclick="parent.location.href='../pgid=inrqmtipo;pgprmnm=inrqmt_class;pgprmval=\'INNBP\';pgprmop=%5bnbrname=采购退货单%5d%5bnbract=采购退货%5d;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:53.01%;left:11.91%;width:14.07%;
+ height:3.85%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='mso-ansi-language:EN-US'><span
+ style='mso-spacerun:yes'>&nbsp;</span></span><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:EN-US'>采购退货</span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;
+ color:#00FFCC;mso-color-index:6;mso-ansi-language:EN-US;mso-special-format:
+ lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s2084" class=O style='text-align:center'><span
+ style='position:absolute;top:43.85%;left:42.05%;width:12.99%;height:3.61%'><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;color:#00FFCC;
+ mso-color-index:6;mso-ansi-language:EN-US;mso-special-format:lastCR;
+ display:none'>&#13;</span></span></div>
+ <div v:shape="_x0000_s2088" class=O
+ onclick="parent.location.href='../pgid=partnerpmtnewjxc;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:81.2%;left:44.4%;width:12.09%;
+ height:3.61%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>货商档案</span></div>
+ </div>
+ <div v:shape="_x0000_s2098" class=O
+ onclick="parent.location.href='http://www.taonew.com/';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:93.01%;left:68.77%;width:30.32%;
+ height:3.85%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:楷体_GB2312;mso-fareast-font-family:
+ 楷体_GB2312;font-size:111%;color:#00FFCC;mso-color-index:6;mso-ansi-language:
+ EN-US'><b>企业通管理软件系列</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2104" class=O style='text-align:center;position:absolute;
+ top:82.4%;left:12.63%;width:9.56%;height:2.89%'><span lang=ZH-CN
+ style='font-family:楷体_GB2312;mso-fareast-font-family:楷体_GB2312;font-size:78%;
+ color:#00CC66;mso-ansi-language:EN-US'>系统帮助</span></div>
+ <div v:shape="_x0000_s2105" class=O
+ onclick="parent.location.href='../pgid=buyermt;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:81.2%;left:72.74%;width:15.16%;
+ height:3.61%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>采购员档案</span></div>
+ </div>
+ <div v:shape="_x0000_s2106" class=O>
+ <div style='text-align:center;mso-line-spacing:"150 0 0";position:absolute;
+ top:42.4%;left:65.16%;width:20.93%;height:2.89%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;mso-ansi-language:
+ EN-US;display:none'>&#13;</span></div>
+ <div style='text-align:center;mso-line-spacing:"150 0 0";position:absolute;
+ top:46.98%;left:65.16%;width:20.93%;height:2.89%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;mso-ansi-language:
+ EN-US;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s2112" class=O style='text-align:center;position:absolute;
+ top:40.0%;left:66.96%;width:18.77%;height:2.89%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;mso-ansi-language:
+ EN-US'>货商付款汇总报表</span></div>
+ <div v:shape="_x0000_s2113" class=O
+ onclick="parent.location.href='../pgid=inrqmtiporp0;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:52.53%;left:66.96%;width:18.77%;
+ height:2.89%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;mso-ansi-language:EN-US'>进货单退货单报表</span></div>
+ </div>
+ <div v:shape="_x0000_s2114" class=O
+ onclick="parent.location.href='../pgid=apvendblcrp1;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:33.73%;left:66.96%;width:18.77%;
+ height:2.89%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;mso-ansi-language:EN-US'>货商进货汇总报表</span></div>
+ </div>
+ <div v:shape="_x0000_s2115" class=O
+ onclick="parent.location.href='../pgid=invtrptsum;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:46.26%;left:66.96%;width:18.77%;
+ height:2.89%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;mso-ansi-language:EN-US'>商品进货汇总报表</span></div>
+ </div>
+ <div v:shape="_x0000_s2118" class=O
+ onclick="parent.location.href='../pgid=ptnmmtnewjxc;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:81.2%;left:59.38%;width:12.09%;
+ height:3.61%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>商品档案</span></div>
+ </div>
+ <div v:shape="_x0000_s2119" class=O
+ onclick="parent.location.href='../pgid=appaymtjxcnew;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:39.27%;left:44.04%;width:11.37%;
+ height:3.85%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>付</span><span lang=ZH-CN style='mso-ansi-language:
+ EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:
+ EN-US'>款</span></div>
+ </div>
+ <div v:shape="_x0000_s2120" class=O
+ onclick="parent.location.href='../pgid=appaymtactdt;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:47.71%;left:44.04%;width:11.37%;
+ height:3.85%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-ansi-language:EN-US'>退</span><span lang=ZH-CN style='mso-ansi-language:
+ EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;mso-ansi-language:
+ EN-US'>款</span></div>
+ </div>
+ <div v:shape="_x0000_s2123" class=O style='text-align:center;position:absolute;
+ top:5.78%;left:40.25%;width:10.28%;height:2.89%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;mso-ansi-language:
+ EN-US'>进货管理</span></div>
+ <div v:shape="_x0000_s2124" class=O
+ onclick="parent.location.href='../jxc_chgl.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:5.78%;left:70.03%;width:10.46%;
+ height:2.89%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;mso-ansi-language:EN-US'>存货管理</span></div>
+ </div>
+ <div v:shape="_x0000_s2125" class=O
+ onclick="parent.location.href='../jxc_xhgl.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:5.78%;left:55.05%;width:10.46%;
+ height:2.89%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;mso-ansi-language:EN-US'>销货管理</span></div>
+ </div>
+ <div v:shape="_x0000_s2129" class=O
+ onclick="parent.location.href='../jxc_xtgl.htm';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:5.78%;left:85.01%;width:10.46%;
+ height:2.89%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:78%;mso-ansi-language:EN-US'>系统管理</span></div>
+ </div>
+ <v:shape id="_x0000_s2134" type="#_x0000_t75" style='position:absolute;left:467.75pt;
+  top:179.5pt;width:17.125pt;height:16.125pt'>
+  <v:imagedata src="slide0001_image002.png" o:title=""/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2134"
+ src="slide0001_image003.jpg" style='position:absolute;top:33.25%;left:64.98%;
+ width:2.34%;height:2.89%'><![endif]><v:shape id="_x0000_s2135" type="#_x0000_t75"
+  style='position:absolute;left:467.75pt;top:213.5pt;width:17.125pt;height:16.125pt'>
+  <v:imagedata src="slide0001_image002.png" o:title=""/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2135"
+ src="slide0001_image004.jpg" style='position:absolute;top:39.51%;left:64.98%;
+ width:2.34%;height:2.89%'><![endif]><v:shape id="_x0000_s2136" type="#_x0000_t75"
+  style='position:absolute;left:467.75pt;top:247.5pt;width:17.125pt;height:16.125pt'>
+  <v:imagedata src="slide0001_image002.png" o:title=""/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2136"
+ src="slide0001_image005.jpg" style='position:absolute;top:45.78%;left:64.98%;
+ width:2.34%;height:2.89%'><![endif]><v:shape id="_x0000_s2137" type="#_x0000_t75"
+  style='position:absolute;left:467.75pt;top:281.5pt;width:17.125pt;height:16.125pt'>
+  <v:imagedata src="slide0001_image002.png" o:title=""/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2137"
+ src="slide0001_image006.jpg" style='position:absolute;top:52.04%;left:64.98%;
+ width:2.34%;height:2.89%'><![endif]><v:shape id="_x0000_s2138" type="#_x0000_t176"
+  style='position:absolute;left:535.75pt;top:298.375pt;width:85.125pt;height:28.375pt;
+  mso-wrap-style:none;v-text-anchor:middle' filled="f" fillcolor="#0c6"
+  stroked="f" strokecolor="white [1]">
+  <v:fill color2="#039 [0]"/>
+  <v:shadow color="#463416 [2]"/>
+ </v:shape>
+ <div v:shape="_x0000_s2138" class=O style='text-align:center;position:absolute;
+ top:56.38%;left:75.45%;width:9.74%;height:3.13%'><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;font-size:78%;color:#FFFF66;
+ mso-ansi-language:EN-US'>更多</span><span style='font-size:78%;color:#FFFF66'>&gt;&gt;&gt;</span></div>
+ <v:shape id="_x0000_s2140" type="#_x0000_t75" style='position:absolute;left:82.125pt;
+  top:185pt;width:17pt;height:17pt'>
+  <v:imagedata src="slide0001_image001.gif" o:title="BD14579_"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2140"
+ src="slide0001_image008.gif" style='position:absolute;top:34.21%;left:11.37%;
+ width:2.34%;height:3.13%'><![endif]><v:shape id="_x0000_s2141" type="#_x0000_t75"
+  style='position:absolute;left:82.125pt;top:287pt;width:17pt;height:17pt'>
+  <v:imagedata src="slide0001_image001.gif" o:title="BD14579_"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2141"
+ src="slide0001_image009.gif" style='position:absolute;top:53.25%;left:11.37%;
+ width:2.34%;height:3.13%'><![endif]><v:shape id="_x0000_s2148" type="#_x0000_t75"
+  style='position:absolute;left:303.375pt;top:213.25pt;width:17pt;height:17pt'>
+  <v:imagedata src="slide0001_image014.gif" o:title="BD14578_"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2148"
+ src="slide0001_image013.gif" style='position:absolute;top:39.51%;left:42.05%;
+ width:2.34%;height:3.13%'><![endif]><v:shape id="_x0000_s2149" type="#_x0000_t75"
+  style='position:absolute;left:303.375pt;top:258.625pt;width:17pt;height:17pt'>
+  <v:imagedata src="slide0001_image014.gif" o:title="BD14578_"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2149"
+ src="slide0001_image016.gif" style='position:absolute;top:47.95%;left:42.05%;
+ width:2.34%;height:3.13%'><![endif]></p:slide></div>
+
+</body>
+
+</html>

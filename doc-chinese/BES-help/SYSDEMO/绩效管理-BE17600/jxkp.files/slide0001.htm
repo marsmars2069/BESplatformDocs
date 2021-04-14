@@ -1,0 +1,855 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 11">
+<link id=Main-File rel=Main-File href="../jxkp.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>PowerPoint 演示文稿</title>
+<meta name=Description content=2008-05-27>
+<link rel=Stylesheet href="master03_stylesheet.css">
+<![if !ppt]>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:103% !important;}
+-->
+</style>
+<script><!--
+function LoadSld()
+{
+	var sld=GetObj("SlideObj")
+	if( !g_supportsPPTHTML ) {		
+		sld.style.visibility="visible"
+		return
+	}
+
+	if( MakeNotesVis() ) return
+
+	runAnimations = _InitAnimations();
+	
+	if( IsWin("PPTSld") )
+		parent.SldUpdated(GetSldId())
+	g_origSz=parseInt(SlideObj.style.fontSize)
+	g_origH=sld.style.posHeight
+	g_origW=sld.style.posWidth
+	g_scaleHyperlinks=(document.all.tags("AREA").length>0)
+	if( g_scaleHyperlinks )
+		InitHLinkArray()
+	if( g_scaleInFrame||(IsWin("PPTSld") && parent.IsFullScrMode() ) )
+		document.body.scroll="no"
+	_RSW()
+	if( IsWin("PPTSld") && parent.IsFullScrMode() )
+		FullScrInit();
+	
+	MakeSldVis();
+	
+	if( runAnimations )
+	{
+		if( document.all("NSPlay") )
+			document.all("NSPlay").autoStart = false;
+
+		if( sld.filters && sld.filters.revealtrans )
+			setTimeout( "document.body.start()", sld.filters.revealtrans.duration * 1000 );
+		else
+			document.body.start();
+	}
+}
+
+function MakeSldVis() 
+{
+	var fTrans=g_showAnimation && SldHasTrans()
+	if( fTrans )	
+	{
+		if( g_bgSound ) {
+			idx=g_bgSound.indexOf(",");
+			pptSound.src=g_bgSound.substr( 0, idx );
+			pptSound.loop= -(parseInt(g_bgSound.substr(idx+1)));
+		}
+		SlideObj.filters.revealtrans.Apply()	
+    }
+	SlideObj.style.visibility="visible"
+	if( fTrans )
+		SlideObj.filters.revealtrans.Play()
+}
+function MakeNotesVis() 
+{
+	if( !IsNts() ) return false 
+	SlideObj.style.display="none"
+	nObj = document.all.item("NotesObj")
+	parent.SetHasNts(0)
+	if( nObj ) { 
+		nObj.style.display=""
+		parent.SetHasNts(1)
+	}
+	return 1
+}
+function ChkAutoAdv()
+{
+	if(SldHasTrans())
+		SlideObj.onfilterchange=AutoAdv
+	else
+		AutoAdv()
+}
+function AutoAdv()
+{
+	if(!IsWin("PPTSld") || !gUseSldTimings )return
+	var sld=GetCurSld()
+	if( (sld.mAdvDelay>0) && !parent.IsFramesMode() )
+		setTimeout("parent.GoToNextSld()",sld.mAdvDelay)
+}
+function GetObj(id)
+{
+	if(g_supportsPPTHTML) return document.all(id);
+	else return document.getElementById(id);
+}
+function SldHasTrans() { return SlideObj.style.filter != ""; }
+function GetSldId() { return sId=location.href.substring(location.href.lastIndexOf('/')+1) }
+function HideMenu() { if( frames["PPTSld"] && PPTSld.document.all.item("ctxtmenu") && PPTSld.ctxtmenu.style.display!="none" ) { PPTSld.ctxtmenu.style.display='none'; return true } return false }
+function IsWin( name ) { return window.name == name }
+function IsNts() { return IsWin("PPTNts") }
+function IsSldOrNts() { return( IsWin("PPTSld")||IsWin("PPTNts") ) }
+function SupportsPPTAnimation() { return( navigator.platform == "Win32" && navigator.appVersion.indexOf("Windows")>0 ) }
+function SupportsPPTHTML()
+{
+	var appVer=navigator.appVersion, msie=appVer.indexOf("MSIE "), ver=0
+	if( msie >= 0 )
+		ver=parseFloat( appVer.substring( msie+5, appVer.indexOf(";",msie) ) )
+	else
+		ver=parseInt(appVer)
+
+	return( ver >= 4 && msie >= 0 )
+}
+function _RSW()
+{
+	if( !g_supportsPPTHTML || IsNts() ||
+	  ( !g_scaleInFrame && (!IsWin("PPTSld") || !parent.IsFullScrMode()) ) )
+		return
+
+        var padding=0;
+        if( IsWin("PPTSld") && parent.IsFramesMode() ) padding=6
+
+	cltWidth=document.body.clientWidth-padding
+	cltHeight=document.body.clientHeight-padding
+	factor=(1.0*cltWidth)/g_origW
+	if( cltHeight < g_origH*factor )
+		factor=(1.0*cltHeight)/g_origH
+
+	newSize = g_origSz * factor
+	if( newSize < 1 ) newSize=1
+
+	s=SlideObj.style
+	s.fontSize=newSize+"px"
+	s.posWidth=g_origW*factor
+	s.posHeight=g_origH*factor
+	s.posLeft=(cltWidth-s.posWidth+padding)/2
+	s.posTop=(cltHeight-s.posHeight+padding)/2
+
+	if( g_scaleHyperlinks )
+		ScaleHyperlinks( factor )
+}
+function _InitAnimations()
+{
+	animRuntimeInstalled = ''+document.body.localTime != 'undefined';
+	isFullScreen = (window.name == "PPTSld") && !parent.IsFramesMode();
+	g_animUseRuntime = g_showAnimation && animRuntimeInstalled && !(isFullScreen && parent.IsSldVisited());
+	if( g_animUseRuntime ) {
+		collSeq = document.all.tags("seq");
+		if( collSeq != null ) {
+			for(ii=0;ii<collSeq.length;ii++) {
+				if( collSeq[ii].getAttribute( "p:nodeType" ) == "mainSeq" ) {
+					g_animMainSequence = collSeq[ii];
+					break;
+				}
+			}
+		}
+	
+		if( g_animItemsToHide && document.body.playAnimations != false ) {
+			for(jj = 0; jj < g_animItemsToHide.length; jj++) {
+				if( hideObj = GetObj(g_animItemsToHide[jj]) )
+					hideObj.runtimeStyle.visibility="hidden";
+			}
+		}
+
+		if( g_animInteractiveItems ){
+			for(jj = 0; jj < g_animInteractiveItems.length; jj++) {
+				if( triggerObj = GetObj(g_animInteractiveItems[jj]) )
+					triggerObj.runtimeStyle.cursor="hand";
+			}
+		}
+		
+		if( gUseSldTimings && ''+g_animSlideTime != 'undefined' ) {
+			adjustedTime = document.body.calculateAutoAdvanceTimes( g_animSlideTime, g_animEffectTimings );
+			if( IsWin("PPTSld") && adjustedTime != g_animSlideTime ) {
+			   var sld = GetCurSld();
+			   sld.mAdvDelay = adjustedTime * 1000;
+			}
+		}
+	}
+
+	return g_animUseRuntime;
+}
+
+var g_HLinkArray = new Array();
+ 
+function IMapAreaObj( areaObj, coords )
+{
+  this.areaObj = areaObj;
+  this.coords = coords;
+}
+
+function InitHLinkArray()
+{
+  var appVer = navigator.appVersion;
+  var msie = appVer.indexOf ( "MSIE " )
+  var ver = 0;
+  if ( msie >= 0 )
+    ver = parseInt ( appVer.substring( msie+5 ) );
+
+  linkNum = 0;
+
+  for (i=0; i<document.all.tags("AREA").length; i++) {
+    areaObj = document.all.tags("AREA").item(i);
+    if( ( areaObj.id != "pptxscale" ) || ( ver > 4 ) )
+      g_HLinkArray[linkNum++] = new IMapAreaObj( areaObj, ParseCoords( areaObj.coords ) );
+  }
+}
+
+function ScaleHyperlinks( factor )
+{   
+  for ( ii=0; ii< g_HLinkArray.length; ii++) {
+    coordsStr="";
+    imaObj = g_HLinkArray[ii];
+    for ( jj=0; jj < imaObj.coords.length-1; jj++ )
+  	  coordsStr += (imaObj.coords[jj]*factor) + ",";
+    coordsStr += (imaObj.coords[jj]*factor);
+    imaObj.areaObj.coords = coordsStr;
+  }
+}
+
+function ParseCoords( coordsStr )
+{
+  var numArray = new Array();
+  var i = curPos = commaPos = 0;
+
+  while ( ( commaPos = coordsStr.indexOf(",", curPos) ) != -1 ) { 
+    numArray[i++] = parseInt( coordsStr.substr( curPos, commaPos ) );
+    curPos = commaPos + 1;
+  }
+  numArray[i] = parseInt( coordsStr.substr( curPos ) );
+
+  return numArray;
+}
+
+
+
+var g_supportsPPTHTML = SupportsPPTHTML(), g_scaleInFrame = 1, gId="", g_bgSound="",
+    g_scaleHyperlinks = false, g_allowAdvOnClick = 1, g_showInBrowser = 0, gLoopCont = 0, gUseSldTimings = 1;
+var g_showAnimation = g_supportsPPTHTML && SupportsPPTAnimation() && g_showInBrowser;
+var g_animManager = null;
+var g_animUseRuntime = false;
+var g_animItemsToHide, g_animInteractiveItems, g_animSlideTime;
+var g_animMainSequence = null;
+
+//--></script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="2"/>
+</o:shapelayout>
+</head>
+
+<body lang=ZH-CN style='margin:0px;background-color:white' onresize="_RSW()"
+onload="LoadSld()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:554px;height:415px;font-size:16px;background-color:white;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#808080,#000000,#bbe0e3,#333399,#009999,#99cc00"
+ masterhref="master03.xml">
+ <p:shaperange href="master03.xml#_x0000_s1025"/><![if !ppt]><p:shaperange
+  href="master03.xml#_x0000_s1028"/><p:shaperange
+  href="master03.xml#_x0000_s1029"/><![endif]><v:rect id="_x0000_s2052"
+  style='position:absolute;left:48.125pt;top:196.375pt;width:266.5pt;height:147.375pt;
+  mso-wrap-style:none;v-text-anchor:middle' strokecolor="#f90">
+  <v:fill src="slide0001_image010.gif" o:title="" color2="white [0]" type="pattern"/>
+  <v:shadow type="double" color="black [1]" opacity=".5" color2="shadow add(102)"
+   offset="-3pt,-3pt" offset2="-6pt,-6pt"/>
+  <o:extrusion v:ext="view" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000" lightposition2="50000"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s2052"
+ src="slide0001_image002.gif" style='position:absolute;top:36.38%;left:6.67%;
+ width:37.36%;height:27.71%'><![endif]>
+ <div v:shape="_x0000_s2052" class=O>
+ <div style='text-align:center;position:absolute;top:46.5%;left:7.76%;
+ width:35.01%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;color:#333399;mso-color-index:5;mso-ansi-language:EN-US;display:none'><b>&#13;</b></span></div>
+ <div style='text-align:center;position:absolute;top:50.6%;left:7.76%;
+ width:35.01%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;color:#333399;mso-color-index:5;mso-ansi-language:EN-US;mso-special-format:
+ lastCR;display:none'><b>&#13;</b></span></div>
+ </div>
+ <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+  o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="_x0000_s2053" type="#_x0000_t75" style='position:absolute;
+  left:0;top:491.125pt;width:10in;height:48.875pt'>
+  <v:imagedata src="slide0001_image003.gif" o:title="top_03"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2053"
+ src="slide0001_image004.jpg" style='position:absolute;top:90.84%;left:0%;
+ width:100.0%;height:9.15%'><![endif]><v:shapetype id="_x0000_t202"
+  coordsize="21600,21600" o:spt="202" path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s2054" type="#_x0000_t202"
+  href="../pgid=empjxrcchk;pgname=个人考评检查;" target="_parent" style='position:absolute;
+  left:53.875pt;top:288.875pt;width:113.375pt;height:26.5pt;mso-wrap-style:square;
+  v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]" stroked="f"
+  strokecolor="#bbe0e3 [4]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2055"
+  type="#_x0000_t202" href="../pgid=empjxrcnew2;pgname=自我考评;" target="_parent"
+  style='position:absolute;left:53.75pt;top:207.75pt;width:113.375pt;height:26.5pt;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]"
+  stroked="f" strokecolor="#bbe0e3 [4]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2056"
+  type="#_x0000_t202" style='position:absolute;left:48.25pt;top:165pt;width:102pt;
+  height:32pt;mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#ff6"
+  strokecolor="#f90">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:shape id="_x0000_s2057" type="#_x0000_t202"
+  href="../pgid=empjxrcrp1;pgname=个人排名;" target="_parent" style='position:absolute;
+  left:53.875pt;top:247.375pt;width:113.375pt;height:26.5pt;mso-wrap-style:square;
+  v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]" stroked="f"
+  strokecolor="#bbe0e3 [4]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2058"
+  type="#_x0000_t202" href="../pgid=empjxrcdprp1;" target="_parent" style='position:absolute;
+  left:189.75pt;top:247.375pt;width:113.5pt;height:26.5pt;mso-wrap-style:square;
+  v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]" stroked="f"
+  strokecolor="#bbe0e3 [4]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2059"
+  type="#_x0000_t202" href="../pgid=empjxrcdpnew2;pgname=中队考评;" target="_parent"
+  style='position:absolute;left:189.875pt;top:207.75pt;width:113.5pt;height:26.5pt;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]"
+  stroked="f" strokecolor="#bbe0e3 [4]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><![if !vml]><map
+ name="map_s11"><area href="../pgid=empjxrcdpnew2;pgname=中队考评;" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="109, 33, 196, 53"><area href="../pgid=empjxrcdprp1;" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="109, 63, 196, 83"><area href="../pgid=empjxrcrp1;pgname=个人排名;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="4, 63, 92, 83"><area href="../pgid=empjxrcnew2;pgname=自我考评;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="4, 33, 92, 53"><area href="../pgid=empjxrcchk;pgname=个人考评检查;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="4, 95, 92, 115"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2054,_x0000_s2055,_x0000_s2056,_x0000_s2057,_x0000_s2058,_x0000_s2059"
+ src="slide0001_image005.gif" usemap="#map_s11" style='position:absolute;
+ top:30.6%;left:6.67%;width:35.74%;height:28.19%'><![endif]>
+ <div v:shape="_x0000_s2054" class=O
+ onclick="parent.location.href='../pgid=empjxrcchk;pgname=个人考评检查;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:54.69%;left:8.48%;width:13.89%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#0066FF'><b>3.考评检查</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2055" class=O
+ onclick="parent.location.href='../pgid=empjxrcnew2;pgname=自我考评;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:39.75%;left:8.48%;width:13.89%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#009999;mso-color-index:6'><b>1.</b></span><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:89%;
+ color:#009999;mso-color-index:6;mso-ansi-language:EN-US'><b>个人</b></span><span
+ lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:宋体;font-size:89%;color:#009999;mso-color-index:6;
+ mso-ansi-language:EN-US'><b>自评</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2056" class=O style='position:absolute;top:31.8%;
+ left:7.76%;width:13.53%;height:4.09%'><span lang=ZH-CN style='font-family:
+ 华文行楷;mso-fareast-font-family:华文行楷;mso-hansi-font-family:新宋体;font-size:111%;
+ color:#99CC00;mso-color-index:7;mso-ansi-language:EN-US'><b>日常考评</b></span></div>
+ <div v:shape="_x0000_s2057" class=O
+ onclick="parent.location.href='../pgid=empjxrcrp1;pgname=个人排名;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:46.98%;left:8.48%;width:13.89%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#009999;mso-color-index:6'><b>2.个人排名</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2058" class=O
+ onclick="parent.location.href='../pgid=empjxrcdprp1;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:46.98%;left:27.43%;width:13.89%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#0066FF'><b>2.中队排名</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2059" class=O
+ onclick="parent.location.href='../pgid=empjxrcdpnew2;pgname=中队考评;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:39.75%;left:27.43%;width:13.89%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#0066FF'><b>1.中队</b></span><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;font-size:89%;color:#0066FF;
+ mso-ansi-language:EN-US'><b>自评</b></span></div>
+ </div>
+ <v:rect id="_x0000_s2060" style='position:absolute;left:388.375pt;top:196.5pt;
+  width:272.125pt;height:147.25pt;mso-wrap-style:none;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' strokecolor="#f90">
+  <v:fill src="slide0001_image010.gif" o:title="" color2="white [0]" type="pattern"/>
+  <v:shadow type="double" color="black [1]" opacity=".5" color2="shadow add(102)"
+   offset="-3pt,-3pt" offset2="-6pt,-6pt"/>
+  <o:extrusion v:ext="view" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000" lightposition2="50000"/>
+ </v:rect><v:shape id="_x0000_s2061" type="#_x0000_t202"
+  href="../pgid=empjxmeas1;pgname=个人申述;" target="_parent" style='position:absolute;
+  left:394pt;top:286.625pt;width:119.125pt;height:26.5pt;mso-wrap-style:square;
+  v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2062"
+  type="#_x0000_t202" href="../pgid=empjxmeas2;pgname=大队初评;" target="_parent"
+  style='position:absolute;left:394pt;top:246.875pt;width:107.5pt;height:26.5pt;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2063"
+  type="#_x0000_t202" style='position:absolute;left:388.375pt;top:164.875pt;
+  width:102.125pt;height:32pt;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' filled="f"
+  fillcolor="#ff6" strokecolor="#f90">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:shape id="_x0000_s2064" type="#_x0000_t202"
+  href="../pgid=empjxmeas3;" target="_parent" style='position:absolute;left:530.125pt;
+  top:207.625pt;width:113.375pt;height:26.5pt;mso-wrap-style:square;
+  v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2065"
+  type="#_x0000_t202" href="../pgid=empjxmesum0;pgname=大队排名;" target="_parent"
+  style='position:absolute;left:530.125pt;top:247.375pt;width:119pt;height:26.5pt;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2066"
+  type="#_x0000_t202" href="../pgid=empjxmeas0;pgname=中队考评;" target="_parent"
+  style='position:absolute;left:394pt;top:207.25pt;width:107.75pt;height:26.5pt;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2067"
+  type="#_x0000_t202" href="../pgid=empjxrcdpchk;pgname=中队考评检查;"
+  target="_parent" style='position:absolute;left:189.875pt;top:287pt;width:113.375pt;
+  height:26.5pt;mso-wrap-style:square;v-text-anchor:top' filled="f"
+  fillcolor="#bbe0e3 [4]" stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:line id="_x0000_s2068"
+  style='position:absolute' from="172.875pt,213.25pt" to="172.875pt,315.375pt"
+  strokecolor="#bbe0e3 [4]">
+  <v:shadow color="gray [2]"/>
+ </v:line><v:rect id="_x0000_s2069" style='position:absolute;left:388.375pt;
+  top:423.25pt;width:272.125pt;height:56.5pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' filled="f"
+  strokecolor="#f90">
+  <v:fill color2="white [0]" type="pattern"/>
+  <v:shadow type="double" color="black [1]" opacity=".5" color2="shadow add(102)"
+   offset="-3pt,-3pt" offset2="-6pt,-6pt"/>
+  <o:extrusion v:ext="view" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000" lightposition2="50000"/>
+ </v:rect><v:shape id="_x0000_s2070" type="#_x0000_t202" style='position:absolute;
+  left:388.375pt;top:391.625pt;width:102.125pt;height:32pt;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' filled="f"
+  fillcolor="#ff6" strokecolor="#f90">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:shape id="_x0000_s2071" type="#_x0000_t202"
+  href="../pgid=osdptemprp0;pgname=组织结构;" target="_parent" style='position:absolute;
+  left:524.375pt;top:434.375pt;width:113.375pt;height:26.5pt;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' filled="f"
+  fillcolor="#bbe0e3 [4]" stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2072"
+  type="#_x0000_t202" href="../pgid=empbsjxitm1;pgname=绩效项目;" target="_parent"
+  style='position:absolute;left:394pt;top:436.25pt;width:107.75pt;height:26.5pt;
+  mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+  mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+  mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+  mso-position-vertical:absolute;mso-position-vertical-relative:text;
+  v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2073"
+  type="#_x0000_t202" href="http://www.taonew.com/" target="_parent" style='position:absolute;
+  left:0;top:513.5pt;width:10in;height:26.5pt;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' filled="f"
+  fillcolor="#bbe0e3 [4]" stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><![if !vml]><map name="map_s25"><area href="http://www.taonew.com/"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 269, 554, 289"><area href="../pgid=empbsjxitm1;pgname=绩效项目;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="303, 209, 386, 230"><area href="../pgid=osdptemprp0;pgname=组织结构;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="403, 208, 491, 228"><area href="../pgid=empjxrcdpchk;pgname=中队考评检查;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="146, 95, 233, 115"><area href="../pgid=empjxmeas0;pgname=中队考评;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="303, 33, 386, 54"><area href="../pgid=empjxmesum0;pgname=大队排名;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="408, 64, 499, 84"><area href="../pgid=empjxmeas3;" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="408, 34, 495, 54"><area href="../pgid=empjxmeas2;pgname=大队初评;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="303, 64, 386, 84"><area href="../pgid=empjxmeas1;pgname=个人申述;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="303, 94, 395, 115"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2060,_x0000_s2061,_x0000_s2062,_x0000_s2063,_x0000_s2064,_x0000_s2065,_x0000_s2066,_x0000_s2067,_x0000_s2068,_x0000_s2069,_x0000_s2070,_x0000_s2071,_x0000_s2072,_x0000_s2073"
+ src="slide0001_image006.gif" usemap="#map_s25" style='position:absolute;
+ top:30.36%;left:0%;width:100.36%;height:69.87%'><![endif]>
+ <div v:shape="_x0000_s2060" class=O>
+ <div style='text-align:center;position:absolute;top:46.5%;left:55.05%;
+ width:35.74%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:
+ 宋体;mso-fareast-font-family:宋体;mso-hansi-font-family:宋体;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;display:none'><b>&#13;</b></span></div>
+ <div style='text-align:center;position:absolute;top:50.6%;left:55.05%;
+ width:35.74%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:
+ 宋体;mso-fareast-font-family:宋体;mso-hansi-font-family:宋体;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b>&#13;</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2061" class=O
+ onclick="parent.location.href='../pgid=empjxmeas1;pgname=个人申述;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:54.21%;left:55.77%;width:14.62%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#009999;mso-color-index:6'><b>3.个人申述</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2062" class=O
+ onclick="parent.location.href='../pgid=empjxmeas2;pgname=大队初评;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:46.98%;left:55.77%;width:13.71%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#FF9900'><b>2.大队初评</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2063" class=O style='position:absolute;top:31.56%;
+ left:55.05%;width:13.53%;height:4.09%'><span lang=ZH-CN style='font-family:
+ 华文行楷;mso-fareast-font-family:华文行楷;mso-hansi-font-family:新宋体;font-size:111%;
+ color:#99CC00;mso-color-index:7;mso-ansi-language:EN-US'><b>月底考评</b></span></div>
+ <div v:shape="_x0000_s2064" class=O
+ onclick="parent.location.href='../pgid=empjxmeas3;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:39.51%;left:74.54%;width:13.89%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#FF9900'><b>4.大队综评</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2065" class=O
+ onclick="parent.location.href='../pgid=empjxmesum0;pgname=大队排名;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:46.98%;left:74.54%;width:14.62%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#009999;mso-color-index:6'><b>5.大队排名</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2066" class=O
+ onclick="parent.location.href='../pgid=empjxmeas0;pgname=中队考评;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:39.51%;left:55.77%;width:13.71%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#0066FF'><b>1.中队考评</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2067" class=O
+ onclick="parent.location.href='../pgid=empjxrcdpchk;pgname=中队考评检查;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:54.21%;left:27.43%;width:13.89%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#FF9900'><b>3.考评检查</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2069" class=O>
+ <div style='text-align:center;position:absolute;top:80.24%;left:55.05%;
+ width:35.74%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:
+ 宋体;mso-fareast-font-family:宋体;mso-hansi-font-family:宋体;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;display:none'><b>&#13;</b></span></div>
+ <div style='text-align:center;position:absolute;top:84.09%;left:55.05%;
+ width:35.74%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:
+ 宋体;mso-fareast-font-family:宋体;mso-hansi-font-family:宋体;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b>&#13;</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2070" class=O style='position:absolute;top:73.73%;
+ left:55.05%;width:13.53%;height:4.09%'><span lang=ZH-CN style='font-family:
+ 华文行楷;mso-fareast-font-family:华文行楷;mso-hansi-font-family:新宋体;font-size:111%;
+ color:#99CC00;mso-color-index:7;mso-ansi-language:EN-US'><b>基础资料</b></span></div>
+ <div v:shape="_x0000_s2071" class=O
+ onclick="parent.location.href='../pgid=osdptemprp0;pgname=组织结构;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:81.68%;left:73.82%;width:13.89%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#333399;mso-color-index:5'><b>2.组织结构</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2072" class=O
+ onclick="parent.location.href='../pgid=empbsjxitm1;pgname=绩效项目;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:81.92%;left:55.77%;width:13.71%;
+ height:3.13%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='font-family:宋体;mso-ascii-font-family:宋体;mso-hansi-font-family:宋体;
+ font-size:89%;color:#333399;mso-color-index:5'><b>1.绩效项目</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2073" class=O
+ onclick="parent.location.href='http://www.taonew.com/';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:96.38%;left:1.08%;width:98.19%;
+ height:3.13%'>
+ <div style='text-align:center;position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><span lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:
+ 宋体;mso-fareast-font-family:宋体;mso-hansi-font-family:宋体;font-size:89%;
+ color:#009999;mso-color-index:6;mso-ansi-language:EN-US'>厦门道新软件有限公司</span></div>
+ </div>
+ <v:shape id="_x0000_s2074" type="#_x0000_t75" style='position:absolute;left:0;
+  top:0;width:10in;height:126.5pt'>
+  <v:imagedata src="slide0001_image007.png" o:title=""/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s2074"
+ src="slide0001_image008.jpg" style='position:absolute;top:0%;left:0%;
+ width:100.0%;height:23.37%'><![endif]><v:shape id="_x0000_s2075" type="#_x0000_t202"
+  style='position:absolute;left:0;top:9.75pt;width:10in;height:50.5pt;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:shape id="_x0000_s2076" type="#_x0000_t202" style='position:absolute;
+  left:0;top:65.625pt;width:10in;height:45.625pt;mso-wrap-style:square;
+  v-text-anchor:top' filled="f" fillcolor="#bbe0e3 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:fill color2="white [0]"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:shape id="_x0000_s2077" type="#_x0000_t202"
+  href="../pgid=user_chgpwd;pgname=修改密码;" target="_parent" style='position:absolute;
+  left:48.125pt;top:428.75pt;width:96.375pt;height:21.625pt;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' filled="f"
+  fillcolor="#bbe0e3 [4]" stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2078"
+  type="#_x0000_t202" href="../jxhelp.mht" target="_parent" style='position:absolute;
+  left:48.125pt;top:452.5pt;width:96.375pt;height:21.625pt;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' filled="f"
+  fillcolor="#bbe0e3 [4]" stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2079"
+  type="#_x0000_t202" style='position:absolute;left:172.875pt;top:389.125pt;
+  width:102.125pt;height:32pt;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:top' filled="f"
+  fillcolor="#ff6" strokecolor="#f90">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:rect id="_x0000_s2080" style='position:absolute;left:172.875pt;
+  top:423.125pt;width:136.125pt;height:56.5pt;mso-wrap-style:none;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text;v-text-anchor:middle' filled="f"
+  strokecolor="#f90">
+  <v:fill color2="white [0]" type="pattern"/>
+  <v:shadow type="double" color="black [1]" opacity=".5" color2="shadow add(102)"
+   offset="-3pt,-3pt" offset2="-6pt,-6pt"/>
+  <o:extrusion v:ext="view" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000" lightposition2="50000"/>
+ </v:rect><v:shape id="_x0000_s2081" type="#_x0000_t202" href="../jxhelp.mht"
+  target="_parent" style='position:absolute;left:172.875pt;top:423.125pt;
+  width:65.75pt;height:28.875pt;mso-wrap-style:none;v-text-anchor:top-baseline'
+  filled="f" fillcolor="#bbe0e3 [4]" stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><v:shape id="_x0000_s2082"
+  type="#_x0000_t202" href="../jxdown.mht" target="_parent" style='position:absolute;
+  left:172.875pt;top:451.5pt;width:65.75pt;height:28.875pt;mso-wrap-style:none;
+  v-text-anchor:top-baseline' filled="f" fillcolor="#bbe0e3 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:fill color2="white [0]" o:detectmouseclick="t"/>
+  <v:shadow color="gray [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:onmouseclick hyperlinktype="otherFile"/></v:shape><![if !vml]><map
+ name="map_s34"><area href="../jxdown.mht" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="96, 48, 147, 70"><area href="../jxhelp.mht" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="96, 26, 147, 48"><area href="../jxhelp.mht" target="_parent"
+ onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 49, 74, 65"><area href="../pgid=user_chgpwd;pgname=修改密码;"
+ target="_parent" onclick="window.event.cancelBubble=true;" shape=rect
+ coords="0, 31, 74, 47"></map><![endif]><![if !vml]><img border=0
+ v:shapes="_x0000_s2077,_x0000_s2078,_x0000_s2079,_x0000_s2080,_x0000_s2081,_x0000_s2082"
+ src="slide0001_image011.gif" usemap="#map_s34" style='position:absolute;
+ top:72.04%;left:6.67%;width:36.64%;height:17.34%'><![endif]>
+ <div v:shape="_x0000_s2075" class=O style='text-align:center;mso-line-spacing:
+ "100 50 0";position:absolute;top:3.61%;left:1.08%;width:98.19%;height:6.98%'><span
+ lang=ZH-CN style='font-family:楷体_GB2312;mso-fareast-font-family:楷体_GB2312;
+ mso-hansi-font-family:新宋体;font-size:200%;color:white;mso-color-index:0;
+ mso-ansi-language:EN-US'><b>晋江公安局治安大队</b></span></div>
+ <div v:shape="_x0000_s2076" class=O style='text-align:center;mso-line-spacing:
+ "100 50 0";position:absolute;top:13.01%;left:1.08%;width:98.19%;height:6.98%'><span
+ lang=ZH-CN style='font-family:华文中宋;mso-fareast-font-family:华文中宋;mso-hansi-font-family:
+ 华文中宋;font-size:178%;color:white;mso-color-index:0;mso-ansi-language:EN-US'><b>民警绩效考评系统</b></span></div>
+ <div v:shape="_x0000_s2077" class=O
+ onclick="parent.location.href='../pgid=user_chgpwd;pgname=修改密码;';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:80.48%;left:7.76%;width:11.55%;
+ height:2.4%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:宋体;font-size:67%;color:#009999;mso-color-index:6;
+ mso-ansi-language:EN-US'><b>修改密码</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2078" class=O
+ onclick="parent.location.href='../jxhelp.mht';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:84.81%;left:7.76%;width:11.55%;
+ height:2.4%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:宋体;mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:宋体;font-size:67%;color:#009999;mso-color-index:6;
+ mso-ansi-language:EN-US'><b>系统帮助</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2079" class=O style='position:absolute;top:73.25%;
+ left:25.09%;width:13.53%;height:4.09%'><span lang=ZH-CN style='font-family:
+ 华文行楷;mso-fareast-font-family:华文行楷;mso-hansi-font-family:新宋体;font-size:111%;
+ color:#99CC00;mso-color-index:7;mso-ansi-language:EN-US'><b>操作说明</b></span></div>
+ <div v:shape="_x0000_s2080" class=O>
+ <div style='text-align:center;position:absolute;top:80.24%;left:25.09%;
+ width:16.96%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:
+ 宋体;mso-fareast-font-family:宋体;mso-hansi-font-family:宋体;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;display:none'><b>&#13;</b></span></div>
+ <div style='text-align:center;position:absolute;top:84.09%;left:25.09%;
+ width:16.96%;height:3.61%'><span lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:
+ 宋体;mso-fareast-font-family:宋体;mso-hansi-font-family:宋体;color:white;mso-color-index:
+ 0;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'><b>&#13;</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2081" class=O
+ onclick="parent.location.href='../jxhelp.mht';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:79.27%;left:25.09%;width:8.66%;
+ height:3.85%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='color:#333399;mso-color-index:5'><b>1.</b></span><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;color:#333399;mso-color-index:
+ 5;mso-ansi-language:EN-US'><b>查看</b></span></div>
+ </div>
+ <div v:shape="_x0000_s2082" class=O
+ onclick="parent.location.href='../jxdown.mht';window.event.cancelBubble=true;"
+ style='cursor:hand;position:absolute;top:84.57%;left:25.09%;width:8.66%;
+ height:3.85%'>
+ <div style='position:absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span
+ style='color:#333399;mso-color-index:5'><b>2.</b></span><span lang=ZH-CN
+ style='font-family:宋体;mso-fareast-font-family:宋体;color:#333399;mso-color-index:
+ 5;mso-ansi-language:EN-US'><b>下载</b></span></div>
+ </div>
+</p:slide></div>
+
+</body>
+
+</html>

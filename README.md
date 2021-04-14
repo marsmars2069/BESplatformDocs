@@ -1,44 +1,27 @@
-# Business Executing Sysytem Platform​
+# Business Executing Sysytem
 
-## Overviews
-A comprehensive platform made in china​
+BES: Business Executing Sysytem
 
-As development tool for frontend and backend program​
+BES is a platform for enterprise management;
+on which there are many management system developed;
+Enterprise can customize in the current system when using;
 
-Define a program quickly, supports check-in and check-out​
 
-Supports inheritable program, unified pre-defined dataset object​
+## BES product family
 
-Have a BES script language, embeds PHP language, Python language​
+![BES product family](./doc/BES-platform/images/bes-product-family.jpg)
 
-Save to DB, build and release package easily​
 
-As server for alpha test , beta test and production environment​
+## BES ERP(Enterprise Resource Planning)
 
-Supports tcpip/http/websocket protocol​
+![BES product family](./doc/BES-platform/images/bes-erp-function-modules.jpg)
 
-Embed authorization management: user/role/group, field&data-query/update​
+[BES ERP introduction](./BES-ERP-introduction.md)
 
-Unify DB API  and DBM buffer for easily and quickly accessing DB data​
-
-Support multiple app servers and multiple containers and multiple DBs​
 
 ## BES Platform Hierarchy​
 
 ![platform hierarchy](./doc/BES-platform/images/bes-platform.jpg)
 
-## BES Program structure
+[BES Platform introduction](./BES-Platform-introduction.md)
 
-![platform hierarchy](./doc/BES-platform/images/BES-Program-structure.jpg)
-
-## BES Program inherit property​
-
-![platform hierarchy](./doc/BES-platform/images/BES-Program-inherit-property​.jpg)
-
-## BES Script Language-part1
-
-![platform hierarchy](./doc/BES-platform/images/BES-Script-Language-part1​.jpg)
-
-## BES Script Language-part2
-
-![platform hierarchy](./doc/BES-platform/images/BES-Script-Language-part2​.jpg)

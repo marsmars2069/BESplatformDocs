@@ -1,0 +1,93 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+ xmlns:oa="urn:schemas-microsoft-com:office:activation">
+ <p:presentation sizeof="screen" gridspacingx="46448" gridspacingy="46448"
+  subsetembed="1">
+  <p:master id="135" slidesn="1CD191D,D312E7F0" type="main" href="master135.htm"
+   xmlhref="master135.xml" template="1_凸显" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="136" slidesn="1CD191D,D312E7F0" type="main" href="master136.htm"
+   xmlhref="master136.xml" template="2_凸显" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="137" slidesn="1CD191D,D312E7F0" type="main" href="master137.htm"
+   xmlhref="master137.xml" template="3_凸显" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="138" slidesn="1CD191D,D312E7F0" type="main" href="master138.htm"
+   xmlhref="master138.xml" template="4_凸显" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="139" slidesn="1CD191D,D312E7F0" type="main" href="master139.htm"
+   xmlhref="master139.xml" template="5_凸显" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="140" slidesn="1CD191D,D312E7F0" type="main" href="master140.htm"
+   xmlhref="master140.xml" template="6_凸显" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="230" slidesn="1CD2C23,C341A870" type="main" href="master230.htm"
+   xmlhref="master230.xml" template="穿越" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="242" slidesn="1CD2C23,C341A870" type="main" href="master242.htm"
+   xmlhref="master242.xml" template="1_穿越" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="243" slidesn="1CD2C23,C341A870" type="main" href="master243.htm"
+   xmlhref="master243.xml" template="2_穿越" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="244" slidesn="1CD2C23,C341A870" type="main" href="master244.htm"
+   xmlhref="master244.xml" template="3_穿越" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="245" slidesn="1CD2C23,C341A870" type="main" href="master245.htm"
+   xmlhref="master245.xml" template="4_穿越" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="246" slidesn="1CD2C23,C341A870" type="main" href="master246.htm"
+   xmlhref="master246.xml" template="5_穿越" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:master id="247" slidesn="1CD2C23,C341A870" type="main" href="master247.htm"
+   xmlhref="master247.xml" template="6_穿越" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+   </p:schemes>
+  </p:master>
+  <p:slide id="1" slidesn="1CD191A,526FDFC0" href="slide0001.htm"
+   masterhref="master246.htm"/>
+  <p:viewstate type="slideView" restoredleft="155" restoredtop="944"
+   manualadjustleft="t" manualadjusttop="t" hideoutlineicons="t"/>
+  <p:pptdocumentsettings framecolors="WhiteTextOnBlack" hideslideanimation="t"
+   browsersupport="v4"/>
+ </p:presentation>
+ <o:shapedefaults v:ext="edit" spidmax="14348"/>
+</xml>
