@@ -12,16 +12,16 @@ Enterprise can customize in the current system when using;
 ![BES product family](./doc/BES-platform/images/bes-product-family.jpg)
 
 
-## BES ERP(Enterprise Resource Planning)
+## BES ERP Modules(Enterprise Resource Planning)
 
-![BES product family](./doc/BES-platform/images/bes-erp-function-modules.jpg)
+![BES ERP Modules](./doc/BES-platform/images/bes-erp-function-modules.jpg)
 
 [BES ERP introduction >](./BES-ERP-introduction.md)
 
 
 ## BES Platform Hierarchy​
 
-![platform hierarchy](./doc/BES-platform/images/bes-platform.jpg)
+![BES Platform Hierarchy​](./doc/BES-platform/images/bes-platform.jpg)
 
 [BES Platform introduction >](./BES-Platform-introduction.md)
 
@@ -35,4 +35,10 @@ Enterprise can customize in the current system when using;
 3. The home Page:
 
 ![BES ERP Home Page](./doc/BES-platform/images/bes-erp-home-page.jpg)
+
+## BES Platform 
+- Designer：QIAN RUAN
+- Developer：QIAN RUAN
+- Ownership of copyright: QIAN RUAN
+
 
